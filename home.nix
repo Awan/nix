@@ -44,6 +44,8 @@
         autocd = true;
         enableAutosuggestions = true;
         shellAliases = {
+            vh="$EDITOR ~/.config/nixpkgs/home.nix";
+            cdh="cd ~/.config/nixpkgs/";
             rbs="sudo -i nixos-rebuild switch";
             lsa="ls -lah";
             rami="shred -fzuv $@";
