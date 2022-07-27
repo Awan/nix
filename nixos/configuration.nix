@@ -20,13 +20,13 @@
     fileSystems."/" =
 # Root filesystem
     {
-        options = [ "noatime" "nodiratime" ];
+        options = [ "noatime" "nodiratime" "discard" ];
     };
 
     fileSystems."/home" =
 # /home fileSystems
     {
-        options = [ "noatime" "nodiratime" ];
+        options = [ "noatime" "nodiratime" "discard" ];
     };
 
 # LUKS
@@ -36,6 +36,14 @@
         device = "/dev/disk/by-uuid/5d121b1b-dada-43f9-92c2-13af222a4f2d";
         allowDiscards = true;
         preLVM = true;
+    };
+
+# Flakes
+    nix = {
+        package = pkgs.nixFlakes;
+        extraOptions = ''
+            experimental-features = nix-command flakes
+            '';
     };
 
 # Bootloader
@@ -90,7 +98,7 @@
 # Console setup
 
     console = {
-        font = "${pkgs.tamzen}/share/consolefonts/TamzenForPowerline10x20.psf";
+        font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v24b.psf.gz";
         keyMap = "us";
     };
 

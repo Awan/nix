@@ -1,10 +1,13 @@
 { config, pkgs, ... }:
 
+
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "ak";
   home.homeDirectory = "/home/ak";
+
+  systemd.user.startServices = "suggest";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -18,11 +21,26 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  # Let Home Manager manage GUI services
+  xsession.enable = true;
+  xsession.windowManager.command = "bspwm";
 
   # Install some packages  
   home.packages = [
   pkgs.htop
   pkgs.zsh
+  pkgs.eksctl
+  pkgs.kubectl
+  pkgs.usb-modeswitch
+  pkgs.recoll
+  pkgs.anki
+  pkgs.p7zip
+  pkgs.zip
+  pkgs.lua
+  pkgs.kitty
+  pkgs.alacritty
+  pkgs.unzip
+  pkgs.leafpad
   ];
 
   # Some services
@@ -33,6 +51,14 @@
       enableSshSupport = true;
       pinentryFlavor = "curses";
       };
+#      screen-locker = {
+#        enable = true;
+#        name = "xss-lock"
+#        lockCmd = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 #3";
+#        extraOptions = "-n ~/.local/bin/dim_screen";
+#        screensaverCycle = 30;
+#   };
+
   };
  # Some programs
   programs = {
@@ -233,10 +259,10 @@
             sudo="sudo -i";
             v="$EDITOR";
         };
-        initExtra = ''
-            source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-            ZVM_CURSOR_STYLE_ENABLED=false
-            '';
+        #initExtra = ''
+        #    source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+        #    ZVM_CURSOR_STYLE_ENABLED=false
+        #    '';
         envExtra = ''
             typeset -U path
             path=(~/.cargo/bin ~/.perl5/bin ~/.gem/ruby/2.7.0/bin ~/.local/bin ~/.local/lib ~/.pyenv/bin /usr/sbin /usr/bin/vendor_perl /sbin $path[@])
@@ -317,6 +343,101 @@
               tmux has-session -t $USER || tmux new-session -t $USER && tmux attach-session -t $USER
             fi
             '';
-      };
+        history = {
+            expireDuplicatesFirst = true;
+            extended = true;
+            ignoreDups = true;
+            ignoreSpace = true;
+            path = "$ZDOTDIR/.zsh_history";
+            save = 100000;
+            share = true;
+            size = 100000;
+        };
+        initExtraFirst = ''
+            bindkey -v
+            bindkey -M vicmd 'k' history-substring-search-up
+            bindkey -M vicmd 'j' history-substring-search-down
+            '';
+        completionInit = ''
+            zmodload -i zsh/complist
+            zle -C hist-complete complete-word _generic
+            zstyle ':completion:*' rehash true
+            bindkey -M menuselect 'h' vi-backward-char
+            bindkey -M menuselect 'j' vi-down-line-or-history
+            bindkey -M menuselect 'k' vi-up-line-or-history
+            bindkey -M menuselect 'l' vi-forward-char
+            bindkey -v '^?' backward-delete-char
+            bindkey '^X^X' hist-complete
+            setopt EXTENDED_GLOB
+            setopt NOMATCH
+            setopt NO_BEEP
+            setopt AUTO_PUSHD
+            setopt PUSHD_IGNORE_DUPS
+            setopt no_clobber
+            setopt globstarshort
+            setopt rm_star_wait
+            setopt correct_all
+            unsetopt always_to_end
+            unsetopt menu_complete
+            setopt glob_complete
+            setopt COMPLETE_IN_WORD
+            setopt auto_param_slash
+            setopt auto_name_dirs
+            setopt auto_list
+            zstyle ':completion:*' menu select=1
+            zstyle ':completion:*' group-name ""
+            zstyle ':completion:*:parameters'  list-colors '=*=32'
+            zstyle ':completion:*:commands' list-colors '=*=1;34m'
+            zstyle ':completion:*:builtins' list-colors '=*=1;38;5;142'
+            zstyle ':completion:*:aliases' list-colors '=*=2;38;5;128'
+            zstyle ':completion:*:*:kill:*' list-colors '=(#b) #([0-9]#)*( *[a-z])*=34=31=33'
+            zstyle ':completion:*:options' list-colors '=^(-- *)=34'
+            zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
+            zstyle ":completion:*" matcher-list 'm:{A-Zöäüa-zÖÄÜ}={a-zÖÄÜA-Zöäü}'
+            zstyle ':completion:*:messages' format $'\e[01;35m -- %d -- \e[00;00m'zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found -- \e[00;00m'
+            zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d -- \e[00;00m'
+            zstyle ':completion:*:corrections' format $'\e[01;33m -- %d -- \e[00;00m'
+            zstyle ':completion:*:default' select-prompt $'\e[01;35m -- Match %M    %P -- \e[00;00m'
+            zstyle ':completion:*' verbose yes
+            bindkey -M menuselect '^@' accept-and-infer-next-history
+            zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+            zstyle ':completion:*' use-cache on
+            zstyle ':completion:*' cache-path "$ZDOTDIR/.zcompdump"
+            zstyle ':completion::*:-tilde-:*:*' group-order named-directories users
+            zstyle ':completion::*:ssh:*:*' tag-order "users hosts"
+            zstyle ':completion::*:kill:*:*' command 'ps xf -U $USER -o pid,%cpu,cmd'
+            zstyle ':completion::*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
+            zstyle ':completion::*:rm:*:*' file-patterns '*.o:object-files:object\ file *(~|.(old|bak|BAK)):backup-files:backup\ files *~*(~|.(o|old|bak|BAK)):all-files:all\ files'
+            zstyle ':completion::*:vi:*:*' file-patterns 'Makefile|*(rc|log)|*.(php|tex|bib|sql|zsh|ini|sh|vim|rb|sh|js|tpl|csv|rdf|txt|phtml|tex|py|n3):vi-files:vim\ likes\ these\ files *~(Makefile|*(rc|log)|*.(log|rc|php|tex|bib|sql|zsh|ini|sh|vim|rb|sh|js|tpl|csv|rdf|txt|phtml|tex|py|n3)):all-files:other\ files'
+            zstyle ':completion:*' list-dirs-first true
+            zstyle :compinstall filename '~/.zshrc'
+            zstyle ':completion:hist-complete:*' completer _history
+            autoload -Uz compinit && compinit
+            '';
+    plugins = [
+            {
+            name = "history-search-substring";
+            file = "zsh-history-substring-search.plugin.zsh";
+            src = pkgs.fetchFromGitHub {
+                owner = "Awan";
+                repo = "zsh-history-substring-search";
+                rev = "v2";
+                sha256 = "0s6bmbg860m0cada0pj8pb0xqna0l1dzdxvl5lcqxa337zaw2bzk";
+            };
+            }
+        ];
+#        plugin = [
+#        ''
+#       name = "zsh-history-substring-search";
+#       file = "zsh-history-substring-search.plugin.zsh";
+#         src = pkgs.fetchFromGitHub {
+#         owner = "Awan";
+#         repo = "zsh-history-substring-search";
+#         rev = "v2";
+#         sha256 = "7c6a05a9aece4cdde2f2ff52d0d927512c08d7b422fd4f22563dd8c2f0dfb0b7";
+#          };
+#         '';   
+#         ];
+    };
   };
 }
