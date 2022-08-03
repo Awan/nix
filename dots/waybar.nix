@@ -4,8 +4,63 @@
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    style = builtins.readFile ./waybar/config.css;
-    systemd.target = "river-session.target";
+    systemd.target = "graphical-session.target";
+    style =
+    ''
+      @define-color highlight #839496;
+
+      window#waybar {
+        background: #586e75;
+        font-size: 20px;
+        font-family: "Meslo LG S Nerd Font";
+      }
+
+      #tray.needs-attention {
+        color: #ff0000;
+      }
+
+      #custom-mailsnow {
+        color: #ff0000;
+      }
+
+      #temperature.critical {
+        color: #ff0000;
+      }
+
+      #battery, #network, #clock, #cpu, #memory, #temperature, #custom-mailsnow, #tray {
+        margin: 0 10px;
+        padding: 0 2px;
+      }
+
+      #battery.critical {
+        color: #ff0000;
+        font-weight: bold;
+      }
+
+      #battery.warning {
+        color: #ff334a;
+      }
+
+      #tags button.occupied {
+        color: #9fe2bf;
+      }
+
+      #tags button.urgent {
+        color: #de3163;
+      }
+
+      #tags button.focused {
+        background: @highlight;
+      }
+
+      #tags button {
+        padding: 0px 7px;
+        border-radius: 7px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+     '';
+
     settings = [{
       layer = "top";
       position = "top";
@@ -34,23 +89,23 @@
           good = 75;
         };
         format = "{icon} {capacity:4}%";
-        format-plugged = "{icon} {capacity:4}% ";
-        format-charging = "{icon} {capacity:4}% ";
+        format-plugged = "{icon} {capacity:3}% ";
+        format-charging = "{icon} {capacity:3}% ";
         format-icons = [ "" "" "" "" "" ];
       };
 
       cpu = {
         interval = 1;
-        format = " {usage:2}%";
+        format = " {usage:1}%";
       };
 
       network = {
         interface = "wl*";
         interval = 10;
-        format-wifi = "  {essid} ({signalStrength}%)";
+        format-wifi = "  {essid}({signalStrength}%)";
         #format-disconnected = "⚠";
         format-disconnected = "";
-        tooltip-format-wifi = "{essid} ({signalStrength}%) ";
+        tooltip-format-wifi = "{essid}({signalStrength}%) ";
       };
 
       "river/tags" = {
@@ -76,8 +131,8 @@
         #port = 6600;
         interval = 1;
         #unknown-tag = "";
-        format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
-        format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}";
+        format = "  {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
+        format-stopped = "  {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}";
         random-icons = [ "off = <span color=\#f53c3c\></span> " "on =  " ];
         consume-icons = "on = ";
         repeat-icons = "on =  ";
@@ -87,10 +142,12 @@
 
       backlight ={
         interval = 5;
-        format = "{icon:3} {percent:4}% ";
+        format = "{icon}{percent}%";
         on-scroll-up = "light -A 2";
         on-scroll-down = "light -U 2";
         format-icons = [" "  " "];
+        #format-icons = [" "  " "];
+        #format-icons = ["🌕 " "🌔 " "🌓 " "🌒 " "🌑 "];
       };
     }
   ];

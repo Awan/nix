@@ -49,6 +49,7 @@ in
     pkgs.termite
     pkgs.megasync
     pkgs.mpv
+    pkgs.findimagedupes
     pkgs.ffmpeg
     pkgs.ffmpegthumbnailer
     pkgs.msmtp
