@@ -10,11 +10,15 @@
 
   imports = [
     ./alacritty.nix
+    ./foot.nix
+    ./termite.nix
+    ./mako.nix
     ./gpg-agent.nix
     ./git.nix
     ./kitty.nix
     ./river.nix
     ./packages.nix
+    ./mybar.nix
     ./zsh.nix
   ];
 
