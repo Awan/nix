@@ -16,9 +16,8 @@
     ./gpg-agent.nix
     ./git.nix
     ./kitty.nix
-    ./river.nix
     ./packages.nix
-    ./mybar.nix
+    ./waybar.nix
     ./zsh.nix
   ];
 
