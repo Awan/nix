@@ -78,7 +78,7 @@
         #unknown-tag = "";
         format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
         format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}";
-        random-icons = [ 'off = <span color=\"#f53c3c\"></span> ' 'on =  ' ];
+        random-icons = [ "off = <span color=\#f53c3c\></span> " "on =  " ];
         consume-icons = "on = ";
         repeat-icons = "on =  ";
         single-icons = "on =  1";

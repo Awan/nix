@@ -6,9 +6,34 @@
     imports =
     [ # Include hardware results
     ./hardware-configuration.nix
+    #./wayland-overlay.nix
     ];
 
-# Power management 
+
+    #hardware.opengl = {
+    #  extraPackages = with pkgs; [
+    #  intel-media-driver
+    #  vaapiIntel
+    #  vaapiVdpau
+    #  libvdpau-va-gl
+    #  ];
+    #};
+    hardware = {
+      opengl = {
+        extraPackages = with pkgs; [
+          intel-media-driver
+          vaapiIntel
+          vaapiVdpau
+          libvdpau
+          libvdpau-va-gl
+        ];
+      };
+      video = {
+        hidpi.enable = true;
+      };
+    };
+
+# Power management
     powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
 #  Allow non-free packages
@@ -40,10 +65,16 @@
 
 # Flakes
     nix = {
-        package = pkgs.nixFlakes;
+        package = pkgs.nixUnstable;
         extraOptions = ''
             experimental-features = nix-command flakes
             '';
+        settings.auto-optimise-store = true;
+        gc = {
+            automatic = true;
+            dates = "weekly";
+            options = "--delete-older-than 7d";
+        };
     };
 
 # Bootloader
@@ -51,7 +82,7 @@
 # Kernel params
     boot = {
         kernelParams =
-        [ "splash" "ipv6.disable=1" "nmi_watchdog=0" "consoleblank=60" ];
+        [ "splash" "ipv6.disable=0" "nmi_watchdog=0" "consoleblank=60" ];
         kernelPackages = pkgs.linuxPackages_latest;
         loader = {
             efi.canTouchEfiVariables = true;
@@ -98,32 +129,57 @@
 # Console setup
 
     console = {
-        font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v24b.psf.gz";
+        font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
         keyMap = "us";
     };
 
 # X11
     services = {
 # enable X11
-        xserver = {
-            enable = true;
-            layout = "us";
-            displayManager.startx.enable = true;
-            windowManager.bspwm.enable = true;
-            libinput.enable = true;
-        };
+        #xserver = {
+        #    enable = true;
+        #    layout = "us";
+        #    displayManager.startx.enable = true;
+        #    windowManager.bspwm.enable = true;
+        #    libinput.enable = true;
+        #    libinput.touchpad.disableWhileTyping = true;
+        #};
         openssh = {
             enable = true;
             permitRootLogin = "no";
             passwordAuthentication = false;
         };
+# Remap End/Home to Metaleft/Esc
+        udev = {
+            extraHwdb = ''
+              evdev:name:AT Translated Set 2 keyboard:*
+               KEYBOARD_KEY_cf=leftmeta
+               KEYBOARD_KEY_c7=esc
+               '';
+        };
     };
+
+    #environment.interactiveShellInit = ''
+    #  if [[ "$VTE_VERSION" > 3405 ]]; then
+    #    source "${pkgs.vte}/etc/profile.d/vte.sh"
+    #  fi
+    #'';
+
 
 # Sound system
 
     sound.enable = true;
-    hardware.pulseaudio.enable = true;
-    nixpkgs.config.pulseaudio = true;
+    #hardware.pulseaudio.enable = true;
+    #nixpkgs.config.pulseaudio = true;
+# Using pipewire for sound system
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
 
 # User management
 
@@ -132,103 +188,43 @@
             isNormalUser = true;
             shell = pkgs.zsh;
             extraGroups = [
-            "wheel" "ak" "docker" "video" "audio"
+            "wheel" "ak" "docker" "video" "audio" "adbusers"
             ];
             openssh.authorizedKeys.keys = [
                 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7X4v3Ae2dopGiL9Mp6gqM235KbhTWOzo8p6zPQVl+7 openpgp:0x8C014A49"
             ];
             packages = with pkgs; [
-            mpd
-	    ncmpcpp
-	    mpc-cli
-	    sxhkd
-	    picom
-	    rofi
-    	    feh
-	    dunst
-	    elinks
-	    mplayer
-	    mpv
-	    ffmpeg
-	    ffmpegthumbnailer
-	    msmtp
-	    notmuch
-#	    (polybar.override { mpdSupport = true; pulseSupport = true; })
+#    (polybar.override { mpdSupport = true; pulseSupport = true; })
 #            polybarFull
 #            firefox
 #            qutebrowser
 #            anydesk
-	    ranger
-	    redshift
-	    screenkey
-	    hugo
-	    urlview
-	    xorg.xev
-	    xorg.xwininfo
-	    xorg.xdpyinfo
-	    xorg.xev
-	    xorg.xkill
-	    xorg.xmodmap
-	    xlsfonts
-	    youtube-dl
-	    youtube-viewer
-	    sxiv
-	    libnotify
-	    weechat
-	    ueberzug
-	    simplescreenrecorder
-	    zsh-autosuggestions
-	    zsh-powerlevel10k
-	    unclutter
-#	    alacritty
-	    tmux
-	    tmate
-	    xdotool
-	    mutt
-	    google-chrome
-	    pass
-	    zsh
-	    git
-	    htop
-	    neofetch
-	    pavucontrol
-#	    tdesktop
-	    isync
-	    ponymix
-	    stow
-	    cmus
-	    imagemagick
-	    nodejs
-	    powerline
-	    powerline-fonts
-	    w3m
-	    opera
-	    xclip
-	    xsel
-	    rxvt-unicode
-	    slop
-	    lemonbar
-	    efibootmgr
-	    docker
-	    terraform
-	    awscli2
-	    rofi
-            pamixer
-            zsh-powerlevel10k
-            jq
-            android-tools
-	    adb-sync
-	    gist
-	    cloud-init
-	    xss-lock
-	    i3lock-fancy-rapid
-	    i3lock
+#    alacritty
+                w3m
+                opera
+                xclip
+                xsel
+                lemonbar
+                efibootmgr
+                docker
+                terraform
+                awscli2
+                rofi
+                pamixer
+                zsh-powerlevel10k
+                jq
+                android-tools
+                adb-sync
+                gist
+                cloud-init
+                xss-lock
+                i3lock-fancy-rapid
+                i3lock
             ];
         };
     };
 
 # Some python packages
-    
     environment.systemPackages = let
         myPythonPackages = pythonPackages: with pythonPackages;
     [
@@ -239,12 +235,15 @@
     curl vim dash bc openssl stow physlock tmux file nix-index dnsutils whois coreutils killall binutils lsof usbutils fbida zathura openvpn
     ];
 
-# Some programs 
+# Some programs
     programs = {
         gnupg.agent = {
             enable = true;
             enableSSHSupport = true;
             pinentryFlavor = "curses";
+        };
+        sway = {
+        enable = true;
         };
 # Default Editor is vim
         vim.defaultEditor = true;
@@ -253,9 +252,9 @@
             enable = true;
         };
 # I have android as well :-)
-        adb = {
-            enable = false;
-        };
+        #adb = {
+        #    enable = false;
+        #};
 # Enable zsh autocompletion
         zsh = {
             enable = true;
@@ -282,10 +281,13 @@
         fontDir.enable = true;
         fonts = with pkgs; [
             (nerdfonts.override { fonts = [
-            "FiraCode" "DroidSansMono" "SourceCodePro" "Ubuntu"
+            "FiraCode" "DroidSansMono" "SourceCodePro" "Ubuntu" "Meslo" "Iosevka"
             ];
             })
             noto-fonts-emoji
+            kochi-substitute
+            meslo-lg
+            siji
             unifont
             open-sans
             liberation_ttf
@@ -319,7 +321,7 @@
         };
     };
 
-# Virtualisation 
+# Virtualisation
 
     virtualisation = {
         docker = {
@@ -328,6 +330,7 @@
             enableOnBoot = false;
         };
     };
+
 
 
 
