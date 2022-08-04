@@ -104,6 +104,7 @@ in
     pkgs.fq
     pkgs.gh
     pkgs.gitui
+    pkgs.gitAndTools.gitFull
     pkgs.glow
     pkgs.lolcat
     pkgs.lr
