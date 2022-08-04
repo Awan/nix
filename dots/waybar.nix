@@ -3,8 +3,8 @@
 {
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
-    systemd.target = "graphical-session.target";
+    #systemd.enable = true;
+    #systemd.target = "graphical-session.target";
     style =
     ''
       @define-color highlight #839496;
@@ -66,7 +66,7 @@
       position = "top";
       height = 30;
       modules-right =
-        [ "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
+        [ "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
       modules-left = [ "river/tags" "mpd" ];
 
       clock = {
@@ -140,14 +140,21 @@
         state-icons = ["playing = " "paused = "];
       };
 
-      backlight ={
+      backlight = {
         interval = 5;
         format = "{icon}{percent}%";
-        on-scroll-up = "light -A 2";
-        on-scroll-down = "light -U 2";
+        on-scroll-up = "brightnessctl s +10";
+        on-scroll-down = "brightnessctl s 10-";
         format-icons = [" "  " "];
-        #format-icons = [" "  " "];
-        #format-icons = ["🌕 " "🌔 " "🌓 " "🌒 " "🌑 "];
+      };
+
+      pulseaudio = {
+        format = "{volume}% {icon:3}";
+        format-muted = "";
+        format-icons = [ "" "" "" "" ];
+        default = [ ""  ""];
+        scroll-step = 1;
+        on-click = "pavucontrol";
       };
     }
   ];
