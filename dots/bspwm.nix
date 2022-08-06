@@ -3,6 +3,9 @@
 {
   xsession = {
     enable = true;
+    profilePath = ".xprofile";
+    #pointerCursor.x11.enable = true;
+    #pointerCursor = "ul_angle";
     windowManager = {
       bspwm = {
         enable = true;
