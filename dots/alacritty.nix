@@ -14,7 +14,7 @@
           italic = { style = "Italic"; };
           bold_italic = { style = "Bold Italic"; };
           bold = { style = "Bold"; };
-          size = 19;
+          size = 13;
         };
         offset = {
           x = 0;
@@ -30,6 +30,7 @@
           #cursor.cursor = "#ff0018";
           text.cursor = "#bde077";
         };
+        env = { TERM = "xterm-256color"; };
       };
     };
   };

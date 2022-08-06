@@ -82,7 +82,7 @@
 # Kernel params
     boot = {
         kernelParams =
-        [ "splash" "ipv6.disable=0" "nmi_watchdog=0" "consoleblank=60" ];
+        [ "splash" "ipv6.disable=1" "nmi_watchdog=0" "consoleblank=60" ];
         kernelPackages = pkgs.linuxPackages_latest;
         loader = {
             efi.canTouchEfiVariables = true;
@@ -136,14 +136,23 @@
 # X11
     services = {
 # enable X11
-        #xserver = {
-        #    enable = true;
-        #    layout = "us";
-        #    displayManager.startx.enable = true;
-        #    windowManager.bspwm.enable = true;
-        #    libinput.enable = true;
-        #    libinput.touchpad.disableWhileTyping = true;
-        #};
+        xserver = {
+            enable = true;
+            layout = "us";
+            displayManager.startx.enable = true;
+            windowManager.bspwm.enable = true;
+            libinput = {
+              enable = true;
+              touchpad = {
+                disableWhileTyping = true;
+                middleEmulation = true;
+                naturalScrolling = true;
+                scrollMethod = "twofinger";
+                tapping = true;
+                tappingDragLock = true;
+              };
+            };
+        };
         openssh = {
             enable = true;
             permitRootLogin = "no";
@@ -188,7 +197,7 @@
             isNormalUser = true;
             shell = pkgs.zsh;
             extraGroups = [
-            "wheel" "ak" "docker" "video" "audio" "adbusers"
+            "wheel" "ak" "docker" "video" "audio" "adbusers" "vboxusers"
             ];
             openssh.authorizedKeys.keys = [
                 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7X4v3Ae2dopGiL9Mp6gqM235KbhTWOzo8p6zPQVl+7 openpgp:0x8C014A49"
@@ -329,6 +338,13 @@
             autoPrune.enable = true;
             enableOnBoot = false;
         };
+        #virtualbox = {
+        #  guest.enable = true;
+        #  guest.x11 = true;
+        #  host.enable = true;
+          #host.enableExtensionPack = true;
+          #host.enableHardening = true;
+        #};
     };
 
 
