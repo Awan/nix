@@ -89,8 +89,8 @@
       profileExtra = ''
         # Start river at login
         if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-          #exec startx -- vt1 -keeptty &>/dev/null
-          start-river
+          exec startx -- vt1 -keeptty &>/dev/null
+          #start-river
           logout
         elif [[ $(tty) != /dev/tty1 ]]; then
           sudo loadkeys $HOME/.loadkeysrc

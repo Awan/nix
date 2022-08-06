@@ -9,7 +9,7 @@
     borderRadius = 30;
     borderSize = 10;
     defaultTimeout = 10000;
-    font = "Zilla Slab 10";
+    font = "Meslo LG M";
     height = 150;
     icons = true;
     #iconsPath = "~/.local/share/icons/";
