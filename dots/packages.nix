@@ -54,7 +54,9 @@ in
     pkgs.gcc
     pkgs.cmake
     pkgs.findimagedupes
+    pkgs.meh
     pkgs.ffmpeg
+    pkgs.xorg.xrandr
     pkgs.ffmpegthumbnailer
     pkgs.msmtp
     pkgs.notmuch
@@ -62,11 +64,11 @@ in
     pkgs.redshift
     pkgs.hugo
     pkgs.urlview
-    #  pkgs.xorg.xev
-    #  pkgs.xorg.xwininfo
-    #  pkgs.xorg.xdpyinfo
-    #  pkgs.xorg.xkill
-    #  pkgs.xorg.xmodmap
+    pkgs.xorg.xev
+    pkgs.xorg.xwininfo
+    pkgs.xorg.xdpyinfo
+    pkgs.xorg.xkill
+    pkgs.xorg.xmodmap
     pkgs.xlsfonts
     pkgs.youtube-dl
     pkgs.sxiv
