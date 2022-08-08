@@ -17,6 +17,7 @@
     ./git.nix
     ./kitty.nix
     ./packages.nix
+    ./bspwm.nix
     ./waybar.nix
     ./zsh.nix
   ];

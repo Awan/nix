@@ -25,6 +25,8 @@ in
     pkgs.eksctl
     pkgs.kubectl
     pkgs.usb-modeswitch
+    pkgs.lemonbar-xft
+    pkgs._2bwm
     pkgs.recoll
     pkgs.anki
     pkgs.p7zip
@@ -47,7 +49,6 @@ in
     pkgs.age
     pkgs.tig
     pkgs.termite
-    pkgs.megasync
     pkgs.mpv
     pkgs.findimagedupes
     pkgs.ffmpeg
