@@ -210,10 +210,10 @@
 #            anydesk
 #    alacritty
                 w3m
+                git
                 opera
                 xclip
                 xsel
-                lemonbar
                 efibootmgr
                 docker
                 terraform
@@ -351,6 +351,8 @@
 
 
 # https://nixos.org/nixos/options.html
+    system.autoUpgrade.enable = true;
+    system.autoUpgrade.allowReboot = true;
     system.stateVersion = "22.05";
 
 }
