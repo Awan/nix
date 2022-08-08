@@ -13,7 +13,7 @@
     ./foot.nix
     ./termite.nix
     ./mako.nix
-    ./river.nix
+    #./river.nix
     ./gpg-agent.nix
     ./git.nix
     ./kitty.nix

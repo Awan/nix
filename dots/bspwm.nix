@@ -45,7 +45,7 @@
           pointer_modifier = "mod4";
           pointer_action3 = "resize_side";
         };
-        startupPrograms = [ "~/.local/bin/mypanel" "sxhkd" ];
+        startupPrograms = [ "~/.local/bin/mypanel" "sxhkd -c ~/.cofig/sxhkd/sxhkdrc" "mako" "feh --bg-scale ~/pix/wall/blurry/ --randomize" ];
       };
     };
   };
