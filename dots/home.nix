@@ -3,7 +3,7 @@
 {
 
   home.username = "ak";
-  home.homeDirectory = "/home/ak";
+#  home.homeDirectory = "/home/ak";
 
   # Just keep home.nix short and simple. and give every program a single dedicated file.
   # then import them here.
@@ -25,7 +25,7 @@
   systemd.user.startServices = "suggest";
   # Allow unFree packages in userspace with flakes + Home-Manager
   nixpkgs.config.allowUnfreePredicate = (_: true);
-  home.stateVersion = "22.05";
+#  home.stateVersion = "22.05";
 
   # Let Home Manager install and manage itself.
 
