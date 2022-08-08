@@ -50,6 +50,9 @@ in
     pkgs.tig
     pkgs.termite
     pkgs.mpv
+    pkgs.awesome
+    pkgs.gcc
+    pkgs.cmake
     pkgs.findimagedupes
     pkgs.ffmpeg
     pkgs.ffmpegthumbnailer
