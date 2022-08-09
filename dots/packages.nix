@@ -97,6 +97,7 @@ in
     pkgs.tmux
     pkgs.xdotool
     pkgs.xdo
+    pkgs.asciinema
     pkgs.weechat
     pkgs.tmate
     pkgs.mutt
