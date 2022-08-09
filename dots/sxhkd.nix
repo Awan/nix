@@ -4,7 +4,6 @@
   services = {
     sxhkd = {
       enable = true;
-      #      package = "pkgs.sxhkd";
       keybindings = {
 
         "alt + shift + {q,r}" = "bspc {quit,wm -r}";
@@ -30,7 +29,7 @@
           "$HOME/.config/bspwm/{resize,presel} {west,south,north,east}";
         # Launch Browser(chrome).
         "super + w" =
-          "if pgrep chrome; then bspc desktop -f 2 ; else $BROWSER ; fi";
+          "if pgrep chrome; then bspc desktop -f 2 ; else google-chrome-stable ; fi";
         # Launch Browser(opera).
         "super + W" = "opera";
         # Launch qutebrowser
@@ -77,8 +76,9 @@
         "alt + space" = "bspc node @/ --rotate {90,-90}";
         # Launch Terminal 
         # make sure to set $TERMINAL env
-        "super {_,shift} + Return" =
-          "{$TERMINAL,loc=$(slop -f '%x %y %w %h %g %i') || exit 1; read -r x y w h g id < <(echo $loc); bspc rule -a * -o state=floating rectangle=$w'x'$h'+'$x'+'$y && $TERMINAL}";
+        #"super {_,shift} + Return" =
+        #  "{$TERMINAL,loc=$(slop -f '%x %y %w %h %g %i') || exit 1; read -r x y w h g id < <(echo $loc); bspc rule -a * -o state=floating rectangle=$w'x'$h'+'$x'+'$y && $TERMINAL}";
+        "super + Return" = "alacritty";
         # Termite
         "alt {_, shift } + Return" = "{termite,xterm}";
         # Launch Rofi

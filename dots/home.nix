@@ -17,7 +17,11 @@
     ./git.nix
     ./kitty.nix
     ./packages.nix
-    ./bspwm.nix
+    #./bspwm.nix
+    #./sxhkd.nix
+    ./bspwm_without_hm.nix
+    ./picom.nix
+    ./vim.nix
     ./waybar.nix
     ./zsh.nix
   ];

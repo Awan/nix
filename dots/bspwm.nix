@@ -2,7 +2,7 @@
 
 {
   xsession = {
-    enable = true;
+    enable = false;
     profilePath = ".xprofile";
     #pointerCursor.x11.enable = true;
     #pointerCursor = "ul_angle";
@@ -45,7 +45,7 @@
           pointer_modifier = "mod4";
           pointer_action3 = "resize_side";
         };
-        startupPrograms = [ "~/.local/bin/mypanel" "sxhkd -c ~/.cofig/sxhkd/sxhkdrc" "mako" "feh --bg-scale ~/pix/wall/blurry/ --randomize" ];
+        startupPrograms = [ "~/.local/bin/mypanel" "sxhkd -c ~/.config/sxhkd/sxhkdrc" "feh --bg-scale ~/pix/wall/blurry/ --randomize" "mako" "picom -b" ];
       };
     };
   };

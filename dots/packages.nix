@@ -10,10 +10,27 @@ in
 {
   home.packages = [
     pkgsUnstable.wlopm
+    pkgsUnstable.wayshot
 #   pkgsUnstable.stacktile
 #    pkgsUnstable.swhkd # waiting for it to become available
-    pkgsUnstable.wayshot
     pkgs.waybar
+    pkgs.gnumake
+    pkgsUnstable.passage
+    pkgsUnstable.unclutter
+    pkgs.tree
+    pkgs.highlight
+    pkgs.foot
+    pkgs.evtest
+    pkgs.agebox
+    pkgs.go
+    pkgs.i3lock-fancy-rapid
+    pkgs.obsidian
+    pkgs.packer
+    pkgs.scrcpy
+    pkgs.slop
+    pkgs.tamzen
+    pkgs.termsyn
+    pkgs.toilet
     pkgs.swaybg
     pkgs.wev
     pkgs.htop
@@ -77,8 +94,9 @@ in
     pkgs.ueberzug
     pkgs.simplescreenrecorder
     pkgs.zsh-powerlevel10k
-    pkgs.unclutter
     pkgs.tmux
+    pkgs.xdotool
+    pkgs.xdo
     pkgs.weechat
     pkgs.tmate
     pkgs.mutt
