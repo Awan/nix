@@ -1,22 +1,22 @@
 { pkgs, ... }:
 
 
-let
+#let
 
-  pkgsUnstable = import <nixpkgs-unstable> {};
+#  pkgsUnstable = import <nixpkgs-unstable> {};
 
-in
+#in
 
 {
   home.packages = [
-    pkgsUnstable.wlopm
-    pkgsUnstable.wayshot
+    pkgs.wlopm
+    pkgs.wayshot
 #   pkgsUnstable.stacktile
 #    pkgsUnstable.swhkd # waiting for it to become available
     pkgs.waybar
     pkgs.gnumake
-    pkgsUnstable.passage
-    pkgsUnstable.unclutter
+    pkgs.passage
+    pkgs.unclutter
     pkgs.tree
     pkgs.highlight
     pkgs.foot

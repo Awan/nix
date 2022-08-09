@@ -65,7 +65,7 @@
 
 # Flakes
     nix = {
-        package = pkgs.nixUnstable;
+        package = pkgs.nixFlakes;
         extraOptions = ''
             experimental-features = nix-command flakes
             '';
@@ -146,7 +146,7 @@
               touchpad = {
                 disableWhileTyping = true;
                 middleEmulation = true;
-                naturalScrolling = true;
+                naturalScrolling = false;
                 scrollMethod = "twofinger";
                 tapping = true;
                 tappingDragLock = true;

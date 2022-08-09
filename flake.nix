@@ -1,39 +1,33 @@
 {
-  description = "Abdullah Khabir's NixOS flake";
+  description = "Home Manager configuration of Abdullah Khabir";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-    hardware.url = "github:nixos/nixos-hardware";
-    home-manager.url = "github:nix-community/home-manager/release-22.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }:
     let
-      inherit (nixpkgs.lib) nixosSystem;
-      inherit (home-manager.lib) homeManagerConfiguration;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      nixosConfigurations = {
-        ak = nixosSystem {
-          inherit system;
-          pkgs = nixpkgs.legacyPackages.${system};
-          modules = [ ./nixos/configuration.nix ];
-          specialArgs = { inherit inputs; };
-        };
-      };
+      homeConfigurations.ak = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-      homeConfigurations = {
-        "ak@x1c" = homeManagerConfiguration {
-          inherit system;
-          pkgs = nixpkgs.legacyPackages.${system};
-          #modules = [ ./dots/home.nix ];
-          homeDirectory = "/home/ak/";
-          username = "ak";
-          configuration.imports = [ ./dots/home.nix ];
-          extraSpecialArgs = { inherit inputs; };
-        };
+        modules = [
+          ./dots/home.nix
+          {
+            home = {
+              username = "ak";
+              homeDirectory = "/home/ak";
+              stateVersion = "22.11";
+            };
+          }
+        ];
+
       };
     };
 }
