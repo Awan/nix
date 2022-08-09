@@ -7,7 +7,7 @@
       if &compatible
         set nocompatible
       endif
-      colorscheme molokai
+      color murphy
       function! SaveIfUnsaved()
         if &modified
           :silent! w

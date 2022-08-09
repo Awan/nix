@@ -6,15 +6,15 @@
       enable = true;
       settings = {
         font = rec {
-          normal.family = "Meslo LG M";
-          regular.family = "Meslo LG M";
-          bold.family = "Meslo LG M";
-          bold_italic.family = "Meslo LG M";
+          normal.family = "Meslo LGM";
+          regular.family = "Meslo LGM";
+          bold.family = "Meslo LGM";
+          bold_italic.family = "Meslo LGM";
           regular = { style = "Regular"; };
           italic = { style = "Italic"; };
           bold_italic = { style = "Bold Italic"; };
           bold = { style = "Bold"; };
-          size = 13;
+          size = 17;
         };
         offset = {
           x = 0;
