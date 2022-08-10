@@ -58,7 +58,7 @@
 # Add UUID of your encrypted device
     boot.initrd.luks.devices.luksroot =
     {
-        device = "/dev/disk/by-uuid/5d121b1b-dada-43f9-92c2-13af222a4f2d";
+        device = "/dev/disk/by-uuid/0TyHfC-BFTA-2Fzo-F4V0-X6qk-l6YV-vAgFJR";
         allowDiscards = true;
         preLVM = true;
     };
@@ -208,58 +208,59 @@
 #            firefox
 #            qutebrowser
 #            anydesk
-#    alacritty
-                w3m
-                git
-                opera
-                xclip
-                xsel
-                efibootmgr
-                docker
-                terraform
-                awscli2
-                rofi
-                pamixer
-                zsh-powerlevel10k
-                jq
-                android-tools
-                adb-sync
-                gist
-                cloud-init
-                xss-lock
-                i3lock-fancy-rapid
-                i3lock
-            ];
+#            alacritty
+#            w3m
+#            git
+#            opera
+#            xclip
+#            xsel
+#            efibootmgr
+#            docker
+#            terraform
+#            awscli2
+#            rofi
+#            pamixer
+#            zsh-powerlevel10k
+#            jq
+#            android-tools
+#            adb-sync
+#            gist
+#            cloud-init
+#            xss-lock
+#            i3lock-fancy-rapid
+#            i3lock
+            ]
         };
     };
 
 # Some python packages
-    environment.systemPackages = let
-        myPythonPackages = pythonPackages: with pythonPackages;
-    [
-    requests pip
-    ];
-    in with pkgs; [
-    (python3.withPackages myPythonPackages)
-    curl vim dash bc openssl stow physlock tmux file nix-index dnsutils whois coreutils killall binutils lsof usbutils fbida zathura openvpn
+    environment.systemPackages = [
+    #let
+    #    myPythonPackages = pythonPackages: with pythonPackages;
+    #[
+    #requests pip
+    #];
+    #in with pkgs; [
+    #(python3.withPackages myPythonPackages)
+    curl vim dash bc openssl physlock tmux file dnsutils whois coreutils killall binutils lsof usbutils fbida zathura openvpn
     ];
 
 # Some programs
     programs = {
-        gnupg.agent = {
-            enable = true;
-            enableSSHSupport = true;
-            pinentryFlavor = "curses";
-        };
-        sway = {
-        enable = true;
-        };
+        #gnupg.agent = {
+        #    enable = true;
+        #    enableSSHSupport = true;
+        #    pinentryFlavor = "curses";
+        #};
+        #sway = {
+        #enable = true;
+        #};
 # Default Editor is vim
         vim.defaultEditor = true;
 # Enable light and add user to video group for brightness control
-        light = {
-            enable = true;
-        };
+        #light = {
+        #    enable = true;
+        #};
 # I have android as well :-)
         #adb = {
         #    enable = false;
