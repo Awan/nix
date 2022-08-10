@@ -16,6 +16,7 @@
     ./gpg-agent.nix
     ./git.nix
     ./kitty.nix
+    #./mpd.nix
     ./packages.nix
     #./bspwm.nix
     #./sxhkd.nix
