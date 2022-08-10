@@ -202,7 +202,7 @@
             openssh.authorizedKeys.keys = [
                 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7X4v3Ae2dopGiL9Mp6gqM235KbhTWOzo8p6zPQVl+7 openpgp:0x8C014A49"
             ];
-            packages = with pkgs; [
+            #packages = with pkgs; [
 #    (polybar.override { mpdSupport = true; pulseSupport = true; })
 #            polybarFull
 #            firefox
@@ -229,21 +229,21 @@
 #            xss-lock
 #            i3lock-fancy-rapid
 #            i3lock
-#            ]
+#]
         };
     };
 
 # Some python packages
-    environment.systemPackages = [
-    #let
+    #environment.systemPackages = [
+    #let {
     #    myPythonPackages = pythonPackages: with pythonPackages;
     #[
     #requests pip
     #];
     #in with pkgs; [
-    #(python3.withPackages myPythonPackages)
-    curl vim dash bc openssl physlock tmux file dnsutils whois coreutils killall binutils lsof usbutils fbida zathura openvpn
-    ];
+    # (python3.withPackages myPythonPackages)
+    # curl vim dash bc openssl physlock tmux file dnsutils whois coreutils killall binutils lsof usbutils fbida zathura openvpn
+    #];
 
 # Some programs
     programs = {
