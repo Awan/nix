@@ -229,7 +229,7 @@
 #            xss-lock
 #            i3lock-fancy-rapid
 #            i3lock
-            ]
+#            ]
         };
     };
 
