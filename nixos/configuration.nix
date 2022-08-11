@@ -158,8 +158,9 @@
            	  };
     	   };
 
+   programs = {
 # Default Editor is vim
-        vim.defaultEditor = true;
+#        vim.defaultEditor = true;
 # Enable zsh with autocompletion
         zsh = {
             enable = true;
@@ -173,7 +174,7 @@
             histSize = 120000;
             histFile = "$HOME/.zsh_history";
         };
-    };
+  };
 
 # Security related things
 
