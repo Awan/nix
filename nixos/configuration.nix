@@ -125,25 +125,7 @@
         keyMap = "us";
     };
 
-# enable X11
     services = {
-        xserver = {
-            enable = true;
-            layout = "us";
-            displayManager.startx.enable = true;
-            windowManager.bspwm.enable = true;
-            libinput = {
-              enable = true;
-              touchpad = {
-                disableWhileTyping = true;
-                middleEmulation = true;
-                naturalScrolling = false;
-                scrollMethod = "twofinger";
-                tapping = true;
-                tappingDragLock = true;
-              };
-            };
-        };
         openssh = {
             enable = true;
             permitRootLogin = "no";
@@ -161,21 +143,6 @@
 
 
 
-# Sound system
-
-    sound.enable = true;
-    #hardware.pulseaudio.enable = true;
-    #nixpkgs.config.pulseaudio = true;
-# Using pipewire for sound system
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-
-
 # User management
 
     users = {
@@ -188,70 +155,12 @@
             openssh.authorizedKeys.keys = [
                 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7X4v3Ae2dopGiL9Mp6gqM235KbhTWOzo8p6zPQVl+7 openpgp:0x8C014A49"
             ];
-            #packages = with pkgs; [
-#    (polybar.override { mpdSupport = true; pulseSupport = true; })
-#            polybarFull
-#            firefox
-#            qutebrowser
-#            anydesk
-#            alacritty
-#            w3m
-#            git
-#            opera
-#            xclip
-#            xsel
-#            efibootmgr
-#            docker
-#            terraform
-#            awscli2
-#            rofi
-#            pamixer
-#            zsh-powerlevel10k
-#            jq
-#            android-tools
-#            adb-sync
-#            gist
-#            cloud-init
-#            xss-lock
-#            i3lock-fancy-rapid
-#            i3lock
-#]
-        };
-    };
+           	  };
+    	   };
 
-# Some python packages
-    #environment.systemPackages = [
-    #let {
-    #    myPythonPackages = pythonPackages: with pythonPackages;
-    #[
-    #requests pip
-    #];
-    #in with pkgs; [
-    # (python3.withPackages myPythonPackages)
-    # curl vim dash bc openssl physlock tmux file dnsutils whois coreutils killall binutils lsof usbutils fbida zathura openvpn
-    #];
-
-# Some programs
-    programs = {
-        #gnupg.agent = {
-        #    enable = true;
-        #    enableSSHSupport = true;
-        #    pinentryFlavor = "curses";
-        #};
-        #sway = {
-        #enable = true;
-        #};
 # Default Editor is vim
         vim.defaultEditor = true;
-# Enable light and add user to video group for brightness control
-        #light = {
-        #    enable = true;
-        #};
-# I have android as well :-)
-        #adb = {
-        #    enable = false;
-        #};
-# Enable zsh autocompletion
+# Enable zsh with autocompletion
         zsh = {
             enable = true;
             enableCompletion = true;
@@ -264,46 +173,6 @@
             histSize = 120000;
             histFile = "$HOME/.zsh_history";
         };
-# Enable xss-lock
-#        xss-lock = {
-#            enable = true;
-#            lockerCommand = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 3";
-#        };
-    };
-
-# I can't live without my fonts ;-)
-
-    fonts = {
-        fontDir.enable = true;
-        fonts = with pkgs; [
-            (nerdfonts.override { fonts = [
-            "FiraCode" "DroidSansMono" "SourceCodePro" "Ubuntu" "Meslo" "Iosevka"
-            ];
-            })
-            noto-fonts-emoji
-            kochi-substitute
-            meslo-lg
-            siji
-            unifont
-            open-sans
-            liberation_ttf
-            liberation-sans-narrow
-            ttf_bitstream_vera
-            libertine
-            ubuntu_font_family
-            font-awesome
-            gentium
-            jetbrains-mono
-            source-code-pro
-            dina-font
-            tamzen
-            proggyfonts
-            dejavu_fonts
-            corefonts
-            inconsolata
-            terminus_font
-            mononoki
-        ];
     };
 
 # Security related things
@@ -316,25 +185,6 @@
             wheelNeedsPassword = false;
         };
     };
-
-# Virtualisation
-
-    virtualisation = {
-        docker = {
-            enable = true;
-            autoPrune.enable = true;
-            enableOnBoot = false;
-        };
-        #virtualbox = {
-        #  guest.enable = true;
-        #  guest.x11 = true;
-        #  host.enable = true;
-          #host.enableExtensionPack = true;
-          #host.enableHardening = true;
-        #};
-    };
-
-
 
 
 # https://nixos.org/nixos/options.html
