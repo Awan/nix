@@ -49,7 +49,7 @@
 # LUKS
 # Add UUID of your encrypted device
     boot.initrd.luks.devices.luksroot =     {
-        device = "/dev/disk/by-uuid/168fac67-b88c-4c22-8828-eba8ac71a2b3";
+        device = "/dev/disk/by-uuid/96e4c70f-101c-4ede-8d73-63f02cff3f55";
         allowDiscards = true;
         preLVM = true;
     };
