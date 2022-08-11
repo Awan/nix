@@ -10,14 +10,6 @@
     ];
 
 
-    #hardware.opengl = {
-    #  extraPackages = with pkgs; [
-    #  intel-media-driver
-    #  vaapiIntel
-    #  vaapiVdpau
-    #  libvdpau-va-gl
-    #  ];
-    #};
     hardware = {
       opengl = {
         extraPackages = with pkgs; [
@@ -58,7 +50,7 @@
 # Add UUID of your encrypted device
     boot.initrd.luks.devices.luksroot =
     {
-        device = "/dev/disk/by-uuid/0TyHfC-BFTA-2Fzo-F4V0-X6qk-l6YV-vAgFJR";
+        device = "/dev/disk/by-uuid/a85807c5-361b-47df-9d86-5639d1902615";
         allowDiscards = true;
         preLVM = true;
     };
@@ -133,9 +125,8 @@
         keyMap = "us";
     };
 
-# X11
-    services = {
 # enable X11
+    services = {
         xserver = {
             enable = true;
             layout = "us";
@@ -168,11 +159,6 @@
         };
     };
 
-    #environment.interactiveShellInit = ''
-    #  if [[ "$VTE_VERSION" > 3405 ]]; then
-    #    source "${pkgs.vte}/etc/profile.d/vte.sh"
-    #  fi
-    #'';
 
 
 # Sound system
