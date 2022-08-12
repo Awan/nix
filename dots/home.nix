@@ -13,6 +13,7 @@
     ./foot.nix
     ./termite.nix
     ./mako.nix
+    ./mail.nix
     ./gpg-agent.nix
     ./git.nix
     ./kitty.nix

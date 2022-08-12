@@ -235,7 +235,6 @@
       ttf_bitstream_vera
       libertine
       ubuntu_font_family
-      font-awesome
       gentium
       jetbrains-mono
       source-code-pro
