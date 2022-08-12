@@ -16,6 +16,8 @@
     pkgs.waybar
     pkgs.gnumake
     pkgs.passage
+    pkgs.bspwm
+    pkgs.tmate
     pkgs.unclutter
     pkgs.tree
     pkgs.highlight
@@ -59,7 +61,14 @@
     pkgs.xdo
     pkgs.mpc-cli
     pkgs.sxhkd
+    pkgs.gnupg
+    pkgs.pinentry-curses
+    pkgs.fbida
+    pkgs.dash
+    pkgs.pamixer
     pkgs.picom
+    pkgs.light
+    pkgs.xss-lock
     pkgs.rofi
     pkgs.feh
     pkgs.mplayer
@@ -87,6 +96,7 @@
     pkgs.xorg.xkill
     pkgs.xorg.xmodmap
     pkgs.xlsfonts
+    pkgs.font-awesome
     pkgs.youtube-dl
     pkgs.sxiv
     pkgs.libnotify
@@ -99,7 +109,6 @@
     pkgs.xdo
     pkgs.asciinema
     pkgs.weechat
-    pkgs.tmate
     pkgs.mutt
     pkgs.google-chrome
     pkgs.fira
@@ -123,17 +132,21 @@
     pkgs.nodejs
     pkgs.pipewire
     pkgs.virtualbox
-    #   pkgs.xdotool
     pkgs.fd
     pkgs.figlet
     pkgs.fq
     pkgs.gh
     pkgs.gitui
-    pkgs.gitAndTools.gitFull
+    pkgs.git
+    pkgs.elinks
+    pkgs.file
     pkgs.glow
     pkgs.lolcat
     pkgs.lr
     pkgs.ncdu
+    pkgs.whois
+    pkgs.xclip
+    pkgs.xsel
     pkgs.moreutils
     pkgs.nix-index
     pkgs.nix-info

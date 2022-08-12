@@ -1,0 +1,22 @@
+#!/bin/sh
+
+coded_by='
+
+In the name of Allah, the most Gracious, the most Merciful.
+
+ ▓▓▓▓▓▓▓▓▓▓
+░▓ Author ▓ Abdullah <https://abdullah.today>
+░▓▓▓▓▓▓▓▓▓▓
+░░░░░░░░░░
+
+░█▀▀░▀█▀░█▀█░█▀▄░▀█▀░█░█
+░▀▀█░░█░░█▀█░█▀▄░░█░░▄▀▄
+░▀▀▀░░▀░░▀░▀░▀░▀░░▀░░▀░▀
+'
+
+
+#[ -f ~/.xprofile ] && . ~/.xprofile
+
+~/.config/bspwm/autostart.sh &
+
+bspwm -c "$HOME"/.config/bspwm/bspwrc >/tmp/bspwm-"$USER".log 2>&1
