@@ -56,7 +56,7 @@ tabular() {
 
 # Start sxhkd
 
-sxhkd &
+SXHKD_SHELL=dash sxhkd &
 
 # Load Xresources
 
@@ -135,6 +135,22 @@ fi
 
 run $HOME/.local/bin/mypanel
 
-run alacritty -t 'scratchpad'
+#run alacritty -t 'scratchpad'
+
+# Divide workspaces/desktops to all connected monitors
+
+multimonitors()
+{
+  start_from=1
+  monitors_connected=$(bspc query -M | wc -l)
+  per_monitor=$(( 10 / monitors_connected ))
+  for monitor in $(bspc query -M); do
+    bspc monitor $monitor -d $(seq $start_from $(( start_from + per_monitor - 1)))
+    start_from=$(( start_from + per_monitor ))
+ done
+}
+
+multimonitors &
+
 
 # vim:ft=sh

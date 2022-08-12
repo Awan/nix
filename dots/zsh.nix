@@ -89,11 +89,12 @@
       profileExtra = ''
         # Start river at login
         if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-          exec startx -- vt1 -keeptty &>/dev/null
+          #exec startx -- vt1 -keeptty &>/dev/null
           #start-river
+          sx
           logout
         elif [[ $(tty) != /dev/tty1 ]]; then
-          sudo loadkeys $HOME/.loadkeysrc
+          #sudo loadkeys $HOME/.loadkeysrc
           tmux has-session -t $USER || tmux new-session -t $USER && tmux attach-session -t $USER
         fi
       '';
@@ -179,8 +180,9 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "v6";
-            sha256 = "1rmn3d8qhapxafh864cv3pvzq1qyzdbyyrp2mdbznxjc3lpf7fm6";
+            rev = "b7963f9";
+            sha256 = "1srhgxpnx28xri5lhk2x4764a30yqazd80dckgsjgj3rkxg2kcfr";
+
           };
         }
         {
@@ -189,8 +191,10 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "v6";
-            sha256 = "1rmn3d8qhapxafh864cv3pvzq1qyzdbyyrp2mdbznxjc3lpf7fm6";
+            rev = "b7963f9";
+            sha256 = "1srhgxpnx28xri5lhk2x4764a30yqazd80dckgsjgj3rkxg2kcfr";
+
+
           };
         }
         {
@@ -199,8 +203,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "v6";
-            sha256 = "1rmn3d8qhapxafh864cv3pvzq1qyzdbyyrp2mdbznxjc3lpf7fm6";
+            rev = "b7963f9";
+            sha256 = "1srhgxpnx28xri5lhk2x4764a30yqazd80dckgsjgj3rkxg2kcfr";
           };
         }
         {
@@ -209,8 +213,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "v6";
-            sha256 = "1rmn3d8qhapxafh864cv3pvzq1qyzdbyyrp2mdbznxjc3lpf7fm6";
+            rev = "b7963f9";
+            sha256 = "1srhgxpnx28xri5lhk2x4764a30yqazd80dckgsjgj3rkxg2kcfr";
           };
         }
       ];

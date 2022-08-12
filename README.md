@@ -11,13 +11,28 @@
 - After partitioning, formatting and mounting the filesystems, run:
 
     ```shell
+    # Just to be sure, that /etc/nixos is created...
     nixos-generate-config --root /mnt
-    nix --experimental-features develop "nix-command flakes"
-    nixos-install --flake .#x1c
     ```
 
-- To apply dotfiles, run:
+- Clone this repository, edit `nixos/configuration.nix` and `nixos/hardware-configuration.nix`... Replace `UUID` with hardware new UUIDs, push changes. If you're not [me](https://abdullah.today/about), you can't push changes. So just use that clone after editing those files:
 
     ```shell
-    home-manager switch --flake .#ak@x1c
+    cd cloned_repo_path
+    nixos-install --impure --flake .#x1c
+    ```
+
+    `x1c` is my hostname. So if you want to change it, don't forget to replace it three places:
+
+    - 1  in `nixos/configuration.nix`
+    - 2  in `flake.nix`
+    - 3  when invoking `nixos-install`
+
+- After installation, install `home-manager` and then give it this flake to copy dotfiles.
+
+    ```shell
+    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz
+    nix-channel --update
+    nix-shell '<home-manager>' -A install
+    home-manager switch --flake github:Awan/nix#ak
     ```

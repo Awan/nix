@@ -17,6 +17,6 @@ In the name of Allah, the most Gracious, the most Merciful.
 
 #[ -f ~/.xprofile ] && . ~/.xprofile
 
-~/.config/bspwm/autostart.sh &
+#~/.config/bspwm/autostart.sh &
 
 bspwm -c "$HOME"/.config/bspwm/bspwrc >/tmp/bspwm-"$USER".log 2>&1
