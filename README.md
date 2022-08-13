@@ -2,7 +2,8 @@
 
 ![x1c running NixOS](https://user-images.githubusercontent.com/42554663/181168480-c05092dd-5914-4f80-954b-f459e7317800.png)
 
-[![asciicast](https://asciinema.org/a/513631.svg)](https://asciinema.org/a/513631)
+[![asciicast](https://asciinema.org/a/514548.svg)](https://asciinema.org/a/514548)
+
 
 ## NixOS dotfiles with Home-Manager
 

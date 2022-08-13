@@ -12,6 +12,7 @@
 
       initExtra = ''
         #PS1='[1;32m %n at %m  %~ >>> [0m'
+        . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
       '';
 
       envExtra = ''
@@ -90,8 +91,9 @@
         # Start river at login
         if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
           #exec startx -- vt1 -keeptty &>/dev/null
-          #start-river
-          sx
+          #systemctl --user import-environment; systemctl --user start river-session.target
+          river
+          #sx
           logout
         elif [[ $(tty) != /dev/tty1 ]]; then
           #sudo loadkeys $HOME/.loadkeysrc

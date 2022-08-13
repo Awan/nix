@@ -15,6 +15,7 @@
 #    pkgsUnstable.swhkd # waiting for it to become available
     pkgs.waybar
     pkgs.gnumake
+    pkgs.wf-recorder
     pkgs.passage
     pkgs.bspwm
     pkgs.tmate
@@ -33,12 +34,12 @@
     pkgs.tamzen
     pkgs.termsyn
     pkgs.toilet
+    pkgs.python3
     pkgs.swaybg
     pkgs.wev
     pkgs.htop
     pkgs.wofi
-    pkgs.swaylock
-    pkgs.brightnessctl
+    #pkgs.swaylock # Use system swaylock instead...
     pkgs.swayidle
     pkgs.zsh
     pkgs.eksctl
@@ -97,6 +98,7 @@
     pkgs.xorg.xmodmap
     pkgs.xlsfonts
     pkgs.font-awesome
+    pkgs.jq
     pkgs.youtube-dl
     pkgs.sxiv
     pkgs.libnotify

@@ -3,8 +3,8 @@
 {
   programs.waybar = {
     enable = true;
-    #systemd.enable = true;
-    #systemd.target = "graphical-session.target";
+    systemd.enable = true;
+    systemd.target = "river-session.target";
     style =
     ''
       @define-color highlight #839496;
@@ -66,7 +66,7 @@
       position = "top";
       height = 30;
       modules-right =
-        [ "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
+        [ "idle_inhibitor" "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
       modules-left = [ "river/tags" "mpd" ];
 
       clock = {
@@ -150,11 +150,16 @@
 
       pulseaudio = {
         format = "{volume}% {icon:3}";
-        format-muted = "";
+        format-muted = "  ";
         format-icons = [ "" "" "" "" ];
         default = [ ""  ""];
         scroll-step = 1;
         on-click = "pavucontrol";
+      };
+
+      idle_inhibitor = {
+        format = "{status }";
+        format-icons = [ "activated = " "deactivated = " ];
       };
     }
   ];
