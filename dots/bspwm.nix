@@ -2,10 +2,13 @@
 
 {
   xsession = {
-    enable = false;
+    enable = true;
     profilePath = ".xprofile";
     #pointerCursor.x11.enable = true;
     #pointerCursor = "ul_angle";
+    #initExtra = ''
+    #  "bspc config external_rules_command $HOME/.config/bspwm/external_rules"
+    #  '';
     windowManager = {
       bspwm = {
         enable = true;
@@ -45,7 +48,7 @@
           pointer_modifier = "mod4";
           pointer_action3 = "resize_side";
         };
-        startupPrograms = [ "~/.local/bin/mypanel" "sxhkd -c ~/.config/sxhkd/sxhkdrc" "feh --bg-scale ~/pix/wall/blurry/ --randomize" "mako" "picom -b" ];
+        startupPrograms = [ "~/.local/bin/mypanel" "sxhkd -c ~/.config/sxhkd/sxhkdrc" "feh --bg-scale ~/pix/wall/blurry/ --randomize" "mako" "picom -b" "bspc config external_rules_command $HOME/.config/bspwm/external_rules" ];
       };
     };
   };

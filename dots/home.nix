@@ -10,19 +10,20 @@
 
   imports = [
     ./alacritty.nix
-    ./foot.nix
-    ./termite.nix
+    #./foot.nix
+    #./termite.nix
     ./mako.nix
     ./mail.nix
     ./gpg-agent.nix
     ./git.nix
-    ./kitty.nix
+    #./kitty.nix
     #./mpd.nix
     ./packages.nix
     #./bspwm.nix
     #./sxhkd.nix
-    ./bspwm_without_hm.nix
-    ./picom.nix
+    #./bspwm_without_hm.nix
+    #./picom.nix
+    ./river.nix
     ./vim.nix
     ./waybar.nix
     ./zsh.nix
