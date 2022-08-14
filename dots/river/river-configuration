@@ -49,6 +49,30 @@ riverctl map normal $mod D spawn `which $BROWSER`
 # riverctl map normal Super+Shift E exit
 riverctl map normal Alt+Shift Q exit
 
+# Scratchpad
+
+scratch_tag=$((1 << 20))
+riverctl map normal $mod I toggle-focused-tags ${scratch_tag}
+riverctl map normal $mod+Shift I set-view-tags ${scratch_tag}
+all_but_scratch_tag=$(( ((1 << 32) -1) ^ $scratch_tag ))
+riverctl spawn-tagmask ${all_but_scratch_tag}
+
+# Sticky Windows
+
+all_tags=$(((1 << 32) - 1))
+sticky_tag=$((1 << 31))
+all_but_sticky_tag=$(( $all_tags ^ $sticky_tag ))
+
+riverctl map normal $mod S toggle-view-tags $sticky_tag
+riverctl spawn-tagmask ${all_but_sticky_tag}
+# modify the normal keybind to always select the sticky tag
+for i in $(seq 1 7)
+do
+    tags=$((1 << ($i - 1)))
+    # Super+[1-6] to focus tag [0-5]
+    riverctl map normal $mod $i set-focused-tags $(($sticky_tag + $tags))
+done
+
 # Setup touchpad
 touchpad=2:7:SynPS/2_Synaptics_TouchPad
 riverctl input $touchpad tap enabled
@@ -218,6 +242,7 @@ riverctl set-repeat 50 300
 # Make certain views start floating
 riverctl float-filter-add app-id float
 riverctl float-filter-add title "popup title with spaces"
+riverctl float-filter-add title "mpv"
 
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
