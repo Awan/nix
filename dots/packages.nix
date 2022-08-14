@@ -41,6 +41,9 @@
     pkgs.wofi
     #pkgs.swaylock # Use system swaylock instead...
     pkgs.swayidle
+    pkgs.android-tools
+    pkgs.wayland-scanner
+    pkgs.waylandpp
     pkgs.zsh
     pkgs.eksctl
     pkgs.kubectl
