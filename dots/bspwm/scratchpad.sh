@@ -3,10 +3,10 @@
 coded_by='
 In the name of Allah, the most Gracious, the most Merciful.
 
-  ▓▓▓▓▓▓▓▓▓▓ 
- ░▓ Author ▓ Abdullah <https://abdullah.today> 
- ░▓▓▓▓▓▓▓▓▓▓ 
- ░░░░░░░░░░ 
+  ▓▓▓▓▓▓▓▓▓▓
+ ░▓ Author ▓ Abdullah <https://abdullah.today>
+ ░▓▓▓▓▓▓▓▓▓▓
+ ░░░░░░░░░░
 
 ░█▀▀░█▀▀░█▀▄░█▀█░▀█▀░█▀▀░█░█░█▀█░█▀█░█▀▄
 ░▀▀█░█░░░█▀▄░█▀█░░█░░█░░░█▀█░█▀▀░█▀█░█░█
