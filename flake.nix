@@ -8,9 +8,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wlopm = {
+      url = "git+https://git.sr.ht/~leon_plickat/wlopm";
+      flake = false;
+    };
+    river = {
+      type = "git";
+      url = "https://github.com/ifreund/river";
+      submodules = true;
+      flake = false;
+    };
+    stacktile = {
+      url = "git+https://git.sr.ht/~leon_plickat/stacktile";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, wlopm, river, stacktile, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -28,6 +42,7 @@
             };
           }
         ];
+        extraSpecialArgs.repos = { inherit wlopm stacktile river; };
       };
 
       nixosConfigurations.x1c = nixpkgs.lib.nixosSystem {

@@ -1,0 +1,133 @@
+{
+  "nodes": {
+    "hardware": {
+      "locked": {
+        "lastModified": 1660407119,
+        "narHash": "sha256-04lWO0pDbhAXFdL4v2VzzwgxrZ5IefKn+TmZPiPeKxg=",
+        "owner": "nixos",
+        "repo": "nixos-hardware",
+        "rev": "12620020f76b1b5d2b0e6fbbda831ed4f5fe56e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1660330190,
+        "narHash": "sha256-RgQUtZGmdb9fRkdBcI8x1KYuykbQCBaeY6ejFls7hFM=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "8675cfa549e1240c9d2abb1c878bc427eefcf926",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1660305968,
+        "narHash": "sha256-r0X1pZCSEA6mzt5OuTA7nHuLmvnbkwgpFAh1iLIx4GU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c4a0efdd5a728e20791b8d8d2f26f90ac228ee8d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "river": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660224127,
+        "narHash": "sha256-Lcwso+aOpciTpCZ5uFWqCyZBgyFiahDHcjulNrzxVZ8=",
+        "ref": "refs/heads/master",
+        "rev": "765a3f4aff78945889bbcf05fd01a38f5f80bdf1",
+        "revCount": 876,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/ifreund/river"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/ifreund/river"
+      }
+    },
+    "root": {
+      "inputs": {
+        "hardware": "hardware",
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "river": "river",
+        "stacktile": "stacktile",
+        "wlopm": "wlopm"
+      }
+    },
+    "stacktile": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660409672,
+        "narHash": "sha256-IOFxgYMjh92jx2CPfBRZDL/1ucgfHtUyAL5rS2EG+Gc=",
+        "ref": "refs/heads/master",
+        "rev": "5c68499a71d7f20af218d3b2b8ef558852206437",
+        "revCount": 43,
+        "type": "git",
+        "url": "https://git.sr.ht/~leon_plickat/stacktile"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.sr.ht/~leon_plickat/stacktile"
+      }
+    },
+    "utils": {
+      "locked": {
+        "lastModified": 1653893745,
+        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "wlopm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1659731096,
+        "narHash": "sha256-BVgq0Ht4Otid+McnwwmzdY7flqcBPe5br5879nyPgAE=",
+        "ref": "refs/heads/master",
+        "rev": "38af45c79771da1ef52309d101e881aaef94a823",
+        "revCount": 24,
+        "type": "git",
+        "url": "https://git.sr.ht/~leon_plickat/wlopm"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.sr.ht/~leon_plickat/wlopm"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

@@ -88,6 +88,11 @@ riverctl input $touchpad scroll-method two-finger
 riverctl input $touchpad tap-button-map left-right-middle
 
 
+# Lock the session
+
+riverctl map normal $mod X spawn "~/.local/bin/river-wallpaper lock"
+
+
 # Attach mode
 riverctl attach-mode top
 
@@ -118,12 +123,12 @@ riverctl map normal Super+Shift Comma send-to-output previous
 riverctl map normal $mod O zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal $mod H send-layout-cmd stacktile "primary_ratio -0.05"
+riverctl map normal $mod L send-layout-cmd stacktile "primary_ratio +0.05"
 
 # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+riverctl map normal $mod+Shift H send-layout-cmd stacktile "secondar_ratio -0.05"
+riverctl map normal $mod+Shift L send-layout-cmd stacktile "secondary_ratio +0.05"
 
 # Super+Alt+{H,J,K,L} to move views
 riverctl map normal Super+Alt H move left 100
@@ -159,26 +164,26 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 # Focus with mouse
 riverctl focus-follows-cursor normal
 
-for i in $(seq 1 7)
+for i in $(seq 1 9)
 do
     tags=$((1 << ($i - 1)))
 
     # Super+[1-7] to focus tag [0-6]
     riverctl map normal Super $i set-focused-tags $tags
 
-    # Super+Shift+[1-7] to tag focused view with tag [0-6]
+    # Super+Shift+[1-9] to tag focused view with tag [0-8]
     riverctl map normal Super+Shift $i set-view-tags $tags
 
-    # Super+Ctrl+[1-7] to toggle focus of tag [0-6]
+    # Super+Ctrl+[1-9] to toggle focus of tag [0-8]
     riverctl map normal Super+Control $i toggle-focused-tags $tags
 
-    # Super+Shift+Ctrl+[1-7] to toggle tag [0-6] of focused view
+    # Super+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
     riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
 
 # Super+0 to focus all tags
 # Super+Shift+0 to tag focused view with all tags
-all_tags=$(((1 << 7) - 1))
+all_tags=$(((1 << 9) - 1))
 riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
@@ -223,8 +228,8 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
     # Control screen backlight brightness with light (https://github.com/haikarainen/light)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'light -A 5'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl s +10'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl s 10-'
 
     # Scrot
     riverctl map $mode None Print spawn 'wayshot -f /tmp/foo.png; wl-copy -t image/png < /tmp/foo.png'
@@ -234,20 +239,32 @@ done
 #riverctl background-color 0x2aa198
 riverctl border-color-focused 0x2aa198
 riverctl border-color-unfocused 0x44444480
-riverctl border-width 1
+riverctl border-width 2
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
+riverctl float-filter-add app-id "mpv"
+riverctl float-filter-add app-id "pavucontrol"
+riverctl float-filter-add app-id "mplayer"
+riverctl float-filter-add app-id "feh"
+riverctl float-filter-add app-id "sxiv"
 riverctl float-filter-add title "popup title with spaces"
-riverctl float-filter-add title "mpv"
 
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
+riverctl csd-filter-add app-id "pavucontrol"
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6
+#riverctl default-layout rivertile
+#rivertile -view-padding 6 -outer-padding 6
+riverctl default-layout stacktile
+exec stacktile --per-tag-config \
+    --inner-padding 5 \
+    --outer-padding 5 \
+    --primary-ratio 0.6 \
+    --secondary-count 2 \
+    --secondary-ratio 0.7
