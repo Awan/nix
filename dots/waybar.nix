@@ -109,8 +109,8 @@
       };
 
       "river/tags" = {
-        num-tags = 7;
-        tag-labels = [ "❶" "❷" "❸" "❹" "❺" "❻" "❼" ];
+        num-tags = 9;
+        tag-labels = [ "₁" "₂" "₃" "₄" "₅" "₆" "₇" "₈" "₉" ];
       };
 
       tray = {
@@ -158,7 +158,7 @@
       };
 
       idle_inhibitor = {
-        format = "{status }";
+        format = "{icon }";
         format-icons = [ "activated = " "deactivated = " ];
       };
     }

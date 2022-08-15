@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
+  # include overlay
+  imports = [ ./river/wayland-overlay.nix ];
   # move river configuration file to its directory...
   home.file.".config/river/init".source =
     config.lib.file.mkOutOfStoreSymlink ./river/river-configuration;
@@ -33,7 +35,7 @@
 
   systemd.user.services.wallpaper = {
     Service = {
-      ExecStart = [ "%h/.local/bin/river-wallpaper" ];
+      ExecStart = [ "%h/.local/bin/river-wallpaper wall" ];
     };
     Unit = {
       Description = "Wallpaper Service for River";
@@ -52,7 +54,7 @@
       WantedBy = [ "river-session.target" ];
     };
     Service = {
-      ExecStart = [ "${pkgs.swayidle}/bin/swayidle -w timeout 60 '${pkgs.swaylock}/bin/swaylock -f -i ~/nix/dots/river/locker.jpeg' before-sleep '${pkgs.swaylock}/bin/swaylock -f -i ~/nix/dots/river/locker.jpeg' timeout 75 '${pkgs.light}/bin/light -O; ${pkgs.light}/bin/light -S 0' resume '${pkgs.light}/bin/light -I' lock '${pkgs.swaylock}/bin/swaylock -f -i ~/nix/dots/river/locker.jpeg'" ];
+      ExecStart = [ "${pkgs.swayidle}/bin/swayidle -w timeout 60 '~/.local/bin/river-wallpaper lock' before-sleep '~/.local/bin/river-wallpaper lock' timeout 75 'brightnessctl -s; brightnessctl s 0' resume 'brightnessctl -r' lock '~/.local/bin/river-wallpaper lock'" ];
     };
   };
 
