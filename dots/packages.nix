@@ -42,8 +42,8 @@
     #pkgs.swaylock # Use system swaylock instead...
     pkgs.swayidle
     pkgs.android-tools
-    pkgs.wayland-scanner
-    pkgs.waylandpp
+    #pkgs.wayland-scanner
+    #pkgs.waylandpp
     pkgs.zsh
     pkgs.eksctl
     pkgs.kubectl
@@ -60,7 +60,9 @@
     pkgs.unzip
     pkgs.leafpad
     pkgs.river
+    pkgs.stacktile
     pkgs.mpd
+    pkgs.brightnessctl
     pkgs.ncmpcpp
     pkgs.xdo
     pkgs.mpc-cli
@@ -71,7 +73,6 @@
     pkgs.dash
     pkgs.pamixer
     pkgs.picom
-    pkgs.light
     pkgs.xss-lock
     pkgs.rofi
     pkgs.feh
