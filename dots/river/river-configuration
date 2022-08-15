@@ -127,7 +127,7 @@ riverctl map normal $mod H send-layout-cmd stacktile "primary_ratio -0.05"
 riverctl map normal $mod L send-layout-cmd stacktile "primary_ratio +0.05"
 
 # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-riverctl map normal $mod+Shift H send-layout-cmd stacktile "secondar_ratio -0.05"
+riverctl map normal $mod+Shift H send-layout-cmd stacktile "secondary_ratio -0.05"
 riverctl map normal $mod+Shift L send-layout-cmd stacktile "secondary_ratio +0.05"
 
 # Super+Alt+{H,J,K,L} to move views
@@ -267,4 +267,4 @@ exec stacktile --per-tag-config \
     --outer-padding 5 \
     --primary-ratio 0.6 \
     --secondary-count 2 \
-    --secondary-ratio 0.7
+    --secondary-ratio 0.6

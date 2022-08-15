@@ -63,7 +63,6 @@
     pkgs.stacktile
     pkgs.mpd
     pkgs.brightnessctl
-    pkgs.ncmpcpp
     pkgs.xdo
     pkgs.mpc-cli
     pkgs.sxhkd
