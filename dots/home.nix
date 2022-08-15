@@ -25,6 +25,7 @@
     #./bspwm_without_hm.nix
     #./picom.nix
     ./river.nix
+    ./scripts.nix
     ./vim.nix
     ./waybar.nix
     ./zsh.nix

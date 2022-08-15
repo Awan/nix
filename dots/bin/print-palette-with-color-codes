@@ -1,0 +1,26 @@
+#!/bin/sh
+# shellcheck disable=2034
+coded_by='
+
+In the name of Allah, the most Gracious, the most Merciful.
+
+ ▓▓▓▓▓▓▓▓▓▓
+░▓ Author ▓ Abdullah <https://abdullah.today>
+░▓▓▓▓▓▓▓▓▓▓ YouTube <https://YouTube.com/AbdullahToday>
+░░░░░░░░░░
+
+░█▀█░█▀▄░▀█▀░█▀█░▀█▀░░░░░█▀█░█▀█░█░░░█▀▀░▀█▀░▀█▀░█▀▀░░░░░█░█░▀█▀░▀█▀░█░█░░░░░█▀▀
+░█▀▀░█▀▄░░█░░█░█░░█░░▄▄▄░█▀▀░█▀█░█░░░█▀▀░░█░░░█░░█▀▀░▄▄▄░█▄█░░█░░░█░░█▀█░▄▄▄░█░░
+░▀░░░▀░▀░▀▀▀░▀░▀░░▀░░░░░░▀░░░▀░▀░▀▀▀░▀▀▀░░▀░░░▀░░▀▀▀░░░░░▀░▀░▀▀▀░░▀░░▀░▀░░░░░▀▀▀
+░█▀█░█░░░█▀█░█▀▄░░░░░█▀▀░█▀█░█▀▄░█▀▀░█▀▀                                        
+░█░█░█░░░█░█░█▀▄░▄▄▄░█░░░█░█░█░█░█▀▀░▀▀█                                        
+░▀▀▀░▀▀▀░▀▀▀░▀░▀░░░░░▀▀▀░▀▀▀░▀▀░░▀▀▀░▀▀▀                                        
+'
+
+echo 'use \033[CODEm Text \033[0m to set text color'
+for i in {0..7}; do
+  for j in "3$i" "9$i"; do
+      printf '\033[%sm Code %s ' "$j" "$j"
+        done
+  printf '\033[0m\n'
+  done

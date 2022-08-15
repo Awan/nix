@@ -24,10 +24,9 @@
       { key = "G"; command = "move_end"; }
       { key = "q"; command = "quit"; }
     ];
-    mpdMusicDir = ~/mus;
+    mpdMusicDir = "${config.home.homeDirectory}/mus";
     settings = {
       user_interface = "alternative";
-      #mpd_music_dir = "~/mus";
       mpd_host = "localhost";
       mpd_port = 6600;
       ncmpcpp_directory = "~/.config/ncmpcpp";
