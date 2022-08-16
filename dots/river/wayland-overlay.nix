@@ -39,6 +39,32 @@
         };
       };
 
+      waylock = pkgs.stdenv.mkDerivation rec {
+        pname = "waylock";
+        version = repos.waylock.rev;
+        src = repos.waylock.outPath;
+
+        installFlags = [ "PREFIX=${placeholder "out"}" ];
+        nativeBuildInputs = with pkgs; [ pkg-config zig wayland scdoc];
+        buildInputs = with pkgs; [ zig wayland-protocols pam libxkbcommon ];
+        dontConfigure = true;
+
+        preBuild = ''
+          export HOME="$(mktemp -d)"
+          '';
+
+        installPhase = ''
+          zig build -Drelease-safe -Dcpu=baseline install --prefix $out
+          '';
+
+        meta = with lib; {
+          description = "A screen locker for wayland";
+          homepage = "https://github.com/ifreund/waylock";
+          license = licenses.isc;
+          platforms = platforms.linux;
+        };
+      };
+
     })
   ];
 }

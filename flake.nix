@@ -19,12 +19,21 @@
       flake = false;
     };
     stacktile = {
-      url = "git+https://git.sr.ht/~leon_plickat/stacktile";
+      type = "git";
+      url = "https://git.sr.ht/~leon_plickat/stacktile";
+      rev = "0e5baf19920c5cc92bd0d00c37bf0a0192f9842d";
+      flake = false;
+    };
+    waylock = {
+      type = "git";
+      url = "https://github.com/ifreund/waylock";
+      rev = "d8d944558378071df1ffa3c93e887dd2293aaef2";
+      submodules = true;
       flake = false;
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, wlopm, river, stacktile, ... }:
+  outputs = { self, nixpkgs, home-manager, wlopm, river, stacktile, waylock, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -42,7 +51,7 @@
             };
           }
         ];
-        extraSpecialArgs.repos = { inherit wlopm stacktile river; };
+        extraSpecialArgs.repos = { inherit wlopm stacktile river waylock; };
       };
 
       nixosConfigurations.x1c = nixpkgs.lib.nixosSystem {
