@@ -1,18 +1,10 @@
 { pkgs, ... }:
 
 
-#let
-
-#  pkgsUnstable = import <nixpkgs-unstable> {};
-
-#in
-
 {
   home.packages = [
     pkgs.wlopm
     pkgs.wayshot
-#   pkgsUnstable.stacktile
-#    pkgsUnstable.swhkd # waiting for it to become available
     pkgs.waybar
     pkgs.gnumake
     pkgs.wf-recorder
@@ -26,7 +18,6 @@
     pkgs.evtest
     pkgs.agebox
     pkgs.go
-    pkgs.i3lock-fancy-rapid
     pkgs.obsidian
     pkgs.packer
     pkgs.scrcpy
@@ -37,13 +28,16 @@
     pkgs.python3
     pkgs.swaybg
     pkgs.wev
+    pkgs.rivercarro
     pkgs.htop
     pkgs.wofi
     #pkgs.swaylock # Use system swaylock instead...
+    pkgs.waylock
+    pkgs.yarn
+    pkgs.glpaper
+    pkgs.wlsunset
     pkgs.swayidle
     pkgs.android-tools
-    #pkgs.wayland-scanner
-    #pkgs.waylandpp
     pkgs.zsh
     pkgs.eksctl
     pkgs.kubectl

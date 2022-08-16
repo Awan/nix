@@ -128,7 +128,7 @@
 
       mpd = {
         interval = 1;
-        format = "  {stateIcon} {consumeIcon} {randomIcon} {repeatIcon} {singleIcon} {artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
+        format = "  {stateIcon} {artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
         format-stopped = "  {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}";
         random-icons = {
           off = "<span color=\"#f53c3c\"></span> ";
