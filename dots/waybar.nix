@@ -66,7 +66,7 @@
       position = "top";
       height = 30;
       modules-right =
-        [ "idle_inhibitor" "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
+        [ "custom/mailsnow" "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
       modules-left = [ "river/tags" "mpd" ];
 
       clock = {
@@ -127,17 +127,20 @@
       };
 
       mpd = {
-        #server = "127.0.0.1";
-        #port = 6600;
         interval = 1;
-        #unknown-tag = "";
-        format = "  {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
+        format = "  {stateIcon} {consumeIcon} {randomIcon} {repeatIcon} {singleIcon} {artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
         format-stopped = "  {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}";
-        random-icons = [ "off = <span color=\#f53c3c\></span> " "on =  " ];
-        consume-icons = "on = ";
-        repeat-icons = "on =  ";
-        single-icons = "on =  1";
-        state-icons = ["playing = " "paused = "];
+        random-icons = {
+          off = "<span color=\"#f53c3c\"></span> ";
+          on = " ";
+        };
+        consume-icons = { on = " "; };
+        repeat-icons = { on = " "; };
+        single-icons = { on = "  1 "; };
+        state-icons = {
+          playing = " ";
+          paused = " ";
+        };
       };
 
       backlight = {
@@ -159,7 +162,19 @@
 
       idle_inhibitor = {
         format = "{icon }";
-        format-icons = [ "activated = " "deactivated = " ];
+        #format-icons = [ { "activated = " } {"deactivated = "}; ];
+      };
+
+      "custom/mailsnow" = {
+        interval = 30;
+        format = "📩{}";
+        exec-if = "ping -c 2 abdullah.solutions >/dev/null 2>&1";
+        exec = ''
+          current_mails=$(find $HOME/.mail/Inbox/new -type f -printf . | wc -c)
+          if [ $current_mails -gt 0 ]; then
+            echo $current_mails
+          fi
+          '';
       };
     }
   ];
