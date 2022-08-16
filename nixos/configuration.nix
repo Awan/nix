@@ -178,7 +178,7 @@
   # To control brightness, don't forget to add user to video group
     light.enable = true;
   # without sway, swaylock won't work...
-    sway.enable = true;
+  #  sway.enable = true;
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -251,6 +251,7 @@
       inconsolata
       terminus_font
       mononoki
+      swaylock
     ];
   };
 
