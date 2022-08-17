@@ -11,11 +11,15 @@
     opengl = {
       extraPackages = with pkgs; [
         intel-media-driver
+        intel-ocl
         vaapiIntel
         vaapiVdpau
         libvdpau
         libvdpau-va-gl
       ];
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
     };
     video = { hidpi.enable = true; };
   };
@@ -111,26 +115,26 @@
   # X11
   services = {
     # enable X11
-    xserver = {
-      enable = true;
-      layout = "us";
-      displayManager = {
-        sx = {
-          enable = true;
-        };
-      };
-      libinput = {
-        enable = true;
-        touchpad = {
-          disableWhileTyping = true;
-          middleEmulation = true;
-          naturalScrolling = false;
-          scrollMethod = "twofinger";
-          tapping = true;
-          tappingDragLock = true;
-        };
-      };
-    };
+    #xserver = {
+    #  enable = false;
+    #  layout = "us";
+    #  displayManager = {
+    #    sx = {
+    #      enable = true;
+    #    };
+    #  };
+    #  libinput = {
+    #    enable = true;
+    #    touchpad = {
+    #      disableWhileTyping = true;
+    #      middleEmulation = true;
+    #      naturalScrolling = false;
+    #      scrollMethod = "twofinger";
+    #      tapping = true;
+    #      tappingDragLock = true;
+    #    };
+    #  };
+    #};
     openssh = {
       enable = true;
       permitRootLogin = "no";

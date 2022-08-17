@@ -19,7 +19,7 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-label/NIXOSBOOT";
+    { device = "/dev/disk/by-uuid/4963-B2FC";
       fsType = "vfat";
     };
 
