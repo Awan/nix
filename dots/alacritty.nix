@@ -6,15 +6,15 @@
       enable = true;
       settings = {
         font = rec {
-          normal.family = "JetBrains Mono NL";
-          regular.family = "JetBrain Mono NL";
-          bold.family = "JetBrains Mono NL";
-          bold_italic.family = "JetBrains Mono NL";
+          normal.family = "ProggyCleanTT";
+          regular.family = "ProggyCleanTT";
+          bold.family = "ProggyCleanTT";
+          bold_italic.family = "ProggyCleanTT";
           regular = { style = "Regular"; };
           italic = { style = "Italic"; };
           bold_italic = { style = "Bold Italic"; };
           bold = { style = "Bold"; };
-          size = 17;
+          size = 23;
         };
         offset = {
           x = 0;

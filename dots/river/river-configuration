@@ -266,5 +266,5 @@ exec stacktile --per-tag-config \
     --inner-padding 5 \
     --outer-padding 5 \
     --primary-ratio 0.6 \
-    --secondary-count 2 \
+    --secondary-count 1 \
     --secondary-ratio 0.6

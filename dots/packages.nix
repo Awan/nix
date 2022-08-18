@@ -110,6 +110,7 @@
     pkgs.weechat
     pkgs.mutt
     pkgs.google-chrome
+    pkgs.bc
     pkgs.fira
     pkgs.yaru-theme
     pkgs.element-desktop

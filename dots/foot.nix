@@ -15,9 +15,9 @@
         multiplier = "5";
         indicator-format = "percentage";
       };
-      #url = {
-      #launch = "google-chrome-stable ${url}";
-      #};
+      url = {
+      launch = "${pkgs.google-chrome}/bin/google-chrome-stable ${url}";
+      };
       cursor = {
         style = "underline";
         blink = "yes";
