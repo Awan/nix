@@ -135,9 +135,7 @@
     pkgs.fd
     pkgs.figlet
     pkgs.fq
-    pkgs.gh
-    pkgs.gitui
-    pkgs.git
+    pkgs.git-filter-repo
     pkgs.elinks
     pkgs.file
     pkgs.glow
