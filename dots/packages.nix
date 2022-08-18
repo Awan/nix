@@ -127,6 +127,7 @@
     pkgs.cmus
     pkgs.imagemagick
     pkgs.powerline-fonts
+    pkgs.meslo-lg
     pkgs.rxvt-unicode
     pkgs.powerline
     pkgs.nodejs

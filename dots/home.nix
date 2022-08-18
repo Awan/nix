@@ -31,6 +31,9 @@
     ./zsh.nix
   ];
 
+  # Fonts
+  fonts.fontconfig.enable = true;
+
   systemd.user.startServices = "suggest";
   # Allow unFree packages in userspace with flakes + Home-Manager
   nixpkgs.config.allowUnfreePredicate = (_: true);

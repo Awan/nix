@@ -12,7 +12,7 @@
       window#waybar {
         background: #586e75;
         font-size: 20px;
-        font-family: "Meslo LG S Nerd Font";
+        font-family: "Meslo LGM for Powerline";
       }
 
       #tray.needs-attention {
@@ -66,7 +66,7 @@
       position = "top";
       height = 30;
       modules-right =
-        [ "custom/mailsnow" "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
+        [ "custom/mailsnow" "idle_inhibitor" "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
       modules-left = [ "river/tags" "mpd" ];
 
       clock = {
@@ -88,24 +88,24 @@
           warning = 60;
           good = 75;
         };
-        format = "{icon} {capacity:4}%";
-        format-plugged = "{icon} {capacity:3}% ";
-        format-charging = "{icon} {capacity:3}% ";
+        format = "{icon} {capacity:2}%";
+        format-plugged = "{icon} {capacity:2}% ";
+        format-charging = "{icon} {capacity:2}% ";
         format-icons = [ "" "" "" "" "" ];
       };
 
       cpu = {
         interval = 1;
-        format = " {usage:1}%";
+        format = " {usage:1}%";
       };
 
       network = {
         interface = "wl*";
         interval = 10;
-        format-wifi = "  {essid}({signalStrength}%)";
-        #format-disconnected = "⚠";
+        #format-wifi = "  {essid} ({signalStrength}%) {bandwidthDownBits} {bandwidthUpBits}";
+        format-wifi = " {essid}({signalStrength}%)";
         format-disconnected = "";
-        tooltip-format-wifi = "{essid}({signalStrength}%) ";
+        tooltip-format-wifi = "{essid}{idaddr} ";
       };
 
       "river/tags" = {
@@ -138,8 +138,8 @@
         repeat-icons = { on = " "; };
         single-icons = { on = "  1 "; };
         state-icons = {
-          playing = " ";
-          paused = " ";
+          playing = " ";
+          paused = " ";
         };
       };
 
@@ -148,7 +148,7 @@
         format = "{icon}{percent}%";
         on-scroll-up = "brightnessctl s +10";
         on-scroll-down = "brightnessctl s 10-";
-        format-icons = [" "  " "];
+        format-icons = [" "  " "];
       };
 
       pulseaudio = {
@@ -161,13 +161,13 @@
       };
 
       idle_inhibitor = {
-        format = "{icon }";
-        #format-icons = [ { "activated = " } {"deactivated = "}; ];
+        format = "{icon}";
+        format-icons = { activated = " "; deactivated = " "; };
       };
 
       "custom/mailsnow" = {
         interval = 30;
-        format = "📩{}";
+        format = " {}";
         exec-if = "ping -c 2 abdullah.solutions >/dev/null 2>&1";
         exec = ''
           current_mails=$(find $HOME/.mail/Inbox/new -type f -printf . | wc -c)

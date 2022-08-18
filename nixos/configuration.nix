@@ -3,9 +3,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   hardware = {
     opengl = {
@@ -17,9 +15,9 @@
         libvdpau
         libvdpau-va-gl
       ];
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
     };
     video = { hidpi.enable = true; };
   };
@@ -177,12 +175,12 @@
 
   # Some programs
   programs = {
-  # make vim default editor
+    # make vim default editor
     vim.defaultEditor = true;
-  # To control brightness, don't forget to add user to video group
+    # To control brightness, don't forget to add user to video group
     light.enable = true;
-  # without sway, swaylock won't work...
-  #  sway.enable = true;
+    # without sway, swaylock won't work...
+    #  sway.enable = true;
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -222,41 +220,40 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "DroidSansMono"
-          "SourceCodePro"
-          "Ubuntu"
-          "Meslo"
-          "Iosevka"
-        ];
-      })
-      noto-fonts-emoji
-      kochi-substitute
-      meslo-lg
-      siji
-      unifont
-      open-sans
-      liberation_ttf
-      liberation-sans-narrow
-      ttf_bitstream_vera
-      libertine
-      ubuntu_font_family
-      gentium
-      jetbrains-mono
-      source-code-pro
-      dina-font
-      tamzen
-      proggyfonts
-      dejavu_fonts
-      corefonts
-      inconsolata
-      terminus_font
-      mononoki
-      swaylock
-    ];
+    #fonts = with pkgs; [
+    #  (nerdfonts.override {
+    #    fonts = [
+    #      "FiraCode"
+    #      "DroidSansMono"
+    #      "SourceCodePro"
+    #      "Ubuntu"
+    #      "Meslo"
+    #      "Iosevka"
+    #    ];
+    #  })
+    #  noto-fonts-emoji
+    #  kochi-substitute
+    #  meslo-lg
+    #  siji
+    #  unifont
+    #  open-sans
+    #  liberation_ttf
+    #  liberation-sans-narrow
+    #  ttf_bitstream_vera
+    #  libertine
+    #  ubuntu_font_family
+    #  gentium
+    #  jetbrains-mono
+    #  source-code-pro
+    #  dina-font
+    #  tamzen
+    #  proggyfonts
+    #  dejavu_fonts
+    #  corefonts
+    #  inconsolata
+    #  terminus_font
+    #  mononoki
+    #];
   };
 
   # Security related things
