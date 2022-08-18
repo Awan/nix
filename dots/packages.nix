@@ -128,6 +128,7 @@
     pkgs.imagemagick
     pkgs.powerline-fonts
     pkgs.meslo-lg
+    pkgs.swaylock
     pkgs.rxvt-unicode
     pkgs.powerline
     pkgs.nodejs

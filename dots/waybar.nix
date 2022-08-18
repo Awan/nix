@@ -102,10 +102,10 @@
       network = {
         interface = "wl*";
         interval = 10;
-        #format-wifi = "  {essid} ({signalStrength}%) {bandwidthDownBits} {bandwidthUpBits}";
+        #format-wifi = " {essid}({signalStrength}%) ⬇{bandwidthDownBits}⬆{bandwidthUpBits}";
         format-wifi = " {essid}({signalStrength}%)";
         format-disconnected = "";
-        tooltip-format-wifi = "{essid}{idaddr} ";
+        tooltip-format-wifi = "{essid} {ipaddr} ";
       };
 
       "river/tags" = {
@@ -128,7 +128,7 @@
 
       mpd = {
         interval = 1;
-        format = "  {stateIcon} {artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
+        format = "{stateIcon}{artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
         format-stopped = "  {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}";
         random-icons = {
           off = "<span color=\"#f53c3c\"></span> ";
@@ -166,7 +166,7 @@
       };
 
       "custom/mailsnow" = {
-        interval = 30;
+        interval = 20;
         format = " {}";
         exec-if = "ping -c 2 abdullah.solutions >/dev/null 2>&1";
         exec = ''
