@@ -183,7 +183,7 @@
         notesRef = "refs/notes/commits";
         quotepath = true;
       };
-      help = { autocorrect = true; };
+      help = { autocorrect = 1; };
       credential = { helper = "cache"; };
       sendemail = {
         smtpEncryption = "tls";
