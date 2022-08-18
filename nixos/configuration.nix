@@ -96,7 +96,12 @@
     # Firewall
     #         firewall.allowedTCPPorts = [ ... ];
     #         firewall.allowedUDPPorts = [ ... ];
-    firewall.enable = true;
+    firewall = {
+      enable = true;
+      # Allow TCP ports, 8000 for mpd
+      allowedTCPPorts = [ 8000 ];
+      #allowedUDPPorts = [ ... ];
+    };
   };
 
   # i18n properties
