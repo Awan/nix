@@ -26,6 +26,7 @@
     #./picom.nix
     ./river.nix
     ./scripts.nix
+    ./tmux.nix
     ./vim.nix
     ./waybar.nix
     ./zsh.nix
