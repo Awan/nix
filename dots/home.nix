@@ -19,6 +19,8 @@
     #./kitty.nix
     ./mpd.nix
     ./ncmpcpp.nix
+    ./misc.nix
+    ./mpv.nix
     ./packages.nix
     #./bspwm.nix
     #./sxhkd.nix

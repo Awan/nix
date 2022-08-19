@@ -94,8 +94,6 @@
       set -g clock-mode-colour colour20
       # urlview
       run-shell $HOME/.local/bin/tmux.urlview
-      # resize panes
-      setw -g aggressive-resize on
       # No delay
       set -sg escape-time 0
       # History

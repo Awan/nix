@@ -129,6 +129,7 @@
     pkgs.powerline-fonts
     pkgs.meslo-lg
     pkgs.swaylock
+    pkgs.hyprland
     pkgs.rxvt-unicode
     pkgs.powerline
     pkgs.nodejs
