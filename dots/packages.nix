@@ -32,7 +32,7 @@
     pkgs.htop
     pkgs.wofi
     #pkgs.swaylock # Use system swaylock instead...
-    pkgs.waylock
+    pkgs.alock
     pkgs.yarn
     pkgs.glpaper
     pkgs.wlsunset
@@ -53,8 +53,8 @@
     pkgs.alacritty
     pkgs.unzip
     pkgs.leafpad
-    pkgs.river
-    pkgs.stacktile
+    #pkgs.river
+    #pkgs.stacktile
     pkgs.mpd
     pkgs.brightnessctl
     pkgs.xdo
@@ -130,6 +130,7 @@
     pkgs.meslo-lg
     pkgs.swaylock
     pkgs.hyprland
+    pkgs.hyprpaper
     pkgs.rxvt-unicode
     pkgs.powerline
     pkgs.nodejs

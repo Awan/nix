@@ -16,6 +16,7 @@
     ./mail.nix
     ./gpg-agent.nix
     ./git.nix
+    ./hyprland.nix
     #./kitty.nix
     ./mpd.nix
     ./ncmpcpp.nix
@@ -26,7 +27,7 @@
     #./sxhkd.nix
     #./bspwm_without_hm.nix
     #./picom.nix
-    ./river.nix
+    #./river.nix
     ./scripts.nix
     ./tmux.nix
     ./vim.nix
@@ -36,7 +37,6 @@
 
   # Fonts
   fonts.fontconfig.enable = true;
-
   systemd.user.startServices = "suggest";
   # Allow unFree packages in userspace with flakes + Home-Manager
   nixpkgs.config.allowUnfreePredicate = (_: true);

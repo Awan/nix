@@ -1,10 +1,22 @@
 { pkgs, ... }:
 
 {
+
+  # overlay for wlr/workspaces
+
+  nixpkgs.overlays = [
+    (self: super: {
+      waybar = super.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+    })
+  ];
+
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    systemd.target = "river-session.target";
+    systemd.target = "hyprland-session.target";
     style =
     ''
       @define-color highlight #839496;
@@ -59,6 +71,19 @@
         font-weight: bold;
         font-size: 20px;
       }
+
+      #workspaces button {
+        padding: 0px 7px;
+        border-radius: 7px;
+      }
+
+      #workspaces button.active {
+        background: @highlight;
+      }
+
+      #workspaces button.urgent {
+        color: #de3163;
+      }
      '';
 
     settings = [{
@@ -67,7 +92,8 @@
       height = 30;
       modules-right =
         [ "custom/mailsnow" "idle_inhibitor" "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
-      modules-left = [ "river/tags" "mpd" ];
+      #modules-left = [ "river/tags" "mpd" ];
+      modules-left = [ "wlr/workspaces" "mpd" ];
 
       clock = {
         interval = 1;
@@ -146,8 +172,10 @@
       backlight = {
         interval = 5;
         format = "{icon}{percent}%";
-        on-scroll-up = "brightnessctl s +10";
-        on-scroll-down = "brightnessctl s 10-";
+        #on-scroll-up = "brightnessctl s +10";
+        on-scroll-up = "${pkgs.light}/bin/light -A 5";
+        #on-scroll-down = "brightnessctl s 10-";
+        on-scroll-down = "${pkgs.light}/bin/light -U 5";
         format-icons = [" "  " "];
       };
 
@@ -175,6 +203,38 @@
             echo $current_mails
           fi
           '';
+      };
+
+      "wlr/workspaces" = {
+        format = "{icon}";
+        sort-by-name = true;
+        on-click = "activate";
+        all-outputs = true;
+        #format-icons = {
+        #  "1" = "";
+        #  "2" = "";
+        #  "3" = "";
+        #  "4" = "";
+        #  "5" = "";
+        #  "6" = "";
+        #  "7" = "";
+        #  "8" = "";
+        #  "9" = "";
+        #  "10" = "";
+        #"focused" = "";
+        #"default" = "";
+        format-icons = {
+          "1" = "";
+          "2" = "";
+          "3" = "";
+          "4" = "";
+          "5" = "";
+          "6" = "";
+          "7" = "";
+          "8" = "";
+          "9" = "";
+          "10" = "";
+        };
       };
     }
   ];

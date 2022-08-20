@@ -91,8 +91,7 @@
         # Start river at login
         if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
           #exec startx -- vt1 -keeptty &>/dev/null
-          #systemctl --user import-environment; systemctl --user start river-session.target
-          river
+          Hyprland
           #sx
           logout
         elif [[ $(tty) != /dev/tty1 ]]; then

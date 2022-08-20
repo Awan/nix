@@ -36,7 +36,42 @@
         "type": "github"
       }
     },
+    "hyprland": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "wlroots": "wlroots"
+      },
+      "locked": {
+        "lastModified": 1660939421,
+        "narHash": "sha256-jQFILTU77fnJbLPpOn1ympz+2f3ISNCe7uD/Tb+HVjE=",
+        "owner": "hyprwm",
+        "repo": "Hyprland",
+        "rev": "c2a3896cc9168a12f25a144dada6ecb94fb52b59",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "Hyprland",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1659522808,
+        "narHash": "sha256-HBcM19nGhI3IWwPNVlYb0MZ8VW6iKp4JbAVkeIHVykc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "168d1c578909dc143ba52dbed661c36e76b12b36",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1660485612,
         "narHash": "sha256-sSLW1KaB1adKTJn9+Ja3h3AaS7QCZyhUKiSUStcLg80=",
@@ -74,7 +109,8 @@
       "inputs": {
         "hardware": "hardware",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "hyprland": "hyprland",
+        "nixpkgs": "nixpkgs_2",
         "river": "river",
         "stacktile": "stacktile",
         "waylock": "waylock",
@@ -146,6 +182,24 @@
       "original": {
         "type": "git",
         "url": "https://git.sr.ht/~leon_plickat/wlopm"
+      }
+    },
+    "wlroots": {
+      "flake": false,
+      "locked": {
+        "host": "gitlab.freedesktop.org",
+        "lastModified": 1659738224,
+        "narHash": "sha256-bV3TLiCgptpKoUKLiH/5RMtiIsfn0hawdaCEHQFB6WY=",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "rev": "3baf2a6bcfc4cb86c364f5724aaec80f28715a01",
+        "type": "gitlab"
+      },
+      "original": {
+        "host": "gitlab.freedesktop.org",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "type": "gitlab"
       }
     }
   },

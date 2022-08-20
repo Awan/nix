@@ -31,9 +31,12 @@
       submodules = true;
       flake = false;
     };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, wlopm, river, stacktile, waylock, ... }:
+  outputs = { self, nixpkgs, home-manager, wlopm, river, stacktile, waylock, hyprland, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};

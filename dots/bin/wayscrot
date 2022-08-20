@@ -1,0 +1,24 @@
+#!/bin/sh
+# shellcheck disable=2034
+coded_by='
+
+In the name of Allah, the most Gracious, the most Merciful.
+
+ ▓▓▓▓▓▓▓▓▓▓
+░▓ Author ▓ Abdullah <https://abdullah.today>
+░▓▓▓▓▓▓▓▓▓▓ YouTube <https://YouTube.com/AbdullahToday>
+░░░░░░░░░░  Website <https://abdullah.solutions>
+
+░█░█░█▀█░█░█░█▀▀░█▀▀░█▀▄░█▀█░▀█▀
+░█▄█░█▀█░░█░░▀▀█░█░░░█▀▄░█░█░░█░
+░▀░▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀░░▀░
+'
+
+# A simple screenshot utility for wayland.
+# Dependencies: wayshot + wl-copy
+
+scrot=/tmp/scrot-$(date "+%d-%m-%H-%M-%S").png
+
+wayshot -f $scrot
+
+wl-copy -t image/png < $scrot
