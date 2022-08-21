@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
 
@@ -194,15 +194,17 @@
       };
 
       "custom/mailsnow" = {
-        interval = 20;
+        interval = 10;
         format = " {}";
         exec-if = "ping -c 2 abdullah.solutions >/dev/null 2>&1";
-        exec = ''
-          current_mails=$(find $HOME/.mail/Inbox/new -type f -printf . | wc -c)
+        exec = pkgs.writeShellScript "mailsnow"
+        ''
+          maildir=${config.home.homeDirectory}/.mail/Inbox
+          current_mails=$(${pkgs.findutils}/bin/find $maildir/new -type f -printf . | ${pkgs.coreutils}/bin/wc -c)
           if [ $current_mails -gt 0 ]; then
             echo $current_mails
           fi
-          '';
+        '';
       };
 
       "wlr/workspaces" = {
@@ -221,8 +223,6 @@
         #  "8" = "";
         #  "9" = "";
         #  "10" = "";
-        #"focused" = "";
-        #"default" = "";
         format-icons = {
           "1" = "";
           "2" = "";
@@ -234,6 +234,8 @@
           "8" = "";
           "9" = "";
           "10" = "";
+          "focused" = "";
+          "default" = "";
         };
       };
     }
