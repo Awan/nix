@@ -1,0 +1,39 @@
+window {
+    color: cyan;
+    background-color: rgba(0, 0, 0, 0.94);
+    font: 21px "Meslo LG M";
+}
+
+#outer-box {
+    padding: 20px 0px 20px 0px;
+}
+
+#scroll {
+    padding-bottom: 30px;
+}
+
+#input {
+    margin: 0px 20px 20px 20px;
+    background-color: rgb(255, 192, 203);
+}
+
+#input, #input:focus {
+    border-color: rgb(50, 50, 50);
+    box-shadow: none;
+}
+
+#entry {
+    padding: 5px 3px 5px 20px;
+}
+
+#element {
+    padding: 5px 3px 5px 20px;
+}
+
+#entry:selected {
+    background-color: cyan;
+}
+
+#text:selected {
+    color: brown;
+}

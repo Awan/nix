@@ -16,7 +16,7 @@
     ./mail.nix
     ./gpg-agent.nix
     ./git.nix
-    ./hyprland.nix
+    #./hyprland.nix
     #./kitty.nix
     ./mpd.nix
     ./ncmpcpp.nix
@@ -27,11 +27,12 @@
     #./sxhkd.nix
     #./bspwm_without_hm.nix
     #./picom.nix
-    #./river.nix
+    ./river.nix
     ./scripts.nix
     ./tmux.nix
     ./vim.nix
     ./waybar.nix
+    ./wofi.nix
     ./zsh.nix
   ];
 
