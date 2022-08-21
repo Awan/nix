@@ -15,6 +15,7 @@
     secureSocket = false;
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "tmux-256color";
+    sensibleOnTop = false;
     extraConfig = ''
       # Reload the config
       bind r source-file ~/.config/tmux/tmux.conf \; display "configuration file reloaded"
