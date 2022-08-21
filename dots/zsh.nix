@@ -91,7 +91,9 @@
         # Start river at login
         if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
           #exec startx -- vt1 -keeptty &>/dev/null
-          Hyprland
+          #Hyprland > /tmp/hypr-$USER.log 2>&1
+          river
+          
           #sx
           logout
         elif [[ $(tty) != /dev/tty1 ]]; then

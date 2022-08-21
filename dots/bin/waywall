@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # A simple script to change wallpaper in wayland
-systemctl --user import-environment WAYLAND_DISPLAY
+systemctl --user import-environment DISPLAY WAYLAND_DISPLAY
 
 random_wall=$(shuf -n 1 -e ~/pix/wall/blurry/*)
-custom_wall=/tmp/custom-$(date "+%d-%m-%H-%M").jpg
+custom_wall=/tmp/custom-$(date "+%d-%m-%H-%M-%S").jpg
 
 background() {
     convert $random_wall -quality 100 -gravity Center -resize 1920 -crop 1920x1080+0+0 $custom_wall
@@ -17,8 +17,8 @@ if [ "$options" = "lock" ]; then
 elif [ "$options" = "wall" ]; then
     pgrep swaybg && pkill swaybg
     background && swaybg -m fill -i $custom_wall
-    # Comment next line if you don't want to crop
     # TODO: use identify command on image, if its > 1920x1080, no crop.
+    # Comment next line if you don't want to crop (A little bit faster)
     #swaybg -m fill -i $random_wall
 else
     exit 1

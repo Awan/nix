@@ -221,6 +221,10 @@
     };
   };
 
+  environment = {
+    defaultPackages =
+      [ pkgs.swaylock ];
+  };
   # I can't live without my fonts ;-)
 
   fonts = {

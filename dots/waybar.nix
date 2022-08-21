@@ -16,13 +16,13 @@
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    systemd.target = "hyprland-session.target";
+    systemd.target = "river-session.target";
     style =
     ''
-      @define-color highlight #839496;
+      @define-color highlight #726E97;
 
       window#waybar {
-        background: #586e75;
+        background: #32746D;
         font-size: 20px;
         font-family: "Meslo LGM for Powerline";
       }
@@ -54,7 +54,7 @@
       }
 
       #tags button.occupied {
-        color: #9fe2bf;
+        color: #b22222;
       }
 
       #tags button.urgent {
@@ -92,8 +92,8 @@
       height = 30;
       modules-right =
         [ "custom/mailsnow" "idle_inhibitor" "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
-      #modules-left = [ "river/tags" "mpd" ];
-      modules-left = [ "wlr/workspaces" "mpd" ];
+      modules-left = [ "river/tags" "mpd" ];
+      #modules-left = [ "wlr/workspaces" "mpd" ];
 
       clock = {
         interval = 1;
@@ -136,7 +136,8 @@
 
       "river/tags" = {
         num-tags = 9;
-        tag-labels = [ "₁" "₂" "₃" "₄" "₅" "₆" "₇" "₈" "₉" ];
+        #tag-labels = [ "₁" "₂" "₃" "₄" "₅" "₆" "₇" "₈" "₉" ];
+        tag-labels = [ "" "" "" "" "" "" "" "" "" ];
       };
 
       tray = {
@@ -194,7 +195,7 @@
       };
 
       "custom/mailsnow" = {
-        interval = 10;
+        interval = 15;
         format = " {}";
         exec-if = "ping -c 2 abdullah.solutions >/dev/null 2>&1";
         exec = pkgs.writeShellScript "mailsnow"

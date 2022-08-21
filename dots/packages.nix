@@ -33,8 +33,10 @@
     pkgs.wofi
     #pkgs.swaylock # Use system swaylock instead...
     pkgs.alock
+    pkgs.discord
     pkgs.yarn
     pkgs.glpaper
+    pkgs.python310Packages.pip
     pkgs.wlsunset
     pkgs.swayidle
     pkgs.android-tools
@@ -43,7 +45,6 @@
     pkgs.kubectl
     pkgs.usb-modeswitch
     pkgs.lemonbar-xft
-    pkgs._2bwm
     pkgs.recoll
     pkgs.anki
     pkgs.p7zip
@@ -53,8 +54,8 @@
     pkgs.alacritty
     pkgs.unzip
     pkgs.leafpad
-    #pkgs.river
-    #pkgs.stacktile
+    pkgs.river
+    pkgs.stacktile
     pkgs.mpd
     pkgs.brightnessctl
     pkgs.xdo
@@ -128,7 +129,6 @@
     pkgs.imagemagick
     pkgs.powerline-fonts
     pkgs.meslo-lg
-    pkgs.swaylock
     pkgs.hyprland
     pkgs.hyprpaper
     pkgs.rxvt-unicode

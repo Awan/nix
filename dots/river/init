@@ -38,7 +38,8 @@ riverctl map normal $alt+Shift Bracketright spawn "mpc seek +100"
 riverctl map normal $alt+Shift Bracketleft spawn "mpc seek -100"
 
 
-riverctl map normal $mod semicolon focus-previous-tags
+riverctl map normal $mod apostrophe spawn 'cycle-focused-tags next'
+riverctl map normal $mod semicolon spawn 'cycle-focused-tags previous'
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
@@ -51,25 +52,25 @@ riverctl map normal Alt+Shift Q exit
 
 # Scratchpad
 
-scratch_tag=$((1 << 20))
+scratch_tag=$((1 << 9))
 riverctl map normal $mod I toggle-focused-tags ${scratch_tag}
 riverctl map normal $mod+Shift I set-view-tags ${scratch_tag}
-all_but_scratch_tag=$(( ((1 << 32) -1) ^ $scratch_tag ))
+all_but_scratch_tag=$(( ((1 << 9) -1) ^ $scratch_tag ))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 
 # Sticky Windows
 
-all_tags=$(((1 << 32) - 1))
-sticky_tag=$((1 << 31))
+all_tags=$(((1 << 9) - 1))
+sticky_tag=$((1 << 8))
 all_but_sticky_tag=$(( $all_tags ^ $sticky_tag ))
 
 riverctl map normal $mod S toggle-view-tags $sticky_tag
 riverctl spawn-tagmask ${all_but_sticky_tag}
 # modify the normal keybind to always select the sticky tag
-for i in $(seq 1 7)
+for i in $(seq 1 9)
 do
     tags=$((1 << ($i - 1)))
-    # Super+[1-6] to focus tag [0-5]
+    # Super+[1-8] to focus tag [0-7]
     riverctl map normal $mod $i set-focused-tags $(($sticky_tag + $tags))
 done
 
@@ -90,7 +91,11 @@ riverctl input $touchpad tap-button-map left-right-middle
 
 # Lock the session
 
-riverctl map normal $mod X spawn "~/.local/bin/river-wallpaper lock"
+riverctl map normal $mod X spawn "~/.local/bin/waywall lock"
+
+# Change the wallpaper
+
+riverctl map normal $alt W spawn "~/.local/bin/waywall wall"
 
 
 # Attach mode
@@ -233,13 +238,14 @@ do
 
     # Scrot
     riverctl map $mode None Print spawn 'wayshot -f /tmp/foo.png; wl-copy -t image/png < /tmp/foo.png'
+    # TODO: want to bind push scrots to internet. riverctl $alt+Print spawn '/.local/bin/imgur
 done
 
 # Set background and border color
 #riverctl background-color 0x2aa198
-riverctl border-color-focused 0x2aa198
+riverctl border-color-focused 0xFD333333
 riverctl border-color-unfocused 0x44444480
-riverctl border-width 2
+riverctl border-width 3
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300

@@ -5,7 +5,7 @@
   imports = [ ./river/wayland-overlay.nix ];
   # move river configuration file to its directory...
   home.file.".config/river/init".source =
-    config.lib.file.mkOutOfStoreSymlink ./river/river-configuration;
+    config.lib.file.mkOutOfStoreSymlink ./river/init;
 
   # lets create a target session for river
     systemd.user.targets.river-session = {
@@ -35,7 +35,7 @@
 
   systemd.user.services.wallpaper = {
     Service = {
-      ExecStart = [ "%h/.local/bin/river-wallpaper wall" ];
+      ExecStart = [ "%h/.local/bin/waywall wall" ];
     };
     Unit = {
       Description = "Wallpaper Service for River";
@@ -54,7 +54,7 @@
       WantedBy = [ "river-session.target" ];
     };
     Service = {
-      ExecStart = [ "${pkgs.swayidle}/bin/swayidle -w timeout 60 '~/.local/bin/river-wallpaper lock' before-sleep '~/.local/bin/river-wallpaper lock' timeout 75 'brightnessctl -s; brightnessctl s 0' resume 'brightnessctl -r' lock '~/.local/bin/river-wallpaper lock'" ];
+      ExecStart = [ "${pkgs.swayidle}/bin/swayidle -w timeout 60 '~/.local/bin/waywall lock' before-sleep '~/.local/bin/waywall lock' timeout 75 '${pkgs.light}/bin/light -o; ${pkgs.light}/bin/light -S 0' resume '${pkgs.light}/bin/light -I' lock '~/.local/bin/waywall lock'" ];
     };
   };
 
