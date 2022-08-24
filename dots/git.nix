@@ -20,7 +20,7 @@
   programs.git = {
     enable = true;
     userName = "Abdullah Khabir";
-    userEmail = "abdullah@abdullah.today";
+    userEmail = "abdullah@abdullah.solutions";
     aliases = {
       last = "log -1 HEAD";
       bD = "branch -D";
