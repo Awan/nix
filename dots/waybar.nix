@@ -137,7 +137,7 @@
       "river/tags" = {
         num-tags = 9;
         #tag-labels = [ "₁" "₂" "₃" "₄" "₅" "₆" "₇" "₈" "₉" ];
-        tag-labels = [ "" "" "" "" "" "" "" "" "" ];
+        tag-labels = [ "" "" "" "" "" "" "" "" "" ];
       };
 
       tray = {
@@ -155,8 +155,10 @@
 
       mpd = {
         interval = 1;
-        format = "{stateIcon}{artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
-        format-stopped = "  {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}";
+        format = "  {stateIcon}{artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
+        format-stopped = " ";
+        format-disconnected = " ";
+        format-paused = "  {stateIcon}";
         random-icons = {
           off = "<span color=\"#f53c3c\"></span> ";
           on = " ";
@@ -185,6 +187,8 @@
         format-muted = "  ";
         format-icons = [ "" "" "" "" ];
         default = [ ""  ""];
+        on-scroll-up = "${pkgs.pamixer}/bin/pamixer --allow-boost -i 10";
+        on-scroll-down = "${pkgs.pamixer}/bin/pamixer --allow-boost -d 10";
         scroll-step = 1;
         on-click = "pavucontrol";
       };
