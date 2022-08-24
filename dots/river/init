@@ -96,6 +96,7 @@ riverctl map normal $mod X spawn "~/.local/bin/waywall lock"
 # Change the wallpaper
 
 riverctl map normal $alt W spawn "~/.local/bin/waywall wall"
+riverctl map normal $alt+Shift W spawn "~/.local/bin/waywall uwall"
 
 
 # Attach mode
@@ -243,7 +244,7 @@ done
 
 # Set background and border color
 #riverctl background-color 0x2aa198
-riverctl border-color-focused 0xFD333333
+riverctl border-color-focused 0xff6600
 riverctl border-color-unfocused 0x44444480
 riverctl border-width 3
 
