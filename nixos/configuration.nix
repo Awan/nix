@@ -69,7 +69,7 @@
   # Kernel params
   boot = {
     kernelParams =
-      [ "splash" "ipv6.disable=1" "nmi_watchdog=0" "consoleblank=60" ];
+      [ "splash" "ipv6.disable=1" "nmi_watchdog=0" "consoleblank=60" "resume=LABEL=nixos-swap" "psmouse-synaptics_intertouch=0" "acpi_backlight=thinkpad_acpi" ];
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       efi.canTouchEfiVariables = true;
@@ -151,6 +151,11 @@
          KEYBOARD_KEY_c7=esc
       '';
     };
+
+    # Lid close
+    logind = {
+      lidSwitch = "suspend";
+    };
   };
 
   # Sound system
@@ -185,7 +190,7 @@
     # To control brightness, don't forget to add user to video group
     light.enable = true;
     # without sway, swaylock won't work...
-    #  sway.enable = true;
+    sway.enable = true;
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -279,23 +284,25 @@
   # Virtualisation
 
   virtualisation = {
+    #resolution = { x = 1920; y = 1080; };
     docker = {
       enable = true;
       autoPrune.enable = true;
       enableOnBoot = false;
     };
-    #virtualbox = {
+    virtualbox = {
     #  guest.enable = true;
     #  guest.x11 = true;
-    #  host.enable = true;
-    #host.enableExtensionPack = true;
+      host.enable = true;
+    host.enableExtensionPack = true;
     #host.enableHardening = true;
     #};
+    };
   };
 
   # https://nixos.org/nixos/options.html
   system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  #system.autoUpgrade.allowReboot = true;
   system.stateVersion = "22.05";
 
 }
