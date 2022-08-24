@@ -32,7 +32,10 @@
     pkgs.htop
     pkgs.wofi
     #pkgs.swaylock # Use system swaylock instead...
-    pkgs.alock
+    pkgs.gns3-gui
+    pkgs.gns3-server
+    pkgs.unrar
+    pkgs.ansible
     pkgs.discord
     pkgs.yarn
     pkgs.glpaper
@@ -61,6 +64,7 @@
     pkgs.xdo
     pkgs.mpc-cli
     pkgs.sxhkd
+    pkgs.zoom-us
     pkgs.gnupg
     pkgs.pinentry-curses
     pkgs.fbida
@@ -135,7 +139,10 @@
     pkgs.powerline
     pkgs.nodejs
     pkgs.pipewire
-    pkgs.virtualbox
+    #pkgs.virtualbox
+    pkgs.openvpn
+    pkgs.xterm
+    pkgs.inetutils
     pkgs.fd
     pkgs.figlet
     pkgs.fq
@@ -146,8 +153,10 @@
     pkgs.lolcat
     pkgs.lr
     pkgs.ncdu
-    pkgs.whois
     pkgs.xclip
+    pkgs.teamviewer
+    pkgs.anydesk
+    pkgs.usbutils
     pkgs.xsel
     pkgs.moreutils
     pkgs.nix-index
