@@ -27,6 +27,7 @@
     #./sxhkd.nix
     #./bspwm_without_hm.nix
     #./picom.nix
+    ./redshift.nix
     ./river.nix
     ./scripts.nix
     ./tmux.nix

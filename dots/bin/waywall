@@ -3,11 +3,11 @@
 # A simple script to change wallpaper in wayland
 systemctl --user import-environment DISPLAY WAYLAND_DISPLAY
 
-random_wall=$(shuf -n 1 -e ~/pix/wall/blurry/*)
+random_wall=$(shuf -n 1 -e ~/pix/wall/cuties/*)
 custom_wall=/tmp/custom-$(date "+%d-%m-%H-%M-%S").jpg
 
 background() {
-    convert $random_wall -quality 100 -gravity Center -resize 1920 -crop 1920x1080+0+0 $custom_wall
+    convert $random_wall -quality 100 -gravity Center -resize 1920x1080+0+0! $custom_wall
 }
 
 options="$1"
