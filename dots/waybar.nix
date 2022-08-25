@@ -22,8 +22,13 @@
       @define-color highlight #726E97;
 
       window#waybar {
-        background: #32746D;
+        background: #88B7B5;
+        border-radius: 13px;
+        padding: 9px;
+        opacity: 0.7;
+        border: 3px solid transparent;
         font-size: 20px;
+        font-weight: bold;
         font-family: "Meslo LGM for Powerline";
       }
 
@@ -69,7 +74,6 @@
         padding: 0px 7px;
         border-radius: 7px;
         font-weight: bold;
-        font-size: 20px;
       }
 
       #workspaces button {
@@ -101,7 +105,7 @@
         tooltip-format = ''
           <big>{:%Y %B}</big>
           <tt><small>{calendar}</small></tt>'';
-        format = "{:%a %d/%m %H:%M:%S}";
+        format = "<span color=\"#43281C\">{:%a %d/%m %H:%M:%S}</span>";
       };
 
       battery = {
@@ -114,23 +118,23 @@
           warning = 60;
           good = 75;
         };
-        format = "{icon} {capacity:2}%";
-        format-plugged = "{icon} {capacity:2}% ";
-        format-charging = "{icon} {capacity:2}% ";
+        format = "<span color=\"#FA9500\">{icon}</span> <span color=\"#724CF9\">{capacity:2}%</span>";
+        format-plugged = "<span color=\"#3772FF\">{icon}</span> <span color=\"#585123\">{capacity:2}% </span>";
+        format-charging = "<span color=\"#758BFD\">{icon}</span> <span color=\"#F4ACB7\">{capacity:2}% </span>";
         format-icons = [ "" "" "" "" "" ];
       };
 
       cpu = {
         interval = 1;
-        format = " {usage:1}%";
+        format = "<span color=\"#22577A\"> </span><span color=\"#4B1D3F\">{usage:1}%</span>";
       };
 
       network = {
         interface = "wl*";
         interval = 10;
         #format-wifi = " {essid}({signalStrength}%) ⬇{bandwidthDownBits}⬆{bandwidthUpBits}";
-        format-wifi = " {essid}({signalStrength}%)";
-        format-disconnected = "";
+        format-wifi = "<span color=\"#832161\"> </span><span color=\"#582F0E\">{essid}</span>({signalStrength}%)";
+        format-disconnected = "<span color=\"#B388EB\"></span>";
         tooltip-format-wifi = "{essid} {ipaddr} ";
       };
 
@@ -148,14 +152,14 @@
 
       temperature = {
         thermal-zone = 1;
-        format = " {temperatureC}°C";
+        format = "<span color=\"#3A5A40\"> {temperatureC}°C</span>";
         format-critical = " {temperatureC}°C";
         critical-threshold = 70;
       };
 
       mpd = {
         interval = 1;
-        format = "  {stateIcon}{artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S}";
+        format = "  {stateIcon}<span color=\"#013A63\">{artist}</span> - <span color=\"#3A5A40\">{title}</span> <span color=\"#89023A\">{elapsedTime:%M:%S}/{totalTime:%M:%S}</span>";
         format-stopped = " ";
         format-disconnected = " ";
         format-paused = "  {stateIcon}";
@@ -167,14 +171,14 @@
         repeat-icons = { on = " "; };
         single-icons = { on = "  1 "; };
         state-icons = {
-          playing = " ";
-          paused = " ";
+          playing = "<span color=\"#945600\"> </span>";
+          paused = "<span color=\"#945600\"> </span>";
         };
       };
 
       backlight = {
         interval = 5;
-        format = "{icon}{percent}%";
+        format = "<span color=\"#C75000\">{icon}</span><span color=\"#621B00\">{percent}%</span>";
         #on-scroll-up = "brightnessctl s +10";
         on-scroll-up = "${pkgs.light}/bin/light -A 5";
         #on-scroll-down = "brightnessctl s 10-";
@@ -183,7 +187,7 @@
       };
 
       pulseaudio = {
-        format = "{volume}% {icon:3}";
+        format = "<span color=\"#7209B7\">{icon}</span> <span color=\"#004E98\">{volume}%</span>  ";
         format-muted = "  ";
         format-icons = [ "" "" "" "" ];
         default = [ ""  ""];
@@ -195,7 +199,7 @@
 
       idle_inhibitor = {
         format = "{icon}";
-        format-icons = { activated = " "; deactivated = " "; };
+        format-icons = { activated = "<span color=\"#E76F51\"> </span> "; deactivated = "<span color=\"#023E8A\"> </span> "; };
       };
 
       "custom/mailsnow" = {
