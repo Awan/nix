@@ -120,7 +120,7 @@
         };
         format = "<span color=\"#FA9500\">{icon}</span> <span color=\"#724CF9\">{capacity:2}%</span>";
         format-plugged = "<span color=\"#3772FF\">{icon}</span> <span color=\"#585123\">{capacity:2}% </span>";
-        format-charging = "<span color=\"#758BFD\">{icon}</span> <span color=\"#F4ACB7\">{capacity:2}% </span>";
+        format-charging = "<span color=\"#758BFD\">{icon}</span> <span color=\"#FCBF49\">{capacity:2}% </span>";
         format-icons = [ "" "" "" "" "" ];
       };
 
@@ -134,7 +134,7 @@
         interval = 10;
         #format-wifi = " {essid}({signalStrength}%) ⬇{bandwidthDownBits}⬆{bandwidthUpBits}";
         format-wifi = "<span color=\"#832161\"> </span><span color=\"#582F0E\">{essid}</span>({signalStrength}%)";
-        format-disconnected = "<span color=\"#B388EB\"></span>";
+        format-disconnected = "<span color=\"#3A86FF\"></span>";
         tooltip-format-wifi = "{essid} {ipaddr} ";
       };
 
