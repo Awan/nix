@@ -90,8 +90,8 @@
     pkgs.msmtp
     pkgs.notmuch
     pkgs.ranger
-    pkgs.redshift
     pkgs.hugo
+    pkgs.nafees
     pkgs.urlview
     pkgs.xorg.xev
     pkgs.xorg.xwininfo
