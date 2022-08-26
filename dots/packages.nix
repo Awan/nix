@@ -92,6 +92,7 @@
     pkgs.ranger
     pkgs.hugo
     pkgs.nafees
+    pkgs.opera
     pkgs.urlview
     pkgs.xorg.xev
     pkgs.xorg.xwininfo
@@ -122,9 +123,10 @@
     pkgs.zilla-slab
     pkgs.pciutils
     pkgs.playerctl
-    pkgs.pass
     pkgs.pfetch
     pkgs.pavucontrol
+    pkgs.bat
+    pkgs.sops
     pkgs.tdesktop
     pkgs.isync
     pkgs.ponymix

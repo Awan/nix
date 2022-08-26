@@ -28,10 +28,10 @@ if [ "$options" = "lock" ]; then
     background && swaylock -f -i $custom_wall
 elif [ "$options" = "wall" ]; then
     pgrep swaybg && pkill swaybg
-    background && swaybg -m fill -i $custom_wall
+    #background && swaybg -m fill -i $custom_wall
     # TODO: use identify command on image, if its > 1920x1080, no crop.
     # Comment next line if you don't want to crop (A little bit faster)
-    #swaybg -m fill -i $random_wall
+    swaybg -m fill -i $random_wall
 elif [ "$options" = "uwall" ]; then
     unsplash_wall
 else

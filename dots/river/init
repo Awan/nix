@@ -246,7 +246,7 @@ done
 #riverctl background-color 0x2aa198
 riverctl border-color-focused 0xff6600
 riverctl border-color-unfocused 0x44444480
-riverctl border-width 3
+riverctl border-width 2
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300

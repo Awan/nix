@@ -24,6 +24,8 @@
       fullscreen = "yes";
       #video-unscaled="yes";
       #ao = "pulse";
+      af-add = "scaletempo";
+      hwdec = "autosafe";
       ytdl-format = "bestvideo[height<=?720]+bestaudio[ext=m4a]/best[height<=?720]";
       #gamma="25";
       #brightness="5";

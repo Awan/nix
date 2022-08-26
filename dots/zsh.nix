@@ -93,7 +93,7 @@
           #exec startx -- vt1 -keeptty &>/dev/null
           #Hyprland > /tmp/hypr-$USER.log 2>&1
           river
-          
+
           #sx
           logout
         elif [[ $(tty) != /dev/tty1 ]]; then
@@ -183,9 +183,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "b7963f9";
-            sha256 = "1srhgxpnx28xri5lhk2x4764a30yqazd80dckgsjgj3rkxg2kcfr";
-
+            rev = "v7";
+            sha256 = "1klrfgnm8ac82hlpcm3inpxnx6cg3mzh3ks9686wv66d4hc55lzz";
           };
         }
         {
@@ -194,10 +193,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "b7963f9";
-            sha256 = "1srhgxpnx28xri5lhk2x4764a30yqazd80dckgsjgj3rkxg2kcfr";
-
-
+            rev = "v7";
+            sha256 = "1klrfgnm8ac82hlpcm3inpxnx6cg3mzh3ks9686wv66d4hc55lzz";
           };
         }
         {
@@ -206,8 +203,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "b7963f9";
-            sha256 = "1srhgxpnx28xri5lhk2x4764a30yqazd80dckgsjgj3rkxg2kcfr";
+            rev = "v7";
+            sha256 = "1klrfgnm8ac82hlpcm3inpxnx6cg3mzh3ks9686wv66d4hc55lzz";
           };
         }
         {
@@ -216,8 +213,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "b7963f9";
-            sha256 = "1srhgxpnx28xri5lhk2x4764a30yqazd80dckgsjgj3rkxg2kcfr";
+            rev = "v7";
+            sha256 = "1klrfgnm8ac82hlpcm3inpxnx6cg3mzh3ks9686wv66d4hc55lzz";
           };
         }
       ];
