@@ -23,7 +23,16 @@
   };
 
   # Power management
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  #powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "powersave";
+    resumeCommands = ''
+      modprobe -r psmouse
+      sleep 1
+      modprobe psmouse
+      '';
+  };
 
   #  Allow non-free packages
   nixpkgs.config.allowUnfree = true;

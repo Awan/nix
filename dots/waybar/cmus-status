@@ -1,0 +1,60 @@
+#!/usr/bin/env dash
+# shellcheck disable=2034
+coded_by='
+
+In the name of Allah, the most Gracious, the most Merciful.
+
+ ▓▓▓▓▓▓▓▓▓▓
+░▓ Author ▓ Abdullah <https://abdullah.today>
+░▓▓▓▓▓▓▓▓▓▓ YouTube <https://YouTube.com/AbdullahToday>
+░░░░░░░░░░  Website <https://abdullah.solutions>
+
+░█▄█░█░█░█▀▀░▀█▀░█▀█░▀█▀░█░█░█▀▀
+░█░█░░█░░▀▀█░░█░░█▀█░░█░░█░█░▀▀█
+░▀░▀░░▀░░▀▀▀░░▀░░▀░▀░░▀░░▀▀▀░▀▀▀
+'
+
+cmus_music() {
+
+    stat=$(cmus-remote -Q 2>/dev/null | awk '/status/{print $2}')
+    if [ -z "$stat" ]; then
+        # do nothing
+        :
+    elif [ "$stat" = 'paused' ]; then
+        # do nothing
+        :
+    elif [ "$stat" = 'playing' ]; then
+        artist=$(cmus-remote -C status | grep 'tag\ artist' | cut -d ' ' -f 3-)
+        if [ ${#artist} -le 20 ]; then
+            :
+        else
+            artist=$(cmus-remote -C status | grep 'tag\ artist' | cut -d ' ' -f\
+                3- | head -c 20)
+        fi
+        title=$(cmus-remote -C status | grep 'tag\ title' | cut -d ' ' -f 3-)
+        if [ ${#title} -le 20 ]; then
+            :
+        else
+            title=$(cmus-remote -C status | grep 'tag\ title' | cut -d ' ' -f\
+                3- | head -c 20)
+        fi
+
+
+        full_time=$(cmus-remote -C status | awk '/duration/{print $2}')
+        now_time=$(cmus-remote -C status | awk '/position/{print $2}')
+        hours=$((full_time / 3600))
+        now_hours=$((now_time / 3600))
+        minutes=$((full_time % 3600))
+        now_minutes=$((now_time % 3600))
+        test $hours -gt 0 && dur="$hours:"
+        test $now_hours -gt 0 && now_dur="$now_hours:"
+        duration="$dur$(printf '%02d:%02d' $((minutes / 60)) $((minutes % 60)))"
+        position="$now_dur$(printf '%02d:%02d' $((now_minutes / 60)) $((now_minutes % 60)))"
+        printf "%s" "$artist   $title $position/$duration"
+    fi
+
+}
+
+
+cmus_music
+

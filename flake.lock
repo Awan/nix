@@ -23,61 +23,26 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1660574517,
-        "narHash": "sha256-Lp5D2pAPrM3iAc1eeR0iGwz5rM+SYOWzVxI3p17nlrU=",
+        "lastModified": 1661573386,
+        "narHash": "sha256-pBEg8iY00Af/SAtU2dlmOAv+2x7kScaGlFRDjNoVJO8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "688e5c85b7537f308b82167c8eb4ecfb70a49861",
+        "rev": "d89bdff445eadff03fe414e9c30486bc8166b72b",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "hyprland": {
-      "inputs": {
-        "nixpkgs": "nixpkgs",
-        "wlroots": "wlroots"
-      },
-      "locked": {
-        "lastModified": 1660939421,
-        "narHash": "sha256-jQFILTU77fnJbLPpOn1ympz+2f3ISNCe7uD/Tb+HVjE=",
-        "owner": "hyprwm",
-        "repo": "Hyprland",
-        "rev": "c2a3896cc9168a12f25a144dada6ecb94fb52b59",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "repo": "Hyprland",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1659522808,
-        "narHash": "sha256-HBcM19nGhI3IWwPNVlYb0MZ8VW6iKp4JbAVkeIHVykc=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "168d1c578909dc143ba52dbed661c36e76b12b36",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1660485612,
-        "narHash": "sha256-sSLW1KaB1adKTJn9+Ja3h3AaS7QCZyhUKiSUStcLg80=",
+        "lastModified": 1661450036,
+        "narHash": "sha256-0/9UyJLtfWqF4uvOrjFIzk8ue1YYUHa6JIhV0mALkH0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "6512b21eabb4d52e87ea2edcf31a288e67b2e4f8",
+        "rev": "f3d0897be466aa09a37f6bf59e62c360c3f9a6cc",
         "type": "github"
       },
       "original": {
@@ -90,11 +55,11 @@
     "river": {
       "flake": false,
       "locked": {
-        "lastModified": 1660650007,
-        "narHash": "sha256-PkRoTFyPsKEvW4pFqRySJSvFGBMd0VFC22XDem8zzXo=",
+        "lastModified": 1661426682,
+        "narHash": "sha256-vvK9DjgChf32fkzFRT+eJhRb00YYwZJYO48+HwRyIkM=",
         "ref": "refs/heads/master",
-        "rev": "844ffce03738d003a149ad9f022005f897194b2e",
-        "revCount": 878,
+        "rev": "c0e64829f0517f6512438cbf80ae27bd21986b47",
+        "revCount": 880,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/ifreund/river"
@@ -109,12 +74,9 @@
       "inputs": {
         "hardware": "hardware",
         "home-manager": "home-manager",
-        "hyprland": "hyprland",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "river": "river",
-        "stacktile": "stacktile",
-        "waylock": "waylock",
-        "wlopm": "wlopm"
+        "stacktile": "stacktile"
       }
     },
     "stacktile": {
@@ -122,7 +84,6 @@
       "locked": {
         "lastModified": 1652208228,
         "narHash": "sha256-H6h+GsPLluu4evunk8f6YVVl9eJej/vCA2dDfmWZgHI=",
-        "ref": "refs/heads/master",
         "rev": "0e5baf19920c5cc92bd0d00c37bf0a0192f9842d",
         "revCount": 42,
         "type": "git",
@@ -147,59 +108,6 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
-      }
-    },
-    "waylock": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1653224218,
-        "narHash": "sha256-a9ioDR4crd14fzpPAUzVl5o/i4HSndZ0YI3iuufSsPI=",
-        "ref": "refs/heads/master",
-        "rev": "d8d944558378071df1ffa3c93e887dd2293aaef2",
-        "revCount": 151,
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/ifreund/waylock"
-      },
-      "original": {
-        "rev": "d8d944558378071df1ffa3c93e887dd2293aaef2",
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/ifreund/waylock"
-      }
-    },
-    "wlopm": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1659731096,
-        "narHash": "sha256-BVgq0Ht4Otid+McnwwmzdY7flqcBPe5br5879nyPgAE=",
-        "ref": "refs/heads/master",
-        "rev": "38af45c79771da1ef52309d101e881aaef94a823",
-        "revCount": 24,
-        "type": "git",
-        "url": "https://git.sr.ht/~leon_plickat/wlopm"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.sr.ht/~leon_plickat/wlopm"
-      }
-    },
-    "wlroots": {
-      "flake": false,
-      "locked": {
-        "host": "gitlab.freedesktop.org",
-        "lastModified": 1659738224,
-        "narHash": "sha256-bV3TLiCgptpKoUKLiH/5RMtiIsfn0hawdaCEHQFB6WY=",
-        "owner": "wlroots",
-        "repo": "wlroots",
-        "rev": "3baf2a6bcfc4cb86c364f5724aaec80f28715a01",
-        "type": "gitlab"
-      },
-      "original": {
-        "host": "gitlab.freedesktop.org",
-        "owner": "wlroots",
-        "repo": "wlroots",
-        "type": "gitlab"
       }
     }
   },

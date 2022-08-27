@@ -15,4 +15,22 @@ In the name of Allah, the most Gracious, the most Merciful.
 ░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 '
 
-mpc toggle || cmus-remote -u
+
+
+# check if cmus is playing or not
+
+#_cmus_state=$(cmus-remote -Q | awk 'NR==1{print $2}')
+
+#if [ $_cmus_state = 'playing' ]; then
+#    cmus-remote -u
+#else
+#    mpc toggle
+#fi
+
+mytmux=$(which tmux)
+
+cmus-remote -u || if ( ($mytmux has-session -t $USER) ); then
+    $mytmux new-window cmus
+else
+    $mytmux new-session -d -s $USER cmus;
+fi

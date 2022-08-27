@@ -18,8 +18,8 @@
     ./git.nix
     #./hyprland.nix
     #./kitty.nix
-    ./mpd.nix
-    ./ncmpcpp.nix
+    #./mpd.nix
+    #./ncmpcpp.nix
     ./misc.nix
     ./mpv.nix
     ./packages.nix
@@ -27,7 +27,7 @@
     #./sxhkd.nix
     #./bspwm_without_hm.nix
     #./picom.nix
-    ./redshift.nix
+    #./redshift.nix
     ./river.nix
     ./scripts.nix
     ./tmux.nix

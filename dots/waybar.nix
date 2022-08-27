@@ -22,10 +22,10 @@
       @define-color highlight #726E97;
 
       window#waybar {
-        background: #88B7B5;
+        background: #1e1e1e;
         border-radius: 13px;
         padding: 9px;
-        opacity: 0.7;
+        opacity: 0.9;
         border: 3px solid transparent;
         font-size: 20px;
         font-weight: bold;
@@ -94,9 +94,10 @@
       layer = "top";
       position = "top";
       height = 30;
+      width = 1880;
       modules-right =
         [ "custom/mailsnow" "idle_inhibitor" "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
-      modules-left = [ "river/tags" "mpd" ];
+      modules-left = [ "river/tags" "custom/cmus" ];
       #modules-left = [ "wlr/workspaces" "mpd" ];
 
       clock = {
@@ -105,7 +106,7 @@
         tooltip-format = ''
           <big>{:%Y %B}</big>
           <tt><small>{calendar}</small></tt>'';
-        format = "<span color=\"#43281C\">{:%a %d/%m %H:%M:%S}</span>";
+        format = "<span color=\"#00FF00\">{:%a %d/%m %H:%M:%S}</span>";
       };
 
       battery = {
@@ -159,7 +160,7 @@
 
       mpd = {
         interval = 1;
-        format = "  {stateIcon}<span color=\"#013A63\">{artist}</span> - <span color=\"#3A5A40\">{title}</span> <span color=\"#89023A\">{elapsedTime:%M:%S}/{totalTime:%M:%S}</span>";
+        format = "  {stateIcon}<span color=\"#013A63\">{artist}</span> <span color=\"#D645D8\"></span> <span color=\"#3A5A40\">{title}</span> <span color=\"#89023A\">{elapsedTime:%M:%S}/{totalTime:%M:%S}</span>";
         format-stopped = " ";
         format-disconnected = " ";
         format-paused = "  {stateIcon}";
@@ -246,6 +247,17 @@
           "focused" = "";
           "default" = "";
         };
+      };
+      "custom/cmus" = {
+        interval = 1;
+        format = "<span color=\"#D93EAA\"> ♪</span> <span color=\"#00FFFF\">{}</span>";
+        exec-if = "pgrep -x cmus";
+        on-click = "cmus-remote -u";
+        #exec = ''
+        #  cmus-remote -C "format_print '%a  %t'" | cut -c-40
+        #  '';
+        exec = ./waybar/cmus-status;
+        escape = true;
       };
     }
   ];

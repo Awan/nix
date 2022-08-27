@@ -8,10 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wlopm = {
-      url = "git+https://git.sr.ht/~leon_plickat/wlopm";
-      flake = false;
-    };
     river = {
       type = "git";
       url = "https://github.com/ifreund/river";
@@ -24,19 +20,9 @@
       rev = "0e5baf19920c5cc92bd0d00c37bf0a0192f9842d";
       flake = false;
     };
-    waylock = {
-      type = "git";
-      url = "https://github.com/ifreund/waylock";
-      rev = "d8d944558378071df1ffa3c93e887dd2293aaef2";
-      submodules = true;
-      flake = false;
-    };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, wlopm, river, stacktile, waylock, hyprland, ... }:
+  outputs = { self, nixpkgs, home-manager, river, stacktile, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -54,7 +40,7 @@
             };
           }
         ];
-        extraSpecialArgs.repos = { inherit wlopm stacktile river waylock; };
+        extraSpecialArgs.repos = { inherit stacktile river; };
       };
 
       nixosConfigurations.x1c = nixpkgs.lib.nixosSystem {

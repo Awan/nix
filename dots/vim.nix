@@ -1,13 +1,22 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
+  # Colorschemes I can't live without
+  # Maybe at some point want to symlink ~/.vim instead but for now its left as it is.
+  home.file.".vim/colors".source =
+    config.lib.file.mkOutOfStoreSymlink ./vim/colors;
+
   programs.vim = {
     enable = true;
+    plugins = [
+      pkgs.vimPlugins.dracula-vim
+      pkgs.vimPlugins.vim-nix
+    ];
     extraConfig =  ''
       if &compatible
         set nocompatible
       endif
-      color murphy
+      color relaxedgreen
       function! SaveIfUnsaved()
         if &modified
           :silent! w
