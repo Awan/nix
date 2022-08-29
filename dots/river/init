@@ -260,6 +260,9 @@ riverctl float-filter-add app-id "feh"
 riverctl float-filter-add app-id "sxiv"
 riverctl float-filter-add title "popup title with spaces"
 
+# Hide the cursor on inactivity
+riverctl hide-cursor timeout 1000
+
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
 riverctl csd-filter-add app-id "pavucontrol"
