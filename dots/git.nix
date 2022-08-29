@@ -19,6 +19,7 @@
 
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     userName = "Abdullah Khabir";
     userEmail = "abdullah@abdullah.solutions";
     aliases = {
@@ -187,8 +188,9 @@
       credential = { helper = "cache"; };
       sendemail = {
         smtpEncryption = "tls";
-        smtpServer = "mail.abdullah.today";
-        smtpUser = "abdullah";
+        smtpServer = "smtp.yandex.com";
+        smtpUser = "abdullah@abdullah.today";
+        smtpServerPort = 587;
       };
       log = { abbrevCommit = true; };
       tag = { sort = "version:refname"; };
