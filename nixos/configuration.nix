@@ -29,7 +29,6 @@
     cpuFreqGovernor = "powersave";
     resumeCommands = ''
       modprobe -r psmouse
-      sleep 1
       modprobe psmouse
       '';
   };
