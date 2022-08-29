@@ -30,6 +30,7 @@
     #./redshift.nix
     ./river.nix
     ./scripts.nix
+    ./ssh.nix
     ./tmux.nix
     ./vim.nix
     ./waybar.nix
