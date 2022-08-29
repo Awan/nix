@@ -34,7 +34,7 @@
     ./vim.nix
     ./waybar.nix
     ./wofi.nix
-    ./wlsunset.nix
+    #./wlsunset.nix
     ./zsh.nix
   ];
 
