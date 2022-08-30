@@ -6,15 +6,19 @@
       enable = true;
       settings = {
         font = rec {
-          normal.family = "Fira Mono Medium";
-          regular.family = "Fira Mono Medium";
-          bold.family = "Fira Mono Medium";
-          bold_italic.family = "Fira Mono Medium";
+          #normal.family = "MonoLisa-Medium";
+          normal.family = "JetBrains Mono";
+          #regular.family = "MonoLisa-Medium";
+          regular.family = "JetBrains Mono";
+          #bold.family = "MonoLisa-Medium";
+          bold.family = "JetBrains Mono";
+          #bold_italic.family = "MonoLisa-Medium";
+          bold_italic.family = "JetBrains Mono";
           regular = { style = "Regular"; };
           italic = { style = "Italic"; };
-          bold_italic = { style = "Bold Italic"; };
+          bold_italic = { style = "BoldItalic"; };
           bold = { style = "Bold"; };
-          size = 17;
+          size = 19;
         };
         offset = {
           x = 0;

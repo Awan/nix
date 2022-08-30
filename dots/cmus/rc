@@ -158,7 +158,7 @@ set confirm_run=true
 set continue=true
 set continue_album=true
 set device=/dev/rcd0c
-set display_artist_sort_name=false
+set display_artist_sort_name=true
 set dsp.alsa.device=
 set follow=false
 set format_current= %a - %l -%3n. %t%= %y

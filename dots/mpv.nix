@@ -5,20 +5,21 @@
   programs.mpv = {
     enable = true;
     bindings = {
-      "l" = "seek 5 exact";
-      "L" = "cycle_values loop-file inf no";
-      "h" = "seek -5 exact";
-      "j" = "seek -60 exact";
-      "k" = "seek 60 exact";
-      "S" = "cycle sub";
-      "C" = "cycle sub down";
+      l = "seek 5 exact";
+      L = "cycle_values loop-file inf no";
+      h = "seek -5 exact";
+      j = "seek -60 exact";
+      k = "seek 60 exact";
+      S = "cycle sub";
+      C = "cycle sub down";
       "Alt+-" = "add video-zoom -0.25";
       "Alt+=" = "add video-zoom +0.25";
       "Alt+Tab" = "ignore";
     };
+
     config = {
 
-      stop-screensaver = "yes";
+      stop-screensaver = true;
       volume-max = 500;
       volume = 50;
       fullscreen = "yes";

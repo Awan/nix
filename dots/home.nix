@@ -12,6 +12,7 @@
     ./alacritty.nix
     #./foot.nix
     #./termite.nix
+    ./fonts.nix
     ./mako.nix
     ./mail.nix
     ./gpg-agent.nix
@@ -20,7 +21,7 @@
     #./kitty.nix
     #./mpd.nix
     #./ncmpcpp.nix
-    ./misc.nix
+    #./misc.nix
     ./mpv.nix
     ./packages.nix
     #./bspwm.nix
@@ -32,6 +33,7 @@
     ./scripts.nix
     ./ssh.nix
     ./tmux.nix
+    ./variables.nix
     ./vim.nix
     ./waybar.nix
     ./wofi.nix

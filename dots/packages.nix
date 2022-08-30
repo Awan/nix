@@ -26,10 +26,12 @@
     pkgs.termsyn
     pkgs.toilet
     pkgs.python3
+    pkgs.slack
     pkgs.swaybg
     pkgs.wev
     pkgs.rivercarro
     pkgs.htop
+    pkgs.vagrant
     pkgs.wofi
     #pkgs.swaylock # Use system swaylock instead...
     #pkgs.gns3-gui
@@ -42,7 +44,10 @@
     pkgs.python310Packages.pip
     #pkgs.wlsunset
     pkgs.swayidle
+    pkgs.helvum
+    pkgs.wl-color-picker
     pkgs.android-tools
+    pkgs.zathura
     pkgs.zsh
     pkgs.eksctl
     pkgs.kubectl
@@ -99,6 +104,7 @@
     #pkgs.xorg.xdpyinfo
     #pkgs.xorg.xkill
     #pkgs.xorg.xmodmap
+    pkgs.bear
     #pkgs.xlsfonts
     pkgs.font-awesome
     pkgs.jq
@@ -142,6 +148,7 @@
     pkgs.rxvt-unicode
     pkgs.powerline
     pkgs.nodejs
+    pkgs.sd
     pkgs.pipewire
     #pkgs.virtualbox
     pkgs.openvpn
@@ -153,6 +160,7 @@
     pkgs.git-filter-repo
     pkgs.elinks
     pkgs.file
+    pkgs.jetbrains-mono
     pkgs.glow
     pkgs.lolcat
     pkgs.lr
