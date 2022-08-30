@@ -8,15 +8,18 @@
 
   programs.vim = {
     enable = true;
-    plugins = [
-      pkgs.vimPlugins.dracula-vim
-      pkgs.vimPlugins.vim-nix
+    plugins = with pkgs.vimPlugins; [
+      nvim-autopairs
+      vim-lastplace
+      vim-nix
+      dracula-vim
     ];
     extraConfig =  ''
       if &compatible
         set nocompatible
       endif
       color relaxedgreen
+      set encoding=utf-8
       function! SaveIfUnsaved()
         if &modified
           :silent! w
