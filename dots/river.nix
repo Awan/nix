@@ -4,7 +4,7 @@
   # include overlay
   imports = [ ./river/wayland-overlay.nix ];
   # move river configuration file to its directory...
-  home.file.".config/river/init".source =
+  xdg.configFile."river/init".source =
     config.lib.file.mkOutOfStoreSymlink ./river/init;
 
   # lets create a target session for river

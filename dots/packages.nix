@@ -120,7 +120,8 @@
     #pkgs.xdo
     pkgs.asciinema
     pkgs.weechat
-    pkgs.mutt
+    pkgs.neomutt
+    pkgs.goimapnotify
     pkgs.google-chrome
     pkgs.bc
     pkgs.fira

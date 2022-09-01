@@ -50,7 +50,7 @@ bind -f common ^E win-scroll-down
 bind -f common ^F win-page-down
 bind -f common ^L refresh
 bind -f common ^R toggle repeat_current
-bind -f common ^T push run id3tool {}
+bind -f common ^T push run cmus-tags
 bind -f common ^U win-half-page-up
 bind -f common ^Y win-scroll-up
 bind -f common a win-add-l

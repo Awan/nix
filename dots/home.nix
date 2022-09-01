@@ -3,7 +3,8 @@
 {
 
   home.username = "ak";
-#  home.homeDirectory = "/home/ak";
+  home.homeDirectory = "/home/ak";
+  home.stateVersion = "22.11";
 
   # Just keep home.nix short and simple. and give every program a single dedicated file.
   # then import them here.
@@ -21,7 +22,7 @@
     #./kitty.nix
     #./mpd.nix
     #./ncmpcpp.nix
-    #./misc.nix
+    ./misc.nix
     ./mpv.nix
     ./packages.nix
     #./bspwm.nix

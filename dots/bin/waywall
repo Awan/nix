@@ -3,7 +3,7 @@
 # A simple script to change wallpaper in wayland
 systemctl --user import-environment DISPLAY WAYLAND_DISPLAY
 
-random_wall=$(shuf -n 1 -e ~/pix/wall/blurry/*)
+random_wall=$(shuf -n 1 -e ~/pix/wall/dark/*)
 uwall="$HOME/pix/wall/nature/unsplash-$(date +"%d-%m-%H-%M-%S").jpg"
 url="https://source.unsplash.com/random"
 resolution=1920x1080
@@ -32,6 +32,7 @@ elif [ "$options" = "wall" ]; then
     # TODO: use identify command on image, if its > 1920x1080, no crop.
     # Comment next line if you don't want to crop (A little bit faster)
     swaybg -m fill -i $random_wall
+    WAYLAND_DISPLAY=wayland-1 wl-copy -o $random_wall
 elif [ "$options" = "uwall" ]; then
     unsplash_wall
 else
