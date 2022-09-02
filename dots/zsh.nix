@@ -183,8 +183,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "aa8cebc2b09628354c008bdeaf2167039b15d1d1";
-            sha256 = "19n54k3a1vm8qfs4xbv89gjq3c18i7glfbxrx516jpbv4q7dgq0b";
+            rev = "9d9647b4e857aefcc9d277fefc7450969ddeb0b7";
+            sha256 = "1a7xllfdr9ld2y7bpc3g9cvsnvkagd1vhxrzdjrv25m6y7l46qka";
           };
         }
         {
@@ -193,8 +193,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "aa8cebc2b09628354c008bdeaf2167039b15d1d1";
-            sha256 = "19n54k3a1vm8qfs4xbv89gjq3c18i7glfbxrx516jpbv4q7dgq0b";
+            rev = "9d9647b4e857aefcc9d277fefc7450969ddeb0b7";
+            sha256 = "1a7xllfdr9ld2y7bpc3g9cvsnvkagd1vhxrzdjrv25m6y7l46qka";
           };
         }
         {
@@ -203,8 +203,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "aa8cebc2b09628354c008bdeaf2167039b15d1d1";
-            sha256 = "19n54k3a1vm8qfs4xbv89gjq3c18i7glfbxrx516jpbv4q7dgq0b";
+            rev = "9d9647b4e857aefcc9d277fefc7450969ddeb0b7";
+            sha256 = "1a7xllfdr9ld2y7bpc3g9cvsnvkagd1vhxrzdjrv25m6y7l46qka";
           };
         }
         {
@@ -213,8 +213,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Awan";
             repo = "zsh-nix";
-            rev = "aa8cebc2b09628354c008bdeaf2167039b15d1d1";
-            sha256 = "19n54k3a1vm8qfs4xbv89gjq3c18i7glfbxrx516jpbv4q7dgq0b";
+            rev = "9d9647b4e857aefcc9d277fefc7450969ddeb0b7";
+            sha256 = "1a7xllfdr9ld2y7bpc3g9cvsnvkagd1vhxrzdjrv25m6y7l46qka";
           };
         }
       ];
