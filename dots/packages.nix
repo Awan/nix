@@ -151,7 +151,6 @@
     pkgs.nodejs
     pkgs.sd
     pkgs.pipewire
-    #pkgs.virtualbox
     pkgs.openvpn
     pkgs.xterm
     pkgs.inetutils

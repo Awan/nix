@@ -302,7 +302,7 @@
     #  guest.enable = true;
     #  guest.x11 = true;
       host.enable = true;
-    host.enableExtensionPack = true;
+    #host.enableExtensionPack = true; # Extensions will always build the virtualbox...
     #host.enableHardening = true;
     #};
     };
