@@ -54,7 +54,7 @@
       WantedBy = [ "river-session.target" ];
     };
     Service = {
-      ExecStart = [ "${pkgs.swayidle}/bin/swayidle -w timeout 60 '~/.local/bin/waywall lock' before-sleep '~/.local/bin/waywall lock' timeout 75 '${pkgs.light}/bin/light -o; ${pkgs.light}/bin/light -S 0' resume '${pkgs.light}/bin/light -I' lock '~/.local/bin/waywall lock'" ];
+      ExecStart = [ "${pkgs.swayidle}/bin/swayidle -w timeout 60 '~/.local/bin/waywall lock' before-sleep '~/.local/bin/waywall lock' timeout 75 '${pkgs.light}/bin/light -O; ${pkgs.light}/bin/light -S 0' resume '${pkgs.light}/bin/light -I' lock '~/.local/bin/waywall lock'" ];
     };
   };
 
