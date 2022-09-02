@@ -127,14 +127,14 @@
 
       cpu = {
         interval = 1;
-        format = "<span color=\"#22577A\"> </span><span color=\"#4B1D3F\">{usage:1}%</span>";
+        format = "<span color=\"#22577A\"> </span><span color=\"#0FF384\">{usage:1}%</span>";
       };
 
       network = {
         interface = "wl*";
         interval = 10;
         #format-wifi = " {essid}({signalStrength}%) ⬇{bandwidthDownBits}⬆{bandwidthUpBits}";
-        format-wifi = "<span color=\"#832161\"> </span><span color=\"#582F0E\">{essid}</span>({signalStrength}%)";
+        format-wifi = "<span color=\"#832161\"> </span><span color=\"#B110EA\">{essid}</span><span color=\"#0FF35F\">({signalStrength}%)</span>";
         format-disconnected = "<span color=\"#3A86FF\"></span>";
         tooltip-format-wifi = "{essid} {ipaddr} ";
       };
@@ -179,7 +179,7 @@
 
       backlight = {
         interval = 5;
-        format = "<span color=\"#C75000\">{icon}</span><span color=\"#621B00\">{percent}%</span>";
+        format = "<span color=\"#C75000\">{icon}</span><span color=\"#0EF1F1\">{percent}%</span>";
         #on-scroll-up = "brightnessctl s +10";
         on-scroll-up = "${pkgs.light}/bin/light -A 5";
         #on-scroll-down = "brightnessctl s 10-";
