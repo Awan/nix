@@ -236,7 +236,7 @@
 
   environment = {
     defaultPackages =
-      [ pkgs.swaylock ];
+      [ pkgs.swaylock pkgs.openvpn ];
   };
   # I can't live without my fonts ;-)
 

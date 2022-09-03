@@ -151,8 +151,8 @@
     pkgs.nodejs
     pkgs.sd
     pkgs.pipewire
-    pkgs.openvpn
     pkgs.xterm
+    pkgs.pwgen
     pkgs.inetutils
     pkgs.fd
     pkgs.figlet
