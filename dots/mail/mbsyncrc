@@ -1,15 +1,15 @@
 IMAPStore gmail-remote
 Host imap.gmail.com
 Port 993
-UserCmd "age -i ~/.ak.txt -d ~/nix/secrets/google_user.age"
-PassCmd "age -i ~/.ak.txt -d ~/nix/secrets/msmtp_gmail.age"
+UserCmd "age -i ~/.ak.txt -d ~/nix/secrets/workspaces_user.age"
+PassCmd "age -i ~/.ak.txt -d ~/nix/secrets/workspaces_pass.age"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore gmail-local
 #Subfolders Verbatim
-Path ~/.local/share/email/x1c/
-INBOX ~/.local/share/email/x1c/INBOX
+Path ~/.local/share/email/ak/
+INBOX ~/.local/share/email/ak/INBOX
 Flatten .
 
 Channel gmail-default
@@ -40,13 +40,13 @@ Sync All
 Expunge Both
 SyncState *
 
-Channel gmail-trash
-Far :gmail-remote:"[Gmail]/Trash"
-Create Near
-Near :gmail-local:Trash
-Sync All
-Expunge Both
-SyncState *
+#Channel gmail-trash
+#Far :gmail-remote:"[Gmail]/Trash"
+#Create Near
+#Near :gmail-local:Trash
+#Sync All
+#Expunge Both
+#SyncState *
 
 Channel gmail-spam
 Far :gmail-remote:"[Gmail]/Spam"
@@ -67,6 +67,6 @@ Group gmail
 Channel gmail-default
 Channel gmail-drafts
 Channel gmail-sent
-Channel gmail-trash
+#Channel gmail-trash
 Channel gmail-archive
 Channel gmail-spam

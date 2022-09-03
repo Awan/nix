@@ -24,9 +24,9 @@ set sidebar_delim_chars = "/."
 set sidebar_divider_char = " | "
 set sidebar_format = "%B%* %?N?%N:?%S"
 color sidebar_new color33 color233
-set folder = "~/.local/share/email/x1c"
-set spoolfile = "~/.local/share/email/x1c/INBOX"
-mailboxes $HOME/.local/share/email/x1c/INBOX $HOME/.local/share/email/x1c/Archive $HOME/.local/share/email/x1c/Sent $HOME/.local/share/email/x1c/Drafts $HOME/.local/share/email/x1c/Spam $HOME/.local/share/email/x1c/Trash
+set folder = "~/.local/share/email/ak"
+set spoolfile = "~/.local/share/email/ak/INBOX"
+mailboxes $HOME/.local/share/email/ak/INBOX $HOME/.local/share/email/ak/Archive $HOME/.local/share/email/ak/Sent $HOME/.local/share/email/ak/Drafts $HOME/.local/share/email/ak/Spam
 
 unset record # gmail saves Sent mail
 set from                         = abdullah@abdullah.solutions

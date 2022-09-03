@@ -52,9 +52,9 @@
       account ak
       host smtp.gmail.com
       port 587
-      user abdullahx1c@gmail.com
+      eval "echo user $(age -i ~/.ak.txt -d ~/nix/secrets/workspaces_user.age)"
       from Abdullah Khabir
-      passwordeval "echo $(age -i ~/.ak.txt -d ~/nix/secrets/msmtp_gmail.age)"
+      passwordeval "echo $(age -i ~/.ak.txt -d ~/nix/secrets/workspaces_pass.age)"
       account default: ak
     '';
   };
