@@ -13,6 +13,7 @@
     ./alacritty.nix
     #./foot.nix
     #./termite.nix
+    ./feh.nix
     ./fonts.nix
     ./mako.nix
     ./mail.nix
