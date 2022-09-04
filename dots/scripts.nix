@@ -34,6 +34,9 @@
 
       install -Dvm644 "$1" "$HOME/pix/wall/$destination/$filename"
       '')
+    (pkgs.writeShellScriptBin "mkvid" ''
+      output="$1"
+      ${pkgs.wf-recorder}/bin/wf-recorder -f $output -c h264_vaapi -d /dev/dri/renderD128 -a -t -F hwupload,scale_vaapi=format=nv12
+      '')
   ];
-
 }
