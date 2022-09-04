@@ -99,6 +99,7 @@
     useDHCP = false;
     interfaces = {
       enp0s25 = { useDHCP = true; };
+      enp0s20u2 = { useDHCP = true; };
       wlp3s0 = { useDHCP = true; };
     };
     # Firewall
