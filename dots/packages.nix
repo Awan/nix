@@ -145,7 +145,10 @@
     pkgs.powerline-fonts
     pkgs.meslo-lg
     #pkgs.hyprland
+    pkgs.vscode
     #pkgs.hyprpaper
+    pkgs.jetbrains.pycharm-community
+    pkgs.moc
     pkgs.rxvt-unicode
     pkgs.powerline
     pkgs.nodejs
