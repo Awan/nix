@@ -30,7 +30,7 @@
     resumeCommands = ''
       modprobe -r psmouse
       modprobe psmouse
-      '';
+    '';
   };
 
   #  Allow non-free packages
@@ -76,8 +76,15 @@
 
   # Kernel params
   boot = {
-    kernelParams =
-      [ "splash" "ipv6.disable=1" "nmi_watchdog=0" "consoleblank=60" "resume=LABEL=nixos-swap" "psmouse-synaptics_intertouch=0" "acpi_backlight=thinkpad_acpi" ];
+    kernelParams = [
+      "splash"
+      "ipv6.disable=1"
+      "nmi_watchdog=0"
+      "consoleblank=60"
+      "resume=LABEL=nixos-swap"
+      "psmouse-synaptics_intertouch=0"
+      "acpi_backlight=thinkpad_acpi"
+    ];
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       efi.canTouchEfiVariables = true;
@@ -99,7 +106,7 @@
     useDHCP = false;
     interfaces = {
       enp0s25 = { useDHCP = true; };
-      enp0s20u2 = { useDHCP = true; };
+      #enp0s20u2 = { useDHCP = false; };
       wlp3s0 = { useDHCP = true; };
     };
     # Firewall
@@ -162,9 +169,7 @@
     };
 
     # Lid close
-    logind = {
-      lidSwitch = "suspend";
-    };
+    logind = { lidSwitch = "suspend"; };
   };
 
   # Sound system
@@ -235,10 +240,7 @@
     };
   };
 
-  environment = {
-    defaultPackages =
-      [ pkgs.swaylock pkgs.openvpn ];
-  };
+  environment = { defaultPackages = [ pkgs.swaylock pkgs.openvpn ]; };
   # I can't live without my fonts ;-)
 
   fonts = {
@@ -300,12 +302,12 @@
       enableOnBoot = false;
     };
     virtualbox = {
-    #  guest.enable = true;
-    #  guest.x11 = true;
+      #  guest.enable = true;
+      #  guest.x11 = true;
       host.enable = true;
-    #host.enableExtensionPack = true; # Extensions will always build the virtualbox...
-    #host.enableHardening = true;
-    #};
+      #host.enableExtensionPack = true; # Extensions will always build the virtualbox...
+      #host.enableHardening = true;
+      #};
     };
   };
 
