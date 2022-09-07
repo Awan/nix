@@ -38,5 +38,23 @@
       output="$1"
       ${pkgs.wf-recorder}/bin/wf-recorder -f $output -c h264_vaapi -d /dev/dri/renderD128 -a -t -F hwupload,scale_vaapi=format=nv12
       '')
-  ];
+  # gimme a dir and I'll show you the pics... Hit M to mark them and get em into stdout/file...
+  (pkgs.writeShellScriptBin "pics" ''
+      dir="$1"
+      [[ -z "$dir" ]] && echo "Please enter a directory name!" && exit 1
+      images_checking()
+      {
+        ${pkgs.findutils}/bin/find "$dir" -type f \( -iname '*.jpg' \)\
+        -o \( -iname '*.jpeg' \) -o \( -iname '*.png' \)\
+        -o \( -iname '*.gif' \)
+      }
+      view_images()
+      {
+        ${pkgs.sxiv}/bin/sxiv -iota -N 'scratchpad' 2>/dev/null
+
+      }
+
+      images_checking | view_images
+      '')
+    ];
 }
