@@ -5,24 +5,78 @@
     enable = true;
     package = pkgs.ncmpcpp.override { visualizerSupport = true; };
     bindings = [
-      { key = "j"; command = "scroll_down"; }
-      { key = "k"; command = "scroll_up"; }
-      { key = "d"; command = "delete_playlist_items"; }
-      { key = "ctrl-u"; command = "page_up"; }
-      { key = "ctrl-d"; command = "page_down"; }
-      { key = "2"; command = "show_playlist"; }
-      { key = "1"; command = "show_browser"; }
-      { key = "H"; command = "jump_to_browser"; }
-      { key = "y"; command = "toggle_single"; }
-      { key = "n"; command = "next_found_item"; }
-      { key = "N"; command = "previous_found_item"; }
-      { key = "g"; command = "move_home"; }
-      { key = "h"; command = "previous_column"; }
-      { key = "l"; command = "next_column"; }
-      { key = "O"; command = "show_lyrics"; }
-      { key = "A"; command = "add_selected_items"; }
-      { key = "G"; command = "move_end"; }
-      { key = "q"; command = "quit"; }
+      {
+        key = "j";
+        command = "scroll_down";
+      }
+      {
+        key = "k";
+        command = "scroll_up";
+      }
+      {
+        key = "d";
+        command = "delete_playlist_items";
+      }
+      {
+        key = "ctrl-u";
+        command = "page_up";
+      }
+      {
+        key = "ctrl-d";
+        command = "page_down";
+      }
+      {
+        key = "2";
+        command = "show_playlist";
+      }
+      {
+        key = "1";
+        command = "show_browser";
+      }
+      {
+        key = "H";
+        command = "jump_to_browser";
+      }
+      {
+        key = "y";
+        command = "toggle_single";
+      }
+      {
+        key = "n";
+        command = "next_found_item";
+      }
+      {
+        key = "N";
+        command = "previous_found_item";
+      }
+      {
+        key = "g";
+        command = "move_home";
+      }
+      {
+        key = "h";
+        command = "previous_column";
+      }
+      {
+        key = "l";
+        command = "next_column";
+      }
+      {
+        key = "O";
+        command = "show_lyrics";
+      }
+      {
+        key = "A";
+        command = "add_selected_items";
+      }
+      {
+        key = "G";
+        command = "move_end";
+      }
+      {
+        key = "q";
+        command = "quit";
+      }
     ];
     mpdMusicDir = "${config.home.homeDirectory}/mus";
     settings = {

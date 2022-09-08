@@ -46,11 +46,10 @@
   systemd.user.startServices = "suggest";
   # Allow unFree packages in userspace with flakes + Home-Manager
   nixpkgs.config.allowUnfreePredicate = (_: true);
-#  home.stateVersion = "22.11";
+  #  home.stateVersion = "22.11";
 
   # Let Home Manager install and manage itself.
 
   programs.home-manager.enable = true;
-
 
 }

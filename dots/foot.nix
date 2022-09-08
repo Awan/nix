@@ -16,7 +16,7 @@
         indicator-format = "percentage";
       };
       url = {
-      launch = "${pkgs.google-chrome}/bin/google-chrome-stable ${url}";
+        launch = "${pkgs.google-chrome}/bin/google-chrome-stable ${url}";
       };
       cursor = {
         style = "underline";

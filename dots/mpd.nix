@@ -4,7 +4,11 @@
   services.mpd = {
     enable = true;
     musicDirectory = "~/mus";
-    network = { listenAddress = "any"; port = 6600; startWhenNeeded = true; };
+    network = {
+      listenAddress = "any";
+      port = 6600;
+      startWhenNeeded = true;
+    };
     extraConfig = ''
       restore_paused "no"
       log_level "default"
@@ -54,6 +58,6 @@
         path "/tmp/mpd.fifo"
         format "44100:16:2"
       }
-      '';
+    '';
   };
 }

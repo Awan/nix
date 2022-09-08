@@ -12,13 +12,11 @@
     })
   ];
 
-
   programs.waybar = {
     enable = true;
     systemd.enable = true;
     systemd.target = "river-session.target";
-    style =
-    ''
+    style = ''
       @define-color highlight #726E97;
 
       window#waybar {
@@ -88,15 +86,25 @@
       #workspaces button.urgent {
         color: #de3163;
       }
-     '';
+    '';
 
     settings = [{
       layer = "top";
       position = "top";
       height = 30;
       width = 1880;
-      modules-right =
-        [ "custom/mailsnow" "idle_inhibitor" "pulseaudio" "backlight" "network" "temperature" "cpu" "battery" "clock" "tray" ];
+      modules-right = [
+        "custom/mailsnow"
+        "idle_inhibitor"
+        "pulseaudio"
+        "backlight"
+        "network"
+        "temperature"
+        "cpu"
+        "battery"
+        "clock"
+        "tray"
+      ];
       modules-left = [ "river/tags" "custom/cmus" ];
       #modules-left = [ "wlr/workspaces" "mpd" ];
 
@@ -106,7 +114,7 @@
         tooltip-format = ''
           <big>{:%Y %B}</big>
           <tt><small>{calendar}</small></tt>'';
-        format = "<span color=\"#00FF00\">{:%a %d/%m %H:%M:%S}</span>";
+        format = ''<span color="#00FF00">{:%a %d/%m %H:%M:%S}</span>'';
       };
 
       battery = {
@@ -119,23 +127,28 @@
           warning = 60;
           good = 75;
         };
-        format = "<span color=\"#FA9500\">{icon}</span> <span color=\"#724CF9\">{capacity:2}%</span>";
-        format-plugged = "<span color=\"#3772FF\">{icon}</span> <span color=\"#585123\">{capacity:2}% </span>";
-        format-charging = "<span color=\"#758BFD\">{icon}</span> <span color=\"#FCBF49\">{capacity:2}% </span>";
+        format = ''
+          <span color="#FA9500">{icon}</span> <span color="#724CF9">{capacity:2}%</span>'';
+        format-plugged = ''
+          <span color="#3772FF">{icon}</span> <span color="#585123">{capacity:2}% </span>'';
+        format-charging = ''
+          <span color="#758BFD">{icon}</span> <span color="#FCBF49">{capacity:2}% </span>'';
         format-icons = [ "" "" "" "" "" ];
       };
 
       cpu = {
         interval = 1;
-        format = "<span color=\"#22577A\"> </span><span color=\"#0FF384\">{usage:1}%</span>";
+        format = ''
+          <span color="#22577A"> </span><span color="#0FF384">{usage:1}%</span>'';
       };
 
       network = {
         interface = "wl*";
         interval = 10;
         #format-wifi = " {essid}({signalStrength}%) ⬇{bandwidthDownBits}⬆{bandwidthUpBits}";
-        format-wifi = "<span color=\"#832161\"> </span><span color=\"#B110EA\">{essid}</span><span color=\"#0FF35F\">({signalStrength}%)</span>";
-        format-disconnected = "<span color=\"#3A86FF\"></span>";
+        format-wifi = ''
+          <span color="#832161"> </span><span color="#B110EA">{essid}</span><span color="#0FF35F">({signalStrength}%)</span>'';
+        format-disconnected = ''<span color="#3A86FF"></span>'';
         tooltip-format-wifi = "{essid} {ipaddr} ";
       };
 
@@ -153,45 +166,48 @@
 
       temperature = {
         thermal-zone = 1;
-        format = "<span color=\"#3A5A40\"> {temperatureC}°C</span>";
+        format = ''<span color="#3A5A40"> {temperatureC}°C</span>'';
         format-critical = " {temperatureC}°C";
         critical-threshold = 70;
       };
 
       mpd = {
         interval = 1;
-        format = "  {stateIcon}<span color=\"#013A63\">{artist}</span> <span color=\"#D645D8\"></span> <span color=\"#3A5A40\">{title}</span> <span color=\"#89023A\">{elapsedTime:%M:%S}/{totalTime:%M:%S}</span>";
+        format =
+          "  {stateIcon}<span color=\"#013A63\">{artist}</span> <span color=\"#D645D8\"></span> <span color=\"#3A5A40\">{title}</span> <span color=\"#89023A\">{elapsedTime:%M:%S}/{totalTime:%M:%S}</span>";
         format-stopped = " ";
         format-disconnected = " ";
         format-paused = "  {stateIcon}";
         random-icons = {
-          off = "<span color=\"#f53c3c\"></span> ";
+          off = ''<span color="#f53c3c"></span> '';
           on = " ";
         };
         consume-icons = { on = " "; };
         repeat-icons = { on = " "; };
         single-icons = { on = "  1 "; };
         state-icons = {
-          playing = "<span color=\"#945600\"> </span>";
-          paused = "<span color=\"#945600\"> </span>";
+          playing = ''<span color="#945600"> </span>'';
+          paused = ''<span color="#945600"> </span>'';
         };
       };
 
       backlight = {
         interval = 5;
-        format = "<span color=\"#C75000\">{icon}</span><span color=\"#0EF1F1\">{percent}%</span>";
+        format = ''
+          <span color="#C75000">{icon}</span><span color="#0EF1F1">{percent}%</span>'';
         #on-scroll-up = "brightnessctl s +10";
         on-scroll-up = "${pkgs.light}/bin/light -A 5";
         #on-scroll-down = "brightnessctl s 10-";
         on-scroll-down = "${pkgs.light}/bin/light -U 5";
-        format-icons = [" "  " "];
+        format-icons = [ " " " " ];
       };
 
       pulseaudio = {
-        format = "<span color=\"#7209B7\">{icon}</span> <span color=\"#004E98\">{volume}%</span>  ";
+        format = ''
+          <span color="#7209B7">{icon}</span> <span color="#004E98">{volume}%</span>  '';
         format-muted = "  ";
         format-icons = [ "" "" "" "" ];
-        default = [ ""  ""];
+        default = [ "" "" ];
         on-scroll-up = "${pkgs.pamixer}/bin/pamixer --allow-boost -i 10";
         on-scroll-down = "${pkgs.pamixer}/bin/pamixer --allow-boost -d 10";
         scroll-step = 1;
@@ -200,15 +216,17 @@
 
       idle_inhibitor = {
         format = "{icon}";
-        format-icons = { activated = "<span color=\"#E76F51\"> </span> "; deactivated = "<span color=\"#023E8A\"> </span> "; };
+        format-icons = {
+          activated = ''<span color="#E76F51"> </span> '';
+          deactivated = ''<span color="#023E8A"> </span> '';
+        };
       };
 
       "custom/mailsnow" = {
         interval = 15;
         format = " {}";
         exec-if = "ping -c 2 abdullah.solutions >/dev/null 2>&1";
-        exec = pkgs.writeShellScript "mailsnow"
-        ''
+        exec = pkgs.writeShellScript "mailsnow" ''
           maildir=${config.home.homeDirectory}/.local/share/email/ak/INBOX
           current_mails=$(${pkgs.findutils}/bin/find $maildir/new -type f -printf . | ${pkgs.coreutils}/bin/wc -c)
           if [ $current_mails -gt 0 ]; then
@@ -250,7 +268,8 @@
       };
       "custom/cmus" = {
         interval = 1;
-        format = "<span color=\"#D93EAA\"> ♪</span> <span color=\"#00FFFF\">{}</span>";
+        format =
+          ''<span color="#D93EAA"> ♪</span> <span color="#00FFFF">{}</span>'';
         exec-if = "pgrep -x cmus";
         on-click = "cmus-remote -u";
         #exec = ''
@@ -259,7 +278,6 @@
         exec = ./waybar/cmus-status;
         escape = true;
       };
-    }
-  ];
- };
+    }];
+  };
 }

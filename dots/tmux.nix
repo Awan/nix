@@ -1,6 +1,5 @@
 { pkgs, ... }:
 
-
 {
   programs.tmux = {
     enable = true;
@@ -123,7 +122,7 @@
       set -g update-environment "DBUS_SESSION_BUS_ADDRESS WAYLAND_DISPLAY DISPLAY SSH_AUTH_SOCK XAUTHORITY"
       # Message text
       set -g message-style bg=colour235,fg=colour196
-      '';
+    '';
 
   };
 

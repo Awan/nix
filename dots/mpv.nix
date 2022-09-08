@@ -1,6 +1,5 @@
 { pkgs, lib, config, ... }:
 
-
 {
   programs.mpv = {
     enable = true;
@@ -27,7 +26,8 @@
       #ao = "pulse";
       af-add = "scaletempo";
       hwdec = "autosafe";
-      ytdl-format = "bestvideo[height<=?720]+bestaudio[ext=m4a]/best[height<=?720]";
+      ytdl-format =
+        "bestvideo[height<=?720]+bestaudio[ext=m4a]/best[height<=?720]";
       #gamma="25";
       #brightness="5";
       vo = "gpu";
@@ -71,8 +71,8 @@
     };
     profiles = {
       nodir = {
-      sub-auto = "no";
-      audio-file-auto = "no";
+        sub-auto = "no";
+        audio-file-auto = "no";
       };
     };
 

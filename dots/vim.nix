@@ -14,7 +14,7 @@
       vim-nix
       dracula-vim
     ];
-    extraConfig =  ''
+    extraConfig = ''
       if &compatible
         set nocompatible
       endif
@@ -91,7 +91,7 @@
       "set statusline+=%#PmenuSel#
       "set statusline+=%{GitStatus()}
       "set statusline+=%#LineNr#
-      '';
+    '';
     settings = {
       background = "light";
       copyindent = true;
@@ -109,7 +109,7 @@
       shiftwidth = 4;
       smartcase = true;
       tabstop = 4;
-      undodir = ["~/.vim/undodir//"];
+      undodir = [ "~/.vim/undodir//" ];
       undofile = true;
     };
   };

@@ -46,10 +46,8 @@
       nixosConfigurations.x1c = nixpkgs.lib.nixosSystem {
         #inherit pkgs;
         system = "x86_64-linux";
-        modules = [
-          ./nixos/configuration.nix
-          ./nixos/hardware-configuration.nix
-        ];
+        modules =
+          [ ./nixos/configuration.nix ./nixos/hardware-configuration.nix ];
       };
     };
 }

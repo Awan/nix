@@ -1,12 +1,11 @@
 { lib, pkgs, config, ... }:
 
-
 {
 
   # symlink bin scripts to ~/.local/bin
 
-  home.file.".local/bin".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix/dots/bin";
+  home.file.".local/bin".source = config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/nix/dots/bin";
 
   # some more scripts
 
@@ -20,7 +19,7 @@
       else
           echo "Sorry, couldn't find selected track!" >&2
       fi
-      '')
+    '')
 
     (pkgs.writeShellScriptBin "mybgs" ''
       filename="$(${pkgs.coreutils}/bin/basename "$1")"
@@ -33,13 +32,13 @@
       fi
 
       install -Dvm644 "$1" "$HOME/pix/wall/$destination/$filename"
-      '')
+    '')
     (pkgs.writeShellScriptBin "mkvid" ''
       output="$1"
       ${pkgs.wf-recorder}/bin/wf-recorder -f $output -c h264_vaapi -d /dev/dri/renderD128 -a -t -F hwupload,scale_vaapi=format=nv12
-      '')
-  # gimme a dir and I'll show you the pics... Hit M to mark them and get em into stdout/file...
-  (pkgs.writeShellScriptBin "pics" ''
+    '')
+    # gimme a dir and I'll show you the pics... Hit M to mark them and get em into stdout/file...
+    (pkgs.writeShellScriptBin "pics" ''
       dir="$1"
       [[ -z "$dir" ]] && echo "Please enter a directory name!" && exit 1
       images_checking()
@@ -55,6 +54,6 @@
       }
 
       images_checking | view_images
-      '')
-    ];
+    '')
+  ];
 }

@@ -1,6 +1,5 @@
 { pkgs, ... }:
 
-
 {
   home.packages = [
     #pkgs.wlopm

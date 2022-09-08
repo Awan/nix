@@ -8,7 +8,6 @@
   home.file.".config/sxhkd".source =
     config.lib.file.mkOutOfStoreSymlink ./sxhkd;
 
-
   home.file.".config/sx/sxrc".source =
     config.lib.file.mkOutOfStoreSymlink ./sxrc;
 }

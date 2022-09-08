@@ -17,7 +17,8 @@
       enable = false;
       configFile = "${config.xdg.configHome}/mbsync/mbsyncrc";
       frequency = "*:0/3";
-      preExec = "${pkgs.coreutils}/bin/mkdir -p %h/.local/share/email/x1c"; # to create these directories on first run on fresh install
+      preExec =
+        "${pkgs.coreutils}/bin/mkdir -p %h/.local/share/email/x1c"; # to create these directories on first run on fresh install
       postExec = "${pkgs.notmuch}/bin/notmuch new";
     };
   };
@@ -66,18 +67,20 @@
   # Create a systemd unit for goimapnotify
   systemd.user.services.gmail-notify = {
     Unit = {
-      Description = [ "Execute scripts on IMAP mailbox changes (new/deleted/updated messages) using IDLE, golang version." ];
+      Description = [
+        "Execute scripts on IMAP mailbox changes (new/deleted/updated messages) using IDLE, golang version."
+      ];
     };
     Service = {
       Type = [ "simple" ];
       Environment = [ "DISPLAY=wayland-1" ];
-      ExecStart = [ "${pkgs.goimapnotify}/bin/goimapnotify -conf %h/.config/goimapnotify/goimapnotify.conf" ];
+      ExecStart = [
+        "${pkgs.goimapnotify}/bin/goimapnotify -conf %h/.config/goimapnotify/goimapnotify.conf"
+      ];
       Restart = [ "always" ];
       RestartSec = 30;
     };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
+    Install = { WantedBy = [ "default.target" ]; };
   };
 
 }
