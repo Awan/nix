@@ -48,7 +48,7 @@ wifi()
 
 mails()
 {
-  mails_count=$(find $HOME/.mail/Inbox/new -type f -printf . | wc -c)
+  mails_count=$(find $HOME/.local/share/email/ak/INBOX/new -type f -printf . | wc -c)
   if [ $mails_count -eq 0 ]
   then
     echo 'No new mails'
@@ -61,7 +61,6 @@ mails()
   then
     echo ${mails_count} new mails
   fi
-    
 }
 
 
@@ -75,7 +74,6 @@ ram()
 just_ram()
 {
   echo $(free | awk '/Mem:/ {print int($3/$2 * 100.0)}')%
-  
 }
 
 
