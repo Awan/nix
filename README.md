@@ -1,8 +1,4 @@
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/demAfQQyIb4"
-frameborder="0"
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen></iframe>
+![river-session](https://www.youtube.com/embed/demAfQQyIb4)
 ![wayland](https://user-images.githubusercontent.com/42554663/182757863-fee0c31c-6a2c-4804-82a9-61c096783476.png)
 
 ![x1c running NixOS](https://user-images.githubusercontent.com/42554663/181168480-c05092dd-5914-4f80-954b-f459e7317800.png)
