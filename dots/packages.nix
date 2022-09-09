@@ -149,6 +149,7 @@
     pkgs.jetbrains.pycharm-community
     pkgs.moc
     pkgs.rxvt-unicode
+    pkgs.go
     pkgs.powerline
     pkgs.nodejs
     pkgs.sd

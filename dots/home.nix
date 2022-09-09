@@ -18,6 +18,7 @@
     ./mako.nix
     ./mail.nix
     ./gpg-agent.nix
+    ./go.nix
     ./git.nix
     #./hyprland.nix
     #./kitty.nix

@@ -240,7 +240,7 @@
     };
   };
 
-  environment = { defaultPackages = [ pkgs.swaylock pkgs.openvpn pkgs.go ]; };
+  environment = { defaultPackages = [ pkgs.swaylock pkgs.openvpn ]; };
   # I can't live without my fonts ;-)
 
   fonts = {

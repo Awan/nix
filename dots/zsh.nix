@@ -17,7 +17,7 @@
 
       envExtra = ''
         typeset -U path
-        path=(~/.cargo/bin ~/.perl5/bin ~/.gem/ruby/2.7.0/bin ~/.local/bin ~/.local/lib ~/.pyenv/bin /usr/sbin /usr/bin/vendor_perl /sbin $path[@])
+        path=(~/.cargo/bin ~/go/bin ~/.perl5/bin ~/.gem/ruby/2.7.0/bin ~/.local/bin ~/.local/lib ~/.pyenv/bin /usr/sbin /usr/bin/vendor_perl /sbin $path[@])
         BROWSER=$(which google-chrome-stable)
         # Set Terminal
         TERMINAL=alacritty
