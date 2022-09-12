@@ -80,7 +80,7 @@
         fi
         export GPG_TTY=$(tty)
         export SXHKD_SHELL=$(which dash)
-        export SSH_AUTH_SOCK=/run/user/$(id -u)/gnupg/S.gpg-agent.ssh
+        #export SSH_AUTH_SOCK=/run/user/$(id -u)/gnupg/S.gpg-agent.ssh
         gpg-connect-agent updatestartuptty /bye >/dev/null
         export PYENV_ROOT="$HOME/.pyenv"
         export _JAVA_AWT_WM_NONREPARENTING=1

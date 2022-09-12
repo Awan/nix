@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 ###############################################################
 #                                                             #
@@ -16,6 +16,9 @@
 ###############################################################
 
 {
+
+  xdg.configFile."git/allowed_signers" .source =
+    config.lib.file.mkOutOfStoreSymlink ./git/allowed_signers;
 
   programs.git = {
     enable = true;
@@ -161,7 +164,7 @@
     ];
 
     signing = {
-      key = "3E4C 0352 3B30 C6DF 4265  DEDD 6515 AA1D 2A59 1F93";
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP5+9bzx03s4Yg0o96hZTaRHqEzhWD6jT/aYgNKFbhwZ Abdullah Khabir";
       signByDefault = true;
     };
 
@@ -218,6 +221,9 @@
       advice = {
         addignoredfile = true;
         waitingForEditor = true;
+      };
+      gpg = {
+        ssh.allowedSignersFile = "~/.config/git/allowed_signers";
       };
     };
   };
