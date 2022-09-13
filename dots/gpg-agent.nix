@@ -5,8 +5,8 @@
 {
 
   services.gpg-agent = {
-    enable = true;
-    #enableSshSupport = true;
+    enable = false;
+    enableSshSupport = true;
     defaultCacheTtl = 1800;
     pinentryFlavor = "curses";
     sshKeys = [

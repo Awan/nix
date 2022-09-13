@@ -164,7 +164,7 @@
     ];
 
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP5+9bzx03s4Yg0o96hZTaRHqEzhWD6jT/aYgNKFbhwZ Abdullah Khabir";
+      key = "~/.ssh/id_ed25519.pub";
       signByDefault = true;
     };
 
@@ -223,6 +223,7 @@
         waitingForEditor = true;
       };
       gpg = {
+        format = "ssh";
         ssh.allowedSignersFile = "~/.config/git/allowed_signers";
       };
     };

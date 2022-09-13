@@ -121,6 +121,7 @@
     pkgs.weechat
     pkgs.neomutt
     pkgs.goimapnotify
+    pkgs.keychain
     pkgs.google-chrome
     pkgs.bc
     pkgs.fira
