@@ -1,0 +1,8 @@
+#!/nix/store/c1vb2z3c64i0sd92iz7fv0lb720qcvhb-python3-3.10.6/bin/python3.10
+# -*- coding: utf-8 -*-
+import re
+import sys
+from riverwm_utils import cycle_focused_tags
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(cycle_focused_tags())

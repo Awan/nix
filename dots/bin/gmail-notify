@@ -1,0 +1,22 @@
+#!/bin/sh
+# shellcheck disable=2034
+coded_by='
+
+In the name of Allah, the most Gracious, the most Merciful.
+
+ ▓▓▓▓▓▓▓▓▓▓
+░▓ Author ▓ Abdullah <https://abdullah.today>
+░▓▓▓▓▓▓▓▓▓▓ YouTube <https://YouTube.com/AbdullahToday>
+░░░░░░░░░░  Website <https://abdullah.solutions>
+
+░█▀▀░█▄█░█▀█░▀█▀░█░░░░░░░█▀█░█▀█░▀█▀░▀█▀░█▀▀░█░█
+░█░█░█░█░█▀█░░█░░█░░░▄▄▄░█░█░█░█░░█░░░█░░█▀▀░░█░
+░▀▀▀░▀░▀░▀░▀░▀▀▀░▀▀▀░░░░░▀░▀░▀▀▀░░▀░░▀▀▀░▀░░░░▀░
+'
+systemctl --user import-environment DISPLAY WAYLAND-DISPLAY
+maildir="$HOME/.local/share/email/ak/INBOX/new"
+mailscount=$(find $maildir -type f -printf . | wc -c)
+
+DISPLAY=wayland-1 notify-send "You have got $mailscount  "
+mpv ~/.local/share/misc/dua.mp3
+
