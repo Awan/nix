@@ -82,6 +82,8 @@
         export SXHKD_SHELL=$(which dash)
         #export SSH_AUTH_SOCK=/run/user/$(id -u)/gnupg/S.gpg-agent.ssh
         #gpg-connect-agent updatestartuptty /bye >/dev/null
+        #${pkgs.keychain}/bin/keychain $HOME/.ssh/id_ed25519 >/dev/null 2>&1
+        #[[ -f ~/.keychain/$HOST-sh ]] && source ~/.keychain/$HOST-sh
         export PYENV_ROOT="$HOME/.pyenv"
         export _JAVA_AWT_WM_NONREPARENTING=1
         export GIT_DISCOVERY_ACROSS_FILESYSTEM=true

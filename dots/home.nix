@@ -22,6 +22,7 @@
     ./git.nix
     #./hyprland.nix
     #./kitty.nix
+    ./keychain.nix
     #./mpd.nix
     #./ncmpcpp.nix
     ./misc.nix

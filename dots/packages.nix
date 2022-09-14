@@ -123,6 +123,7 @@
     pkgs.goimapnotify
     pkgs.keychain
     pkgs.google-chrome
+    pkgs.strace
     pkgs.bc
     pkgs.fira
     #pkgs.yaru-theme

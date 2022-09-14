@@ -164,7 +164,7 @@
     ];
 
     signing = {
-      key = "~/.ssh/id_ed25519.pub";
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAJ5A7S9JFVJhnm+NWJeDwAAOlw/vOa0buocCnTQmCEA ak@x1c";
       signByDefault = true;
     };
 

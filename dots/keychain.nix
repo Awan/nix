@@ -7,6 +7,6 @@
     package = pkgs.keychain;
     agents = [ "ssh id_ed25519" ];
     extraFlags = [ "--quiet" ];
-    keys = [ "id_ed25519" ];
+    keys = [ "~/.ssh/id_ed25519" ];
   };
 }
