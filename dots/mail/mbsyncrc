@@ -1,15 +1,15 @@
 IMAPStore gmail-remote
 Host imap.gmail.com
 Port 993
-UserCmd "age -i ~/.ak.txt -d ~/nix/secrets/workspaces_user.age"
-PassCmd "age -i ~/.ak.txt -d ~/nix/secrets/workspaces_pass.age"
+UserCmd "age -i ~/.ak.txt -d ~/nix/secrets/google_user.age"
+PassCmd "age -i ~/.ak.txt -d ~/nix/secrets/msmtp_gmail.age"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore gmail-local
 #Subfolders Verbatim
-Path ~/.local/share/email/ak/
-INBOX ~/.local/share/email/ak/INBOX
+Path ~/.local/share/email/x1c/
+INBOX ~/.local/share/email/x1c/INBOX
 Flatten .
 
 Channel gmail-default

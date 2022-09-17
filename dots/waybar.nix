@@ -225,9 +225,9 @@
       "custom/mailsnow" = {
         interval = 15;
         format = " {}";
-        exec-if = "ping -c 2 abdullah.solutions >/dev/null 2>&1";
+        #exec-if = "ping -c 2 abdullah.solutions >/dev/null 2>&1";
         exec = pkgs.writeShellScript "mailsnow" ''
-          maildir=${config.home.homeDirectory}/.local/share/email/ak/INBOX
+          maildir=${config.home.homeDirectory}/.local/share/email/x1c/INBOX
           current_mails=$(${pkgs.findutils}/bin/find $maildir/new -type f -printf . | ${pkgs.coreutils}/bin/wc -c)
           if [ $current_mails -gt 0 ]; then
             echo $current_mails

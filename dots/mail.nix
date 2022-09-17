@@ -37,7 +37,7 @@
           "primary_email" = "abdullah@abdullah.solutions";
           "other_email" = "abdullah@abdullah.today";
         };
-        database = { "path" = ".mail/gmail"; };
+        database = { "path" = ".local/share/email/x1c"; };
       };
     };
   };
@@ -53,9 +53,9 @@
       account ak
       host smtp.gmail.com
       port 587
-      eval "echo user $(age -i ~/.ak.txt -d ~/nix/secrets/workspaces_user.age)"
+      eval "echo user $(age -i ~/.ak.txt -d ~/nix/secrets/google_user.age)"
       from Abdullah Khabir
-      passwordeval "echo $(age -i ~/.ak.txt -d ~/nix/secrets/workspaces_pass.age)"
+      passwordeval "echo $(age -i ~/.ak.txt -d ~/nix/secrets/msmtp_gmail.age)"
       account default: ak
     '';
   };
