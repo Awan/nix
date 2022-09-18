@@ -64,9 +64,9 @@
     pkgs.river
     pkgs.stacktile
     pkgs.mpd
+    pkgs.mpc-cli
     #pkgs.brightnessctl
     #pkgs.xdo
-    pkgs.mpc-cli
     #pkgs.sxhkd
     #pkgs.zoom-us
     pkgs.gnupg
