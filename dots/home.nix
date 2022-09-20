@@ -37,6 +37,7 @@
     ./scripts.nix
     ./ssh.nix
     ./tmux.nix
+    ./urxvt.nix
     ./variables.nix
     ./vim.nix
     ./waybar.nix

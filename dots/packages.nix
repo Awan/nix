@@ -65,6 +65,7 @@
     pkgs.stacktile
     pkgs.mpd
     pkgs.mpc-cli
+    pkgs.gtypist
     #pkgs.brightnessctl
     #pkgs.xdo
     #pkgs.sxhkd
@@ -146,10 +147,7 @@
     pkgs.powerline-fonts
     pkgs.meslo-lg
     #pkgs.hyprland
-    pkgs.vscode
     #pkgs.hyprpaper
-    pkgs.jetbrains.pycharm-community
-    pkgs.moc
     pkgs.rxvt-unicode
     pkgs.go
     pkgs.powerline
