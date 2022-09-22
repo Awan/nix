@@ -150,6 +150,7 @@
     #pkgs.hyprpaper
     pkgs.rxvt-unicode
     pkgs.go
+    pkgs.gotools
     pkgs.powerline
     pkgs.nodejs
     pkgs.sd
