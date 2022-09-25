@@ -169,7 +169,7 @@
     };
 
     # Lid close
-    logind = { lidSwitch = "suspend"; };
+    #logind = { lidSwitch = "suspend"; };
   };
 
   # Sound system
