@@ -6,7 +6,7 @@
     package = pkgs.zathura;
     extraConfig = ''
       set guioptions shv
-      set statusbar-home-title true
+      set statusbar-home-tilde true
       set window-title-home-tilde true
       set selection-clipboard clipboard
       set recolor true
