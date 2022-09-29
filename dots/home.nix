@@ -23,8 +23,8 @@
     #./hyprland.nix
     #./kitty.nix
     ./keychain.nix
-    #./mpd.nix
-    #./ncmpcpp.nix
+    ./mpd.nix
+    ./ncmpcpp.nix
     ./misc.nix
     ./mpv.nix
     ./packages.nix

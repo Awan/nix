@@ -105,7 +105,7 @@
         "clock"
         "tray"
       ];
-      modules-left = [ "river/tags" "custom/cmus" ];
+      modules-left = [ "river/tags" "mpd" ];
       #modules-left = [ "wlr/workspaces" "mpd" ];
 
       clock = {
