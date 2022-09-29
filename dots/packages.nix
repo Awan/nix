@@ -17,6 +17,7 @@
     #pkgs.evtest
     pkgs.agebox
     #pkgs.go
+    pkgs.mp3info
     #pkgs.obsidian
     #pkgs.packer
     pkgs.scrcpy
