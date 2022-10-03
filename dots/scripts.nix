@@ -55,5 +55,10 @@
 
       images_checking | view_images
     '')
+    (pkgs.writeShellScriptBin "encme" ''
+      files="$1"
+      recipient="~/.ssh/id_ed25519.pub"
+      ${pkgs.age}/bin/age -R $recipient $files > $files.age
+      '')
   ];
 }
