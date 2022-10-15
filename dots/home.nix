@@ -42,6 +42,7 @@
     ./waybar.nix
     ./wofi.nix
     #./wlsunset.nix
+    ./urxvt.nix
     ./zathura.nix
     ./zsh.nix
   ];
