@@ -139,7 +139,7 @@
     pkgs.pavucontrol
     pkgs.bat
     pkgs.sops
-    pkgs.tdesktop
+    #pkgs.tdesktop # telegram
     pkgs.isync
     #pkgs.ponymix
     #pkgs.stow
