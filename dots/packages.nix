@@ -90,7 +90,7 @@
     #pkgs.cmake
     pkgs.findimagedupes
     pkgs.meh
-    pkgs.ffmpeg
+    pkgs.ffmpeg_5-full
     #pkgs.xorg.xrandr
     pkgs.ffmpegthumbnailer
     pkgs.msmtp
