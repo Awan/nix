@@ -172,7 +172,7 @@
     #pkgs.ncdu
     #pkgs.xclip
     #pkgs.teamviewer
-    #pkgs.anydesk
+    pkgs.anydesk
     pkgs.usbutils
     #pkgs.xsel
     pkgs.moreutils
