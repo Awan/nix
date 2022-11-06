@@ -85,7 +85,7 @@
       "psmouse-synaptics_intertouch=0"
       "acpi_backlight=thinkpad_acpi"
     ];
-    kernelPackages = pkgs.linuxPackages_5_19;
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       efi.canTouchEfiVariables = true;
 
