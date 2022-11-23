@@ -173,6 +173,7 @@
     #pkgs.xclip
     #pkgs.teamviewer
     pkgs.anydesk
+    pkgs.tigervnc
     pkgs.usbutils
     #pkgs.xsel
     pkgs.moreutils
