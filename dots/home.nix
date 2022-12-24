@@ -33,9 +33,10 @@
     #./bspwm_without_hm.nix
     #./picom.nix
     #./redshift.nix
-    ./river.nix
+    #./river.nix
     ./scripts.nix
     ./ssh.nix
+    ./sway.nix
     ./tmux.nix
     ./variables.nix
     ./vim.nix

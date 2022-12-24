@@ -15,7 +15,7 @@
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    systemd.target = "river-session.target";
+    systemd.target = "sway-session.target";
     style = ''
       @define-color highlight #726E97;
 

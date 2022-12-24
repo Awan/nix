@@ -62,8 +62,8 @@
     pkgs.alacritty
     pkgs.unzip
     #pkgs.leafpad
-    pkgs.river
-    pkgs.stacktile
+    #pkgs.river
+    #pkgs.stacktile
     pkgs.mpd
     pkgs.mpc-cli
     pkgs.gtypist

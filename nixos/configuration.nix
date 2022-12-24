@@ -35,6 +35,7 @@
 
   #  Allow non-free packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   # Add SSD options
   fileSystems."/" =
@@ -85,7 +86,7 @@
       "psmouse-synaptics_intertouch=0"
       "acpi_backlight=thinkpad_acpi"
     ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_hardkernel_4_14;
     loader = {
       efi.canTouchEfiVariables = true;
 
@@ -176,6 +177,7 @@
 
   sound.enable = true;
   security.rtkit.enable = true;
+  security.polkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -204,7 +206,7 @@
     # To control brightness, don't forget to add user to video group
     light.enable = true;
     # without sway, swaylock won't work...
-    sway.enable = true;
+    # sway.enable = true;
     zsh = {
       enable = true;
       enableCompletion = true;
