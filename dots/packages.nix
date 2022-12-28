@@ -26,7 +26,7 @@
     pkgs.termsyn
     pkgs.toilet
     pkgs.python3
-    pkgs.slack
+    #pkgs.slack
     pkgs.swaybg
     pkgs.wev
     pkgs.rivercarro
@@ -98,7 +98,7 @@
     pkgs.ranger
     pkgs.hugo
     pkgs.nafees
-    pkgs.opera
+    #pkgs.opera
     pkgs.urlview
     #pkgs.xorg.xev
     #pkgs.xorg.xwininfo

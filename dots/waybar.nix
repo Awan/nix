@@ -4,13 +4,13 @@
 
   # overlay for wlr/workspaces
 
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-    })
-  ];
+  #nixpkgs.overlays = [
+  #  (self: super: {
+  #    waybar = super.waybar.overrideAttrs (oldAttrs: {
+  #      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  #    });
+  #  })
+  #];
 
   programs.waybar = {
     enable = true;
@@ -105,8 +105,8 @@
         "clock"
         "tray"
       ];
-      modules-left = [ "river/tags" "mpd" ];
-      #modules-left = [ "wlr/workspaces" "mpd" ];
+      #modules-left = [ "river/tags" "mpd" ];
+      modules-left = [ "sway/workspaces" "mpd" ];
 
       clock = {
         interval = 1;
@@ -156,6 +156,25 @@
         num-tags = 9;
         #tag-labels = [ "₁" "₂" "₃" "₄" "₅" "₆" "₇" "₈" "₉" ];
         tag-labels = [ "" "" "" "" "" "" "" "" "" ];
+      };
+
+      "sway/workspaces" = {
+        all-outputs = true;
+        format = "{name} {icon}";
+        format-icons = {
+          "1" = "";
+          "2" = "";
+          "3" = "";
+          "4" = "";
+          "5" = "";
+          "6" = "";
+          "7" = "";
+          "8" = "";
+          "9" = "";
+          "urgent" = "";
+          "focused" = "";
+          "default" = "";
+        };
       };
 
       tray = {
