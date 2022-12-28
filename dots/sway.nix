@@ -22,6 +22,8 @@
           in lib.mkOptionDefault {
             "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
             "${modifier}+q" = "kill";
+            "${modifier}+x" = "exec ~/.local/bin/waywall lock";
+            "Mod1+w" = "exec ~/.local/bin/waywall wall";
           };
         up = "k";
         down = "j";
@@ -30,6 +32,7 @@
         #terminal = "alacritty";
         floating = {
           titlebar = false;
+          criteria = [ { class = "feh"; } { class = "mpv"; } ];
           modifier = "Mod4";
         };
         fonts = {
