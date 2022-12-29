@@ -72,7 +72,7 @@
         #terminal = "alacritty";
         floating = {
           titlebar = false;
-          criteria = [ { class = "feh"; } { class = "mpv"; } ];
+          criteria = [ { class = "feh"; } { class = "Mpv"; } { class = "meh"; } ];
           modifier = "Mod4";
         };
         fonts = {
