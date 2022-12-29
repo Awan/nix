@@ -1,6 +1,24 @@
 { pkgs, config, lib, ... }:
 
 {
+  # Wallpaper stuff
+  #systemd.user.services.wallpaper = {
+  #  Service = { ExecStart = [ "%h/.local/bin/waywall wall" ]; };
+  #  Unit = { Description = "Wallpaper Service for Sway"; };
+  #  Install = { WantedBy = [ "sway-session.target" ]; };
+  #};
+
+  # Locker
+  systemd.user.services.locker = {
+    Unit = { Description = [ "Automatic Locker for Sway" ]; };
+    Install = { WantedBy = [ "sway-session.target" ]; };
+    Service = {
+      ExecStart = [
+        "${pkgs.swayidle}/bin/swayidle -w timeout 60 '~/.local/bin/waywall lock' before-sleep '~/.local/bin/waywall lock' timeout 75 '${pkgs.light}/bin/light -O; ${pkgs.light}/bin/light -S 0' resume '${pkgs.light}/bin/light -I' lock '~/.local/bin/waywall lock'"
+      ];
+    };
+  };
+
   wayland.windowManager = {
     sway = {
       enable = true;
