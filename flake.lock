@@ -2,11 +2,11 @@
   "nodes": {
     "hardware": {
       "locked": {
-        "lastModified": 1671467847,
-        "narHash": "sha256-eIeZIQbbW0QYDW0nhDaieokw6VakPO3TyJ3RmxqGHOs=",
+        "lastModified": 1671631481,
+        "narHash": "sha256-LP6NvQQNKdqDpXngECo6oCiWfYRb0KPGM5+D5lu7mPw=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "25010a042c23695ae457a97aad60e9b1d49f2ecc",
+        "rev": "9577ab1eaf01a738b015a7a7ab2a4616e158b6cd",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1671966569,
-        "narHash": "sha256-jbLgfSnmLchARBNFRvCic63CFQ9LAyvlXnBpc2kwjQc=",
+        "lastModified": 1672274925,
+        "narHash": "sha256-DpkuoGwEW92zj/3jWKLb1biF4whs9yIc+pQbg67gqGU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c55fa26ce05fee8e063db22918d05a73d430b2ea",
+        "rev": "a993eac1065c6ce63a8d724b7bccf624d0e91ca2",
         "type": "github"
       },
       "original": {
@@ -38,11 +38,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1671983799,
-        "narHash": "sha256-Z2Ro6hFPZHkBqkVXY5/aBUzxi5xizQGvuHQ9+T5B/ks=",
+        "lastModified": 1672080458,
+        "narHash": "sha256-Ukjn8YUwZevxDPaVUmTx2sf9bCcIJSasmLz+xjGBKrs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fad51abd42ca17a60fc1d4cb9382e2d79ae31836",
+        "rev": "1eb875e811dd59e21e77f6337f2c1592889b48b3",
         "type": "github"
       },
       "original": {
@@ -52,47 +52,11 @@
         "type": "github"
       }
     },
-    "river": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1671909270,
-        "narHash": "sha256-yxw6TcbPRmFtB+MXiusY25jIOVs0uCyANodvbbuEKxw=",
-        "ref": "refs/heads/master",
-        "rev": "2eb0a7a75cbab1b6ebc7ca24bac28144d1394047",
-        "revCount": 905,
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/ifreund/river"
-      },
-      "original": {
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/ifreund/river"
-      }
-    },
     "root": {
       "inputs": {
         "hardware": "hardware",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "river": "river",
-        "stacktile": "stacktile"
-      }
-    },
-    "stacktile": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1652208228,
-        "narHash": "sha256-H6h+GsPLluu4evunk8f6YVVl9eJej/vCA2dDfmWZgHI=",
-        "rev": "0e5baf19920c5cc92bd0d00c37bf0a0192f9842d",
-        "revCount": 42,
-        "type": "git",
-        "url": "https://git.sr.ht/~leon_plickat/stacktile"
-      },
-      "original": {
-        "rev": "0e5baf19920c5cc92bd0d00c37bf0a0192f9842d",
-        "type": "git",
-        "url": "https://git.sr.ht/~leon_plickat/stacktile"
+        "nixpkgs": "nixpkgs"
       }
     },
     "utils": {

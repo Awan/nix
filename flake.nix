@@ -8,21 +8,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    river = {
-      type = "git";
-      url = "https://github.com/ifreund/river";
-      submodules = true;
-      flake = false;
-    };
-    stacktile = {
-      type = "git";
-      url = "https://git.sr.ht/~leon_plickat/stacktile";
-      rev = "0e5baf19920c5cc92bd0d00c37bf0a0192f9842d";
-      flake = false;
-    };
-  };
+          };
 
-  outputs = { self, nixpkgs, home-manager, river, stacktile, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -40,7 +28,7 @@
             };
           }
         ];
-        extraSpecialArgs.repos = { inherit stacktile river; };
+        #extraSpecialArgs.repos = { inherit stacktile river; };
       };
 
       nixosConfigurations.x1c = nixpkgs.lib.nixosSystem {
