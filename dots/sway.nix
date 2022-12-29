@@ -17,6 +17,18 @@
           hideEdgeBorders = "smart";
           border = 2;
         };
+        gaps = {
+          top = 1;
+          bottom = 1;
+          horizontal = 5;
+          vertical = 5;
+          inner = 5;
+          outer = 5;
+          left = 5;
+          right = 5;
+          smartBorders = "on";
+          smartGaps = true;
+        };
         keybindings =
           let modifier = config.wayland.windowManager.sway.config.modifier;
           in lib.mkOptionDefault {
@@ -24,6 +36,16 @@
             "${modifier}+q" = "kill";
             "${modifier}+x" = "exec ~/.local/bin/waywall lock";
             "Mod1+w" = "exec ~/.local/bin/waywall wall";
+            "Mod1+Shift+r" = "reload";
+            "Mod1+Shift+q" = "exit";
+            "Mod4+b" = "splith";
+            "Mod4+v" = "splitv";
+            "Mod4+s" = "layout stacking";
+            "Mod4+w" = "layout tabbed";
+            "Mod4+e" = "layout toggle split";
+            "Mod4+f" = "fullscreen";
+            "Mod4+Shift+space" = "floating toggle";
+            "Mod4+space" = "focus mode_toggle";
           };
         up = "k";
         down = "j";
