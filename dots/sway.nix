@@ -109,7 +109,10 @@
         menu = "${pkgs.wofi}/bin/wofi --insensitive --show drun,run";
         bars = [ ];
         output = {
-          eDP-1 = { bg = "~/pix/wall/cuties/wallhaven-m9xe1m.jpg fill"; };
+          eDP-1 = {
+            bg = "~/mus/album_arts/nazia/nazia.jpg fill";
+            resolution = "1920x1080";
+          };
         };
       };
     };
