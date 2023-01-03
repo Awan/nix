@@ -64,6 +64,17 @@
             "Mod4+f" = "fullscreen";
             "Mod4+Shift+space" = "floating toggle";
             "Mod4+space" = "focus mode_toggle";
+            "Mod4+Shift+w" =
+              "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
+            "Print" =
+              "exec ${pkgs.wayshot}/bin/wayshot -f /tmp/foo.png; exec sleep 1; exec ${pkgs.wl-clipboard}/bin/wl-copy -t image/png < /tmp/foo.png"; # TODO: would like to change the program for screenshots
+            "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 5";
+            "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 5";
+            "XF86AudioRaiseVolume" =
+              "exec ${pkgs.pamixer}/bin/pamixer --allow-boost -i 5";
+            "XF86AudioLowerVolume" =
+              "exec ${pkgs.pamixer}/bin/pamixer --allow-boost -d 5";
+            "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer --toggle-mute";
           };
         up = "k";
         down = "j";
@@ -72,7 +83,8 @@
         #terminal = "alacritty";
         floating = {
           titlebar = false;
-          criteria = [ { class = "feh"; } { class = "Mpv"; } { class = "meh"; } ];
+          criteria =
+            [ { class = "feh"; } { title = "Mpv"; } { class = "meh"; } ];
           modifier = "Mod4";
         };
         fonts = {
@@ -96,6 +108,9 @@
         }];
         menu = "${pkgs.wofi}/bin/wofi --insensitive --show drun,run";
         bars = [ ];
+        output = {
+          eDP-1 = { bg = "~/pix/wall/cuties/wallhaven-m9xe1m.jpg fill"; };
+        };
       };
     };
   };
