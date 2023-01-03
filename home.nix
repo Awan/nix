@@ -1,0 +1,1 @@
+/home/ak/nix/dots/home.nix
