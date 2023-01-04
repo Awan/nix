@@ -75,6 +75,8 @@
             "XF86AudioLowerVolume" =
               "exec ${pkgs.pamixer}/bin/pamixer --allow-boost -d 5";
             "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer --toggle-mute";
+            "Mod4+Shift+i" = "move scratchpad";
+            "Mod4+i" = "scratchpad show";
           };
         up = "k";
         down = "j";
