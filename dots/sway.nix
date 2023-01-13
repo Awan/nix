@@ -56,6 +56,7 @@
             "Mod1+w" = "exec ~/.local/bin/waywall wall";
             "Mod1+Shift+r" = "reload";
             "Mod1+Shift+q" = "exit";
+            "Mod1+b" = "exec mpc toggle";
             "Mod4+b" = "splith";
             "Mod4+v" = "splitv";
             "Mod4+s" = "layout stacking";
@@ -105,7 +106,7 @@
           };
         };
         startup = [{
-          command = "systemctl --user restart waybar";
+          command = "swayidle -w timeout 60 'swaylock -f -c 000000' timeout 75 swaymsg output * dpms off resume swaymsg output * dpms on before-sleep swaylock -f -c 000000";
           always = true;
         }];
         menu = "${pkgs.wofi}/bin/wofi --insensitive --show drun,run";
